@@ -230,6 +230,30 @@
         "hit_rate": 0.4998,
         "total_requests": 4,
         "cache_hits": 2
+      },
+      {
+        "timestamp": "2026-02-05T17:23:23Z",
+        "hit_rate": 0.4998,
+        "total_requests": 4,
+        "cache_hits": 2
+      },
+      {
+        "timestamp": "2026-02-05T17:28:25Z",
+        "hit_rate": 0.4998,
+        "total_requests": 4,
+        "cache_hits": 2
+      },
+      {
+        "timestamp": "2026-02-05T17:33:25Z",
+        "hit_rate": 0.4998,
+        "total_requests": 4,
+        "cache_hits": 2
+      },
+      {
+        "timestamp": "2026-02-05T17:38:26Z",
+        "hit_rate": 0.4998,
+        "total_requests": 4,
+        "cache_hits": 2
       }
     ],
     "similarity_score_history": [
@@ -383,6 +407,22 @@
       },
       {
         "timestamp": "2026-02-05T17:18:22Z",
+        "avg_similarity": 0.9035
+      },
+      {
+        "timestamp": "2026-02-05T17:23:23Z",
+        "avg_similarity": 0.9035
+      },
+      {
+        "timestamp": "2026-02-05T17:28:25Z",
+        "avg_similarity": 0.9035
+      },
+      {
+        "timestamp": "2026-02-05T17:33:25Z",
+        "avg_similarity": 0.9035
+      },
+      {
+        "timestamp": "2026-02-05T17:38:26Z",
         "avg_similarity": 0.9035
       }
     ],
@@ -574,6 +614,26 @@
       },
       {
         "timestamp": "2026-02-05T17:18:22Z",
+        "avg_latency_ms": 87.5,
+        "reduction_pct": 97.08381936343943
+      },
+      {
+        "timestamp": "2026-02-05T17:23:23Z",
+        "avg_latency_ms": 87.5,
+        "reduction_pct": 97.08381936343943
+      },
+      {
+        "timestamp": "2026-02-05T17:28:25Z",
+        "avg_latency_ms": 87.5,
+        "reduction_pct": 97.08381936343943
+      },
+      {
+        "timestamp": "2026-02-05T17:33:25Z",
+        "avg_latency_ms": 87.5,
+        "reduction_pct": 97.08381936343943
+      },
+      {
+        "timestamp": "2026-02-05T17:38:26Z",
         "avg_latency_ms": 87.5,
         "reduction_pct": 97.08381936343943
       }
@@ -803,6 +863,30 @@
         "total_executions": 0,
         "total_tasks": 0,
         "avg_execution_time_ms": 0
+      },
+      {
+        "timestamp": "2026-02-05T17:23:23Z",
+        "total_executions": 0,
+        "total_tasks": 0,
+        "avg_execution_time_ms": 0
+      },
+      {
+        "timestamp": "2026-02-05T17:28:25Z",
+        "total_executions": 0,
+        "total_tasks": 0,
+        "avg_execution_time_ms": 0
+      },
+      {
+        "timestamp": "2026-02-05T17:33:26Z",
+        "total_executions": 0,
+        "total_tasks": 0,
+        "avg_execution_time_ms": 0
+      },
+      {
+        "timestamp": "2026-02-05T17:38:26Z",
+        "total_executions": 0,
+        "total_tasks": 0,
+        "avg_execution_time_ms": 0
       }
     ],
     "success_rate_history": [
@@ -953,6 +1037,22 @@
       {
         "timestamp": "2026-02-05T17:18:22Z",
         "success_rate": 100.0
+      },
+      {
+        "timestamp": "2026-02-05T17:23:23Z",
+        "success_rate": 100.0
+      },
+      {
+        "timestamp": "2026-02-05T17:28:25Z",
+        "success_rate": 100.0
+      },
+      {
+        "timestamp": "2026-02-05T17:33:26Z",
+        "success_rate": 100.0
+      },
+      {
+        "timestamp": "2026-02-05T17:38:26Z",
+        "success_rate": 100.0
       }
     ],
     "parallelism_history": [
@@ -1102,6 +1202,22 @@
       },
       {
         "timestamp": "2026-02-05T17:18:22Z",
+        "avg_parallelism": 0
+      },
+      {
+        "timestamp": "2026-02-05T17:23:23Z",
+        "avg_parallelism": 0
+      },
+      {
+        "timestamp": "2026-02-05T17:28:25Z",
+        "avg_parallelism": 0
+      },
+      {
+        "timestamp": "2026-02-05T17:33:26Z",
+        "avg_parallelism": 0
+      },
+      {
+        "timestamp": "2026-02-05T17:38:26Z",
         "avg_parallelism": 0
       }
     ],

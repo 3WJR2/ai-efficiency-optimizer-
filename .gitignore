@@ -67,3 +67,6 @@ file-history/
 # Local settings (may contain tokens)
 settings.local.json
 *.local.json
+
+# Temporary task files
+todos/
