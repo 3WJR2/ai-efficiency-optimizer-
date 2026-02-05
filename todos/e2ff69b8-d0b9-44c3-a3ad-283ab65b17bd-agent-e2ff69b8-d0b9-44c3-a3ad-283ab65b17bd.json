@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Research Qodo Aware architecture and requirements",
+    "status": "completed",
+    "activeForm": "Researching Qodo Aware architecture and requirements"
+  },
+  {
+    "content": "Create detailed implementation plan document",
+    "status": "completed",
+    "activeForm": "Creating detailed implementation plan document"
+  },
+  {
+    "content": "Set up vector database (Qdrant recommended)",
+    "status": "pending",
+    "activeForm": "Setting up vector database"
+  },
+  {
+    "content": "Set up embedding service (Nomic Embed Code)",
+    "status": "pending",
+    "activeForm": "Setting up embedding service"
+  },
+  {
+    "content": "Create code indexing pipeline with Tree-sitter",
+    "status": "pending",
+    "activeForm": "Creating code indexing pipeline"
+  },
+  {
+    "content": "Build MCP server implementation with FastMCP",
+    "status": "pending",
+    "activeForm": "Building MCP server implementation"
+  },
+  {
+    "content": "Index the 25 C++ repositories we added",
+    "status": "pending",
+    "activeForm": "Indexing the 25 C++ repositories"
+  },
+  {
+    "content": "Test the self-hosted setup with example queries",
+    "status": "pending",
+    "activeForm": "Testing the self-hosted setup"
+  }
+]

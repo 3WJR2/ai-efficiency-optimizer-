@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "workload_types": {
+    "exploration": {
+      "description": "Code exploration, file searching, understanding codebase",
+      "optimal_cache_threshold": 0.75,
+      "optimal_max_concurrent": 6,
+      "characteristics": ["glob", "grep", "read", "search", "find", "explore"]
+    },
+    "research": {
+      "description": "Documentation research, web fetching, learning",
+      "optimal_cache_threshold": 0.88,
+      "optimal_max_concurrent": 4,
+      "characteristics": ["webfetch", "websearch", "docs", "research", "documentation"]
+    },
+    "implementation": {
+      "description": "Writing code, editing files, creating features",
+      "optimal_cache_threshold": 0.70,
+      "optimal_max_concurrent": 3,
+      "characteristics": ["write", "edit", "implement", "create", "modify", "refactor"]
+    },
+    "testing": {
+      "description": "Running tests, validation, verification",
+      "optimal_cache_threshold": 0.92,
+      "optimal_max_concurrent": 5,
+      "characteristics": ["test", "verify", "validate", "check", "assert"]
+    },
+    "debugging": {
+      "description": "Investigating issues, analyzing errors",
+      "optimal_cache_threshold": 0.65,
+      "optimal_max_concurrent": 4,
+      "characteristics": ["debug", "error", "issue", "bug", "investigate", "analyze"]
+    }
+  },
+  "detection_history": [],
+  "current_workload": "unknown",
+  "confidence": 0.0,
+  "auto_switch_enabled": true,
+  "min_confidence_for_switch": 0.75
+}

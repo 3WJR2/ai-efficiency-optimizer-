@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# sq - Shell Quick runner
+# Usage: sq "ls -la" or sq script.sh
+if [[ -f "$1" ]]; then
+  bash "$@"
+else
+  bash -c "$@"
+fi

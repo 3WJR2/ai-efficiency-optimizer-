@@ -1,0 +1,108 @@
+{
+  "version": "1.0.0",
+  "learning_system": {
+    "enabled": true,
+    "confidence_threshold": 0.70,
+    "min_samples_for_learning": 3,
+    "adaptation_rate": 0.15
+  },
+  "interaction_patterns": {
+    "request_categories": {
+      "code_implementation": {
+        "count": 0,
+        "avg_complexity": 0,
+        "preferred_approach": "unknown",
+        "success_rate": 0,
+        "common_patterns": []
+      },
+      "system_design": {
+        "count": 0,
+        "avg_complexity": 0,
+        "preferred_approach": "unknown",
+        "success_rate": 0,
+        "common_patterns": []
+      },
+      "debugging": {
+        "count": 0,
+        "avg_complexity": 0,
+        "preferred_approach": "unknown",
+        "success_rate": 0,
+        "common_patterns": []
+      },
+      "explanation_requests": {
+        "count": 0,
+        "depth_preference": "unknown",
+        "preferred_format": "unknown",
+        "success_rate": 0
+      },
+      "research_tasks": {
+        "count": 0,
+        "thoroughness_preference": "unknown",
+        "success_rate": 0,
+        "common_patterns": []
+      }
+    },
+    "communication_style": {
+      "brevity_vs_detail": {
+        "score": 0.5,
+        "confidence": 0.0,
+        "samples": 0
+      },
+      "technical_depth": {
+        "score": 0.5,
+        "confidence": 0.0,
+        "samples": 0
+      },
+      "code_examples_preferred": {
+        "score": 0.5,
+        "confidence": 0.0,
+        "samples": 0
+      },
+      "visual_diagrams_preferred": {
+        "score": 0.5,
+        "confidence": 0.0,
+        "samples": 0
+      }
+    },
+    "problem_solving_style": {
+      "systematic_vs_exploratory": 0.5,
+      "top_down_vs_bottom_up": 0.5,
+      "theory_first_vs_practice_first": 0.5,
+      "confidence": 0.0
+    },
+    "quality_indicators": {
+      "follows_up_with_questions": 0,
+      "requests_clarifications": 0,
+      "provides_detailed_context": 0,
+      "accepts_suggestions": 0,
+      "rejects_suggestions": 0
+    }
+  },
+  "learned_preferences": {
+    "technologies": {
+      "javascript": 8,
+      "python": 97,
+      "shell": 95,
+      "typescript": 1
+    },
+    "frameworks": {},
+    "methodologies": {},
+    "documentation_sources": {}
+  },
+  "behavioral_insights": {
+    "typical_workflows": [],
+    "common_pitfalls": [],
+    "strengths": [],
+    "areas_needing_support": []
+  },
+  "adaptation_history": [],
+  "": {
+    "interaction_patterns": {
+      "request_categories": {
+        "system_design": {
+          "count": 1
+        }
+      }
+    }
+  }
+}

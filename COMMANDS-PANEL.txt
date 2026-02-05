@@ -1,0 +1,38 @@
+╔════════════════════════════════╗
+║   CLAUDE COMMANDS REFERENCE    ║
+╠════════════════════════════════╣
+║                                ║
+║  📋 WORKFLOWS                  ║
+║  /workflow <desc>              ║
+║  /plan <feature>               ║
+║  /implement <task>             ║
+║  /autonomous <goal>            ║
+║                                ║
+║  🔍 ANALYSIS                   ║
+║  /context                      ║
+║  /research <topic>             ║
+║                                ║
+║  🤖 AGENTS                     ║
+║  brahma-analyzer               ║
+║  brahma-ci-runner              ║
+║  brahma-deployer               ║
+║  brahma-healer                 ║
+║  brahma-investigator           ║
+║  brahma-monitor                ║
+║  brahma-optimizer              ║
+║  brahma-orchestrator           ║
+║  brahma-security-scanner       ║
+║  brahma-test-generator         ║
+║  chief-architect               ║
+║  code-implementer              ║
+║  implementation-planner        ║
+║                                ║
+║  ℹ️  HELP                      ║
+║  /help - Built-in help         ║
+║  /clear - Clear screen         ║
+║  /model - Switch model         ║
+║                                ║
+╚════════════════════════════════╝
+
+USAGE: Just type the command!
+Example: /workflow add auth

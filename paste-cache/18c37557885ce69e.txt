@@ -1,0 +1,13 @@
+│ /Users/wallonwalusayi/claude-multi-terminal/claude_multi_terminal/widgets/session_pane.py:742 in on_key                                                                                               │
+│                                                                                                                                                                                                       │
+│    739 │   │   │   event: Key event                                                             ╭─────────────────────────────── locals ───────────────────────────────╮                              │
+│    740 │   │   """                                                                              │ event = Key(key='up', character=None, name='up', is_printable=False) │                              │
+│    741 │   │   # Handle Ctrl+C for cancelling running command (when not in input)               │  self = SessionPane()                                                │                              │
+│ ❱  742 │   │   input_widget = self.query_one(f"#input-{self.session_id}", Input)                ╰──────────────────────────────────────────────────────────────────────╯                              │
+│    743 │   │                                                                                                                                                                                          │
+│    744 │   │   if event.key == "ctrl+c" and not input_widget.has_focus:                                                                                                                               │
+│    745 │   │   │   # Cancel the currently running command                                                                                                                                             │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+WrongType: Node matching '#input-55a0c1a7-4791-4755-b512-510e8eb60f0e' is the wrong type; expected type 'Input', found TextArea(id='input-55a0c1a7-4791-4755-b512-510e8eb60f0e', 
+classes='multi-line-input')
+

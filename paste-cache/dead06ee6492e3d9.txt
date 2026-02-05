@@ -1,0 +1,43 @@
+╭──────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────╮
+│ /Users/wallonwalusayi/claude-multi-terminal/claude_multi_terminal/app.py:219 in action_copy_output                                                                        │
+│                                                                                                                                                                           │
+│   216 │   │   │   return                                                                                                                                                  │
+│   217 │   │                                                                                                                                                               │
+│   218 │   │   # Get output text                                                                                                                                           │
+│ ❱ 219 │   │   output_text = focused_pane.get_output_text()                                                                                                                │
+│   220 │   │                                                                                                                                                               │
+│   221 │   │   if not output_text:                                                                                                                                         │
+│   222 │   │   │   self.notify("No output to copy", severity="warning")                                                                                                    │
+│                                                                                                                                                                           │
+│ ╭──────────────────────────────────────────────────────────── locals ────────────────────────────────────────────────────────────╮                                        │
+│ │ focused_pane = SessionPane()                                                                                                   │                                        │
+│ │         self = ClaudeMultiTerminalApp(title='Claude Multi-Terminal', classes={'-dark-mode'}, pseudo_classes={'focus', 'dark'}) │                                        │
+│ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                                        │
+│                                                                                                                                                                           │
+│ /Users/wallonwalusayi/claude-multi-terminal/claude_multi_terminal/widgets/session_pane.py:228 in get_output_text                                                          │
+│                                                                                                                                                                           │
+│   225 │   │   # RichLog internally stores lines; we need to extract text                                                                                                  │
+│   226 │   │   lines = []                                                                                                                                                  │
+│   227 │   │   for line in rich_log.lines:                                                                                                                                 │
+│ ❱ 228 │   │   │   lines.append(line.plain)                                                                                                                                │
+│   229 │   │   return "\n".join(lines)                                                                                                                                     │
+│   230                                                                                                                                                                     │
+│                                                                                                                                                                           │
+│ ╭────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────╮                                                   │
+│ │     line = Strip(                                                                                                   │                                                   │
+│ │            │   [                                                                                                    │                                                   │
+│ │            │   │   Segment('\x1b', Style()),                                                                        │                                                   │
+│ │            │   │   Segment('[', Style(bold=True)),                                                                  │                                                   │
+│ │            │   │   Segment(                                                                                         │                                                   │
+│ │            │   │   │   '?2026h                                                                      ',              │                                                   │
+│ │            │   │   │   Style()                                                                                      │                                                   │
+│ │            │   │   )                                                                                                │                                                   │
+│ │            │   ],                                                                                                   │                                                   │
+│ │            │   78                                                                                                   │                                                   │
+│ │            )                                                                                                        │                                                   │
+│ │    lines = []                                                                                                       │                                                   │
+│ │ rich_log = RichLog(id='output-0ba49399-526e-493e-a9fe-707923c4cbbd', classes='terminal-output')                     │                                                   │
+│ │     self = SessionPane()                                                                                            │                                                   │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                                                   │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+AttributeError: 'Strip' object has no attribute 'plain'

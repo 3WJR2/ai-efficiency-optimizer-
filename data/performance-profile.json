@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "cache_operations": {
+    "embedding_generation_ms": [],
+    "redis_lookup_ms": [],
+    "similarity_calculation_ms": [],
+    "total_operation_ms": []
+  },
+  "parallel_operations": {
+    "task_spawn_ms": [],
+    "queue_lock_ms": [],
+    "dependency_resolution_ms": [],
+    "total_execution_ms": []
+  },
+  "enabled": true
+}

@@ -1,0 +1,24 @@
+───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/wallonwalusayi/claude-multi-terminal/claude_multi_terminal/app.py:111 │
+│ in on_mount                                                                  │
+│                                                                              │
+│   108 │   │   """Initialize the application with default sessions."""        │
+│   109 │   │   # Disable mouse capture to allow text selection                │
+│   110 │   │   if hasattr(self, '_driver') and self._driver:                  │
+│ ❱ 111 │   │   │   self._driver.disable_mouse_support()                       │
+│   112 │   │                                                                  │
+│   113 │   │   # Start with 2 sessions by default                             │
+│   114 │   │   for _ in range(Config.DEFAULT_SESSION_COUNT):                  │
+│                                                                              │
+│ ╭────────────────── locals ───────────────────╮                              │
+│ │ self = ClaudeMultiTerminalApp(              │                              │
+│ │        │   title='Claude Multi-Terminal',   │                              │
+│ │        │   classes={'-dark-mode'},          │                              │
+│ │        │   pseudo_classes={                 │                              │
+│ │        │   │   'focus',                     │                              │
+│ │        │   │   'dark'                       │                              │
+│ │        │   }                                │                              │
+│ │        )                                    │                              │
+│ ╰─────────────────────────────────────────────╯                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+AttributeError: 'LinuxDriver' object has no attribute 'disable_mouse_support

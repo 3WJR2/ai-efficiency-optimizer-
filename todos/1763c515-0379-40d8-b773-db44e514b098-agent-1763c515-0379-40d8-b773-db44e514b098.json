@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Explore codebase structure and architecture",
+    "status": "completed",
+    "activeForm": "Exploring codebase structure and architecture"
+  },
+  {
+    "content": "Analyze current agentic capabilities and limitations",
+    "status": "completed",
+    "activeForm": "Analyzing current agentic capabilities and limitations"
+  },
+  {
+    "content": "Identify power user features and extensibility",
+    "status": "completed",
+    "activeForm": "Identifying power user features and extensibility"
+  },
+  {
+    "content": "Research terminal multiplexing patterns and best practices",
+    "status": "completed",
+    "activeForm": "Researching terminal multiplexing patterns and best practices"
+  },
+  {
+    "content": "Develop strategic recommendations for enhanced agency",
+    "status": "in_progress",
+    "activeForm": "Developing strategic recommendations for enhanced agency"
+  }
+]

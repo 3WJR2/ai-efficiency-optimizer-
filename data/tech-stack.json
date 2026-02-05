@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "detected_at": "2026-01-31T20:01:17Z",
+  "technologies": {},
+  "frameworks": {},
+  "languages": {
+    "javascript": 8,
+    "python": 97,
+    "shell": 95,
+    "typescript": 1
+  },
+  "tools": {},
+  "confidence": {},
+  "confidence_level": "low"
+}

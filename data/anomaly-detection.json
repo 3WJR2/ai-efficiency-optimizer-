@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "baseline_profile": {
+    "avg_request_length": 0,
+    "std_request_length": 0,
+    "common_request_types": [],
+    "typical_time_of_day": [],
+    "avg_session_duration": 0
+  },
+  "anomalies_detected": [],
+  "temporary_contexts": [],
+  "detection_sensitivity": 2.0,
+  "total_interactions_analyzed": 0
+}

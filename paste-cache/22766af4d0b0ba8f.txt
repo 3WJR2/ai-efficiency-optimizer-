@@ -1,0 +1,59 @@
+───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/wallonwalusayi/claude-multi-terminal/venv/lib/python3.14/site-package │
+│ s/textual/widgets/_rich_log.py:139 in on_resize                              │
+│                                                                              │
+│   136 │   │   │   deferred_renders = self._deferred_renders                  │
+│   137 │   │   │   while deferred_renders:                                    │
+│   138 │   │   │   │   deferred_render = deferred_renders.popleft()           │
+│ ❱ 139 │   │   │   │   self.write(*deferred_render)                           │
+│   140 │                                                                      │
+│   141 │   def get_content_width(self, container: Size, viewport: Size) -> in │
+│   142 │   │   if self._size_known:                                           │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │  deferred_render = DeferredRender(                                       │ │
+│ │                    │   content=<text '\n      ▄▄▄▄▄\n     █     █\n      │ │
+│ │                    █ █ █ █\n     █▄▄▄▄▄█\n      █████\n     ███████\n    │ │
+│ │                    █ █ █\n\n  Claude Code v2.1.23\n             Sonnet   │ │
+│ │                    4.5 · API Usage Billing\n    ▘▘ ▝▝                    │ │
+│ │                    /Users/wallonwalusayi/claude-multi-terminal\n\n\n     │ │
+│ │                    Auth conflict: Using ANTHROPIC_API_KEY instead of     │ │
+│ │                    Anthropic Console key. Either\n    unset              │ │
+│ │                    ANTHROPIC_API_KEY, or run `claude /logout`.\n         │ │
+│ │                    /model to try Opus 4.5\n\n\n  ❯ Try "write a test for │ │
+│ │                    <filepath>"\n\n' [Span(1, 13, 'rgb(188,116,96)'),     │ │
+│ │                    Span(13, 26, 'rgb(188,116,96)'), Span(26, 39,         │ │
+│ │                    'rgb(24,24,24) on rgb(188,116,96)'), Span(39, 52,     │ │
+│ │                    'rgb(188,116,96)'), Span(52, 64, 'rgb(188,116,96)'),  │ │
+│ │                    Span(64, 77, 'rgb(188,116,96)'), Span(77, 90,         │ │
+│ │                    'rgb(188,116,96)'), Span(92, 104, 'bold               │ │
+│ │                    rgb(255,183,77)'), Span(104, 112, 'dim white'),       │ │
+│ │                    Span(125, 135, 'bright_white'), Span(135, 138, 'dim   │ │
+│ │                    white'), Span(138, 156, 'dim white'), Span(156, 169,  │ │
+│ │                    'bold rgb(255,150,100)'), Span(169, 213, 'dim cyan'), │ │
+│ │                    Span(218, 233, 'bold yellow'), Span(233, 298, 'dim    │ │
+│ │                    white'), Span(298, 334, 'dim white'), Span(334, 350,  │ │
+│ │                    'dim cyan'), Span(350, 352, 'dim white'), Span(356,   │ │
+│ │                    362, 'dim cyan'), Span(362, 370, 'dim white'),        │ │
+│ │                    Span(370, 379, 'bright_white'), Span(381, 385, 'bold  │ │
+│ │                    bright_green'), Span(385, 389, 'dim white'),          │ │
+│ │                    Span(389, 418, 'dim cyan')] ''>,                      │ │
+│ │                    │   width=None,                                       │ │
+│ │                    │   expand=False,                                     │ │
+│ │                    │   shrink=True,                                      │ │
+│ │                    │   scroll_end=None                                   │ │
+│ │                    )                                                     │ │
+│ │ deferred_renders = deque()                                               │ │
+│ │            event = Resize(                                               │ │
+│ │                    │   size=Size(width=35, height=6),                    │ │
+│ │                    │   virtual_size=Size(width=29, height=4),            │ │
+│ │                    │   container_size=Size(width=31, height=4)           │ │
+│ │                    )                                                     │ │
+│ │             self = SelectableRichLog(                                    │ │
+│ │                    │   id='output-fcaf2276-0d54-45bb-9e46-b0fe245825df', │ │
+│ │                    │   classes='terminal-output'                         │ │
+│ │                    )                                                     │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+TypeError: SelectableRichLog.write() takes 2 positional arguments but 6 were 
+given

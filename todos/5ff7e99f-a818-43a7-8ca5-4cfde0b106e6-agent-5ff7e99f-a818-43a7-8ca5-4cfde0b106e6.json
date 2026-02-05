@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Read and analyze 2023 SOC 2 report for historical comparison",
+    "status": "in_progress",
+    "activeForm": "Reading 2023 SOC 2 report"
+  },
+  {
+    "content": "Read and analyze 2024 SOC 2 report for year-over-year changes",
+    "status": "pending",
+    "activeForm": "Reading 2024 SOC 2 report"
+  },
+  {
+    "content": "Analyze 2025 Penetration Testing Report",
+    "status": "pending",
+    "activeForm": "Analyzing 2025 penetration test"
+  },
+  {
+    "content": "Analyze 2024 Penetration Testing Report",
+    "status": "pending",
+    "activeForm": "Analyzing 2024 penetration test"
+  },
+  {
+    "content": "Analyze 2023 API Penetration Testing Report",
+    "status": "pending",
+    "activeForm": "Analyzing 2023 API penetration test"
+  },
+  {
+    "content": "Review Qodo-Anthropic ZDR Certificate for AI vendor details",
+    "status": "pending",
+    "activeForm": "Reviewing ZDR certificate"
+  },
+  {
+    "content": "Review June 2024 VAPT Remediation Reports",
+    "status": "pending",
+    "activeForm": "Reviewing VAPT remediation reports"
+  },
+  {
+    "content": "Compile comprehensive analysis with key findings and changes",
+    "status": "pending",
+    "activeForm": "Compiling comprehensive analysis"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "algorithm": "thompson_sampling",
+  "arms": {
+    "conservative": {
+      "description": "Conservative: High cache threshold, low concurrency",
+      "config": {"cache_threshold": 0.88, "max_concurrent": 3},
+      "successes": 1,
+      "failures": 1,
+      "total_pulls": 0,
+      "avg_reward": 0.0,
+      "last_pulled": null
+    },
+    "balanced": {
+      "description": "Balanced: Medium settings",
+      "config": {"cache_threshold": 0.80, "max_concurrent": 5},
+      "successes": 1,
+      "failures": 1,
+      "total_pulls": 0,
+      "avg_reward": 0.0,
+      "last_pulled": null
+    },
+    "aggressive": {
+      "description": "Aggressive: Low cache threshold, high concurrency",
+      "config": {"cache_threshold": 0.70, "max_concurrent": 7},
+      "successes": 1,
+      "failures": 1,
+      "total_pulls": 0,
+      "avg_reward": 0.0,
+      "last_pulled": null
+    },
+    "quality_focused": {
+      "description": "Quality: High threshold, moderate concurrency",
+      "config": {"cache_threshold": 0.92, "max_concurrent": 4},
+      "successes": 1,
+      "failures": 1,
+      "total_pulls": 0,
+      "avg_reward": 0.0,
+      "last_pulled": null
+    },
+    "speed_focused": {
+      "description": "Speed: Low threshold, high concurrency",
+      "config": {"cache_threshold": 0.65, "max_concurrent": 8},
+      "successes": 1,
+      "failures": 1,
+      "total_pulls": 0,
+      "avg_reward": 0.0,
+      "last_pulled": null
+    }
+  },
+  "current_arm": null,
+  "exploration_rate": 0.1,
+  "min_pulls_per_arm": 5,
+  "evaluation_window": 10,
+  "reward_history": [],
+  "best_arm": null,
+  "enabled": true
+}

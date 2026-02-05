@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "patterns": {
+    "c88c40e8": {
+      "type": "api",
+      "description": "Failed to authenticate",
+      "first_seen": "2026-01-31T20:20:11Z",
+      "last_seen": "2026-01-31T20:20:11Z",
+      "occurrences": 1,
+      "resolved_count": 1,
+      "resolutions": [
+        "Check API key in .env"
+      ],
+      "confidence": 0.5
+    }
+  },
+  "categories": {
+    "authentication": [],
+    "database": [],
+    "api": [
+      "c88c40e8"
+    ],
+    "configuration": [],
+    "logic": [],
+    "performance": [],
+    "security": []
+  },
+  "corrections": [
+    {
+      "pattern_id": "c88c40e8",
+      "description": "Failed to authenticate",
+      "resolution": "Check API key in .env",
+      "timestamp": "2026-01-31T20:20:11Z"
+    }
+  ],
+  "total_tracked": 1
+}

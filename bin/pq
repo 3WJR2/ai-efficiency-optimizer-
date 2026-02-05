@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# pq - Python Quick runner
+# Usage: pq "print('hello')" or pq script.py
+if [[ -f "$1" ]]; then
+  python3 "$@"
+else
+  python3 -c "$@"
+fi

@@ -1,0 +1,19 @@
+───────────────────────────────────────── Traceback (most recent call last) ─────────────────────────────────────────╮
+│ /Users/wallonwalusayi/claude-multi-terminal/claude_multi_terminal/widgets/session_pane.py:100 in on_mount           │
+│                                                                                                                     │
+│    97 │   async def on_mount(self) -> None:                                                                         │
+│    98 │   │   """Initialize the session when pane is mounted."""                                                    │
+│    99 │   │   # Write a test message to verify RichLog works                                                        │
+│ ❱ 100 │   │   rich_log = self.query_one(f"#output-{self.session_id}", RichLog)                                      │
+│   101 │   │   rich_log.write("[bold green]*** SESSION STARTED - Waiting for Claude CLI... ***[                      │
+│   102 │   │                                                                                                         │
+│   103 │   │   # Get PTY handler from session manager                                                                │
+│                                                                                                                     │
+│ ╭─────── locals ───────╮                                                                                            │
+│ │ self = SessionPane() │                                                                                            │
+│ ╰──────────────────────╯                                                                                            │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+WrongType: Node matching '#output-0fc9dc5f-b7d0-47a2-b173-2575cf83cb3d' is the wrong type; expected type 'RichLog', 
+found Static(id='output-0fc9dc5f-b7d0-47a2-b173-2575cf83cb3d', classes='terminal-output')
+
+NOTE: 1 of 2 errors shown. Run with textual run --dev to see all errors.

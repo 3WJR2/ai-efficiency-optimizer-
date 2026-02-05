@@ -1,0 +1,215 @@
+Generic Demo Script ( POV) — AI Code Review Platform (Qodo)
+1) Welcome + setup (1–2 min)
+Wallon:
+“Hey everyone — can you hear/see me okay? Great. Thanks for joining.”
+Quick framing:
+“My goal today is to keep this practical and interactive. I’ll show the product in the places your engineers actually live, and we’ll leave time at the end to talk about pilot steps and integration options.”
+Agenda (say it clearly):
+Your workflow + pain points today
+
+
+Where this fits in the SDLC / integration patterns
+
+
+Live PR demo (core)
+
+
+Rules/standards enforcement
+
+
+Metrics/ROI dashboard
+
+
+Pilot next steps
+
+
+
+2) Quick discovery + alignment (2–4 min)
+Wallon:
+“Before I demo, I want to make sure we’re solving the right problem. In one sentence—what would make this evaluation a win for you?”
+Prompt options (pick 1–2):
+“Speed up PR cycles without sacrificing quality?”
+
+
+“Reduce reviewer load / remove bottlenecks?”
+
+
+“Enforce consistent standards across teams?”
+
+
+“Catch more defects/security/performance issues earlier?”
+
+
+“Improve visibility and measurement of engineering outcomes?”
+
+
+Current state check (keep generic):
+“What SCM/PR system do you use today?”
+
+
+“Are you using any AI for code generation already?”
+
+
+“Have you tried AI-assisted code review tools? What worked / what didn’t?”
+
+
+Reflect back (short):
+“Got it. So the theme is: delivery speed is increasing, but review capacity and quality enforcement are becoming the constraint.”
+
+3) Positioning (what we do, without vendor-y marketing) (1–2 min)
+Wallon:
+“At a high level, we help teams ship faster and safer by putting AI into the code review workflow. The focus isn’t just ‘more suggestions’—it’s higher-signal feedback that teams actually trust and adopt.”
+Key value pillars (1 sentence each):
+Fast feedback: PR feedback in minutes to reduce review latency and context switching
+
+
+High-signal findings: fewer false positives; actionable issues that matter
+
+
+Standards enforcement: rules from org-wide to repo-level with severity controls
+
+
+Measurable impact: dashboards that tie usage to outcomes (cycle time, quality)
+
+
+
+4) Where we fit in the SDLC + integration patterns (2–3 min)
+Wallon:
+“Most teams start with PR reviews because that’s where bottlenecks live. But we also support multiple entry points depending on how you work.”
+Mention options generically:
+PR systems (primary demo)
+
+
+IDE experience (for shift-left)
+
+
+CLI / web app (for automation and visibility)
+
+
+Workflow triggers (actions/pipelines/APIs when you have a platform team or portal)
+
+
+Integration positioning (simple):
+“The simplest path is installing the app/integration so reviews happen automatically on PR open/update. If you have a standardized internal platform, we can also support triggered workflows and deeper integrations.”
+
+5) Live demo: PR review experience (10–15 min)
+5A) Set the scene: what happens when a PR is opened
+Wallon:
+“Let’s jump into a PR. Imagine this is created by a developer. The normal flow is: PR waits, reviewer gets to it later, and the author has already context-switched.”
+“What we do is post a structured review comment within minutes so the author can fix issues while the context is fresh—and the reviewer gets a consistent baseline.”
+
+5B) Walk through the review comment (what it finds)
+Wallon (narrating as you scroll):
+“You’ll see findings grouped into categories. Depending on your codebase, this can include things like:
+security and risk
+
+
+bugs/correctness
+
+
+performance and reliability
+
+
+maintainability (including duplication)
+
+
+and compliance/standards (custom rules)”
+
+
+Key line:
+“AI is consistent—doesn’t get tired, doesn’t skip steps, and doesn’t vary by reviewer experience.”
+
+5C) Drill into one finding (show depth + actionability)
+Wallon:
+“Let’s open one item. You’ll see:
+what the issue is
+
+
+where it is in the code
+
+
+why it matters
+
+
+and a recommended fix”
+
+
+Optional (if product supports it):
+“In many cases we can generate a copy/paste prompt or patch guidance so the author can resolve it quickly.”
+
+5D) Call out “AI-generated code” reality (generic)
+Wallon:
+“One pattern we see as AI adoption increases is PR size and code duplication going up. Code can look correct but duplicate existing functionality or introduce subtle risk. We’re designed to catch those kinds of issues early.”
+
+6) Handling the common comparison: “How is this different from X?” (2–3 min)
+Wallon:
+“Totally fair question—many tools can post PR comments. The difference is signal quality and codebase awareness.”
+“The reason teams abandon review bots is noise: too many false positives. If people spend more time rejecting suggestions than reviewing code, adoption drops.”
+“Our goal is to be high-signal: fewer, better findings—so engineers trust it, and you actually see cycle time and quality improvements.”
+Ask:
+“Does ‘noise vs signal’ match what you’ve seen with other tools?”
+
+7) Rules + standards enforcement (5–8 min)
+7A) What rules are
+Wallon:
+“Now the enterprise piece: rules. Beyond generic bug/security detection, you can codify your standards into rules that are checked on every PR.”
+Examples (keep industry-neutral):
+deprecated patterns to avoid
+
+
+required logging/observability practices
+
+
+secure coding requirements
+
+
+naming/structure conventions
+
+
+PR requirements (tickets linked, required metadata, etc.)
+
+
+7B) Severity (the governance lever)
+Wallon:
+“Rules can have severity levels:
+Error (merge-blocking)
+
+
+Warning (strong recommendation)
+
+
+Recommendation (best practice guidance)”
+
+
+“This helps teams move fast without treating every suggestion like a stop-the-world event.”
+7C) Scope (org/team/repo)
+Wallon:
+“Rules can be applied at the scope that makes sense: org-wide, team-level, or repo-level. Central governance and local flexibility.”
+7D) Rule insights (optional)
+Wallon:
+“We also provide visibility into which rules are violated most often, trend over time, and in some cases propose candidate rules based on patterns we observe.”
+
+8) Metrics + ROI dashboard (4–6 min)
+Wallon:
+“Last piece is measurement—because leadership will ask, ‘Did it work?’”
+Call out what you can measure:
+adoption/usage
+
+
+number of suggestions generated vs accepted
+
+
+acceptance rate by category (security, bugs, performance, etc.)
+
+
+time to first feedback
+
+
+median time to merge
+
+
+PR throughput and review cycles
+
+
+Tie back to pilot:
+“This is how we run an evidence-based pilot: baseline → adopt → measure impact.”

@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "sessions": [],
+  "current_session": {
+    "session_id": "1769889724",
+    "start_time": "2026-01-31T20:02:04Z",
+    "end_time": null,
+    "topics": [
+      "adaptive_intelligence"
+    ],
+    "technologies": [],
+    "questions_asked": 0,
+    "tasks_completed": 0,
+    "unresolved_items": []
+  },
+  "continuous_topics": [
+    "adaptive_intelligence"
+  ],
+  "unresolved_questions": []
+}

@@ -1,0 +1,31 @@
+  Press Enter to start...
+╭─────────────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────────────────────────────────────────────╮
+│ /Users/wallonwalusayi/claude-multi-terminal/claude_multi_terminal/widgets/selectable_richlog.py:1056 in on_mouse_scroll_down                                                                    │
+│                                                                                                                                                                                                 │
+│   1053 │                                                                                                                                                                                        │
+│   1054 │   def on_mouse_scroll_down(self, event: events.MouseScrollDown) -> None:                                                                                                               │
+│   1055 │   │   """Detect manual scroll down - re-enable auto-scroll if at bottom."""                                                                                                            │
+│ ❱ 1056 │   │   super().on_mouse_scroll_down(event)                                                                                                                                              │
+│   1057 │   │                                                                                                                                                                                    │
+│   1058 │   │   # If user scrolled to bottom, re-enable auto-scroll                                                                                                                              │
+│   1059 │   │   if self._user_scrolled_up and self._is_at_bottom():                                                                                                                              │
+│                                                                                                                                                                                                 │
+│ ╭───────────────────────────────────────────────────── locals ─────────────────────────────────────────────────────╮                                                                            │
+│ │ event = MouseScrollDown(                                                                                         │                                                                            │
+│ │         │   None,                                                                                                │                                                                            │
+│ │         │   x=59,                                                                                                │                                                                            │
+│ │         │   y=24,                                                                                                │                                                                            │
+│ │         │   pointer_x=59.0,                                                                                      │                                                                            │
+│ │         │   pointer_y=24.0,                                                                                      │                                                                            │
+│ │         │   screen_x=62.0,                                                                                       │                                                                            │
+│ │         │   screen_y=32.0,                                                                                       │                                                                            │
+│ │         │   style=Style(                                                                                         │                                                                            │
+│ │         │   │   color=Color(                                                                                     │                                                                            │
+│ │         │   │   │   '#e0e0e0',                                                                                   │                                                                            │
+│ │         │   │   │   ColorType.TRUECOLOR,                                                                         │                                                                            │
+│ │         │   │   │   triplet=ColorTriplet(red=224, green=224, blue=224)                                           │                                                                            │
+│ │         │   │   ),                                                                                               │                                                                            │
+│ │         │   │   bgcolor=Color('#181818', ColorType.TRUECOLOR, triplet=ColorTriplet(red=24, green=24, blue=24))   │                                                                            │
+│ │         │   )                                                                                                    │                                                                            │
+│ │         )                                                                                                        │                                                                            │
+│ │  self = SelectableRichLog(id='output-4240340e-7066-4a5a-8c50-19632c74346b', classes='terminal-output')           │          

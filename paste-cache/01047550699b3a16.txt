@@ -1,0 +1,16 @@
+╭─ Error at /Users/wallonwalusayi/claude-multi-terminal/claude_multi_terminal/─╮
+│   12 │                                                                       │
+│   13 │   SelectableRichLog .auto-scroll-indicator {                          │
+│ ❱ 14 │   │   offset: 100%-15 1;                                              │
+│   15 │   │   width: 13;                                                      │
+│   16 │   │   height: 1;                                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+   Invalid value for offset property                                            
+   ├── The offset property expects a value of the form <horizontal> <vertical>  
+   │     e.g. offset: 2 3;  # Horizontal offset of 2, vertical offset of 3      
+   │     e.g. offset: 2 50%;  # Horizontal offset of 2, vertical offset of 50%  
+   └── <horizontal> and <vertical> can be a number or scalar value              
+                                                                                
+
+ CSS parsing failed: 1 error found in stylesheet
+

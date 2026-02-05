@@ -1,0 +1,20 @@
+{
+  "autonomous_mode_enabled": true,
+  "coverage_threshold": 80,
+  "quality_thresholds": {
+    "research_min": 80,
+    "plan_min": 85,
+    "test_coverage_min": 80
+  },
+  "auto_fix_enabled": true,
+  "auto_fix_max_attempts": 3,
+  "security_auto_patch": {
+    "critical": true,
+    "high": true,
+    "medium": false
+  },
+  "economic_controls": {
+    "max_cost_per_workflow_usd": 100,
+    "parallel_execution_min_roi": 10
+  }
+}

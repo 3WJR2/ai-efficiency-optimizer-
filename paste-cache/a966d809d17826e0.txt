@@ -1,0 +1,73 @@
+==> /tmp/session_26546b48.log <==
+[1769617153.14] Converted to Rich Text: 632 plain chars
+[1769617153.14] Written to RichLog, total lines: 56
+[1769617153.14] Update complete, count: 9
+[1769617153.17] _handle_output called: 367 bytes
+[1769617153.17] Scheduled _update_output via call_later
+[1769617153.17] _update_output called: 367 bytes
+[1769617153.17] After filter: 359 bytes, empty=False
+[1769617153.17] Converted to Rich Text: 250 plain chars
+[1769617153.17] Written to RichLog, total lines: 60
+[1769617153.17] Update complete, count: 10
+
+==> /tmp/session_29ab6432.log <==
+[1769617153.17] Converted to Rich Text: 632 plain chars
+[1769617153.17] Written to RichLog, total lines: 56
+[1769617153.17] Update complete, count: 9
+[1769617153.18] _handle_output called: 367 bytes
+[1769617153.18] Scheduled _update_output via call_later
+[1769617153.18] _update_output called: 367 bytes
+[1769617153.18] After filter: 359 bytes, empty=False
+[1769617153.18] Converted to Rich Text: 250 plain chars
+[1769617153.18] Written to RichLog, total lines: 60
+[1769617153.18] Update complete, count: 10
+
+==> /tmp/session_pane_debug.log <==
+[DEBUG] Wrote to RichLog successfully!
+[DEBUG] Scrolled to end
+[DEBUG] _handle_output called, is_mounted=True, has app=True
+[DEBUG] Output length: 22, first 50 chars: '\x1b[?2004h\x1b[?1004h\x1b[?25l'
+[DEBUG] Scheduling UI update with call_later...
+[DEBUG] call_later scheduled successfully
+[DEBUG] _update_output called with: '\x1b[?2004h\x1b[?1004h\x1b[?25l'
+[DEBUG] Found RichLog widget
+[DEBUG] Wrote to RichLog successfully!
+[DEBUG] Scrolled to end
+
+==> /tmp/session_pane.log <==
+[OUTPUT] Scheduling update via call_later
+[OUTPUT] Scheduled successfully
+[UPDATE] _update_output called with 22 bytes
+[UPDATE] Found RichLog, writing...
+[UPDATE] Wrote successfully, now have 24 lines
+[UPDATE] Scrolled to end
+[INPUT] Submitted: 'eacho test'
+[INPUT] Writing to PTY: 'eacho test'
+[INPUT] Wrote to PTY successfully
+[INPUT] Complete
+
+==> /tmp/session_26546b48.log <==
+[1769617228.88] on_input_submitted: command='test'
+[1769617228.88] Writing to PTY: 'test\n'
+[1769617228.88] Write complete
+[1769617228.88] _handle_output called: 392 bytes
+[1769617228.88] Scheduled _update_output via call_later
+[1769617228.88] _update_output called: 392 bytes
+[1769617228.88] After filter: 376 bytes, empty=False
+[1769617228.88] Converted to Rich Text: 269 plain chars
+[1769617228.88] Written to RichLog, total lines: 65
+[1769617228.88] Update complete, count: 11
+[1769617228.93] _handle_output called: 74 bytes
+[1769617228.93] Scheduled _update_output via call_later
+[1769617228.93] _update_output called: 74 bytes
+[1769617228.93] After filter: 53 bytes, empty=False
+[1769617228.93] Converted to Rich Text: 23 plain chars
+[1769617228.93] Written to RichLog, total lines: 68
+[1769617228.93] Update complete, count: 12
+[1769617233.89] _handle_output called: 50 bytes
+[1769617233.89] Scheduled _update_output via call_later
+[1769617233.89] _update_output called: 50 bytes
+[1769617233.89] After filter: 29 bytes, empty=False
+[1769617233.89] Converted to Rich Text: 23 plain chars
+[1769617233.89] Written to RichLog, total lines: 71
+[1769617233.89] Update complete, count: 13
