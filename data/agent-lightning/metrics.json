@@ -1,0 +1,19 @@
+{
+  "total_spans_emitted": 0,
+  "total_training_runs": 0,
+  "last_sync_timestamp": null,
+  "last_training_timestamp": null,
+  "rewards": {
+    "total_reward": 0.0,
+    "average_reward": 0.0,
+    "cache_rewards": 0.0,
+    "latency_rewards": 0.0,
+    "parallel_rewards": 0.0
+  },
+  "integration_metrics": {
+    "cache_hits_during_rl": 0,
+    "adaptive_optimizations_applied": 0,
+    "parallel_executions": 0
+  },
+  "last_updated": "2026-02-16T22:43:16Z"
+}
