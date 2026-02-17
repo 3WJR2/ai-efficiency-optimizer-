@@ -25,72 +25,836 @@
 
 ---
 
-## 🛠️ Qodo Product Suite (2026)
+## 🛠️ Qodo Product Suite (2026) - Complete Official Documentation
 
-### 1. Qodo Gen
-**What**: IDE plugin for AI code generation and testing
-**Where**: VS Code, JetBrains IDEs
-**Use Cases**:
-- Generate code from natural language
-- Fix errors automatically
-- Write unit tests
-- Improve code quality
+**Documentation Sources**:
+- Main Docs: https://docs.qodo.ai/
+- Qodo Merge: https://qodo-merge-docs.qodo.ai/
+- GitHub: https://github.com/qodo-ai
+
+---
+
+### 1. Qodo Merge (Git/PR-Agent) 🔀
+
+**What**: Open-source PR review and management tool with hosted enterprise version
+**Where**: GitHub, GitLab, Bitbucket, Azure DevOps, Gitea
+**Status**: Open-source (PR-Agent) + Hosted (Qodo Merge) + Self-hosted options
+
+#### Core Features
+
+**Available Tools** (20+ total):
+- `/describe` - Generates PR summaries, types, walkthroughs, diagrams
+- `/review` - Performs code analysis and identifies issues
+- `/improve` - Suggests code enhancements and refactoring
+- `/ask` - Enables Q&A about code changes
+- `/help` - Provides documentation search
+- `/update_changelog` - Automates changelog generation
+
+**Premium Features** (💎 Qodo Merge only):
+- Documentation generation
+- Compliance checking
+- Test generation
+- Custom prompts
+- PR chat functionality (browser extension)
+- Auto-approval workflows
+- Impact evaluation
+- Self-review requirements
+
+#### `/describe` Command (Complete Documentation)
+
+**Purpose**: Generates automated PR descriptions with title, type, summary, walkthrough, and labels
+
+**Invocation**:
+- **Manual**: Comment `/describe` on any PR
+- **Automatic**: Configure `pr_commands = ["/describe", ...]` in settings
+
+**Key Configuration Options**:
+| Option | Default | Purpose |
+|--------|---------|---------|
+| `publish_labels` | false | Publishes labels to PR |
+| `publish_description_as_comment` | false | Posts as comment vs overwriting |
+| `generate_ai_title` | false | Creates AI-generated title |
+| `enable_pr_diagram` | true | Generates Mermaid sequence diagram |
+| `enable_semantic_files_types` | true | Generates "Changes walkthrough" |
+| `add_original_user_description` | true | Preserves original description |
+| `enable_large_pr_handling` | true | Handles large PRs with chunking |
+
+**Generated Content**:
+- **PR Type**: Classification (feature, bug fix, refactor, etc.)
+- **Summary**: High-level overview of changes
+- **Walkthrough**: File-by-file breakdown with change descriptions
+- **Diagram**: Mermaid sequence diagram showing component interactions
+- **Labels**: Auto-assigned categorizations
+
+**Advanced Features**:
+- **Markers Template**: Use placeholders like `pr_agent:type`, `pr_agent:summary`, `pr_agent:walkthrough`
+- **Custom Labels**: Define repo-specific labels with `pr_agent:` prefix
+- **Inline File Summaries** (Premium): Change tables in "Files changed" tab or collapsible comments
 
 **SE Demo Points**:
-- Show test generation on customer's codebase
-- Demonstrate error fixing in real-time
-- Highlight time saved vs manual testing
+- Show auto-generated PR description on real customer code
+- Demonstrate Mermaid diagram visualization
+- Highlight time saved (5 min manual → 30 seconds automatic)
+- Show custom label configuration
 
-### 2. Qodo Merge
-**What**: Open-source PR agent for code review
-**Where**: GitHub, GitLab, Bitbucket, Azure DevOps
-**Use Cases**:
-- Automated PR reviews
-- Inline issue flagging
-- Severity ranking
-- Interactive slash commands (/implement, /review, etc.)
+---
+
+#### `/review` Command (Complete Documentation)
+
+**Purpose**: Analyzes PR code changes and generates reviewer feedback (~30 seconds)
+
+**Invocation**:
+- **Manual**: Comment `/review` on any PR
+- **Automatic**: Configure `pr_commands = ["/review", ...]`
+
+**Key Configuration Options**:
+| Setting | Default | Purpose |
+|---------|---------|---------|
+| `persistent_comment` | true | Edits previous review vs new comment |
+| `extra_instructions` | — | Custom guidance for analysis |
+| `num_max_findings` | 3 | Maximum returned findings |
+| `require_score_review` | false | Add PR scoring section |
+| `require_tests_review` | true | Check for test coverage |
+| `require_security_review` | true | Scan for vulnerabilities |
+| `require_ticket_analysis_review` | true | Validate against linked tickets |
+
+**Review Sections** (Optional):
+- **Effort Estimation**: Review effort scale 1-5
+- **Time-to-Implement**: Cost analysis for changes
+- **Split-ability Assessment**: Can PR be split?
+- **TODO Comment Scanning**: Identifies incomplete work
+- **Security Vulnerability Detection**: Flags potential issues
+
+**Auto-Generated Labels**:
+- `possible security issue` - Triggered by vulnerability detection
+- `review effort [x/5]` - Effort scale from 1-5
+- `ticket compliance` - Fully/Partially/Not compliant, or No ticket found
+
+**Best Practices**:
+1. Customize configuration to match project needs
+2. Enable useful disabled-by-default features like `require_score_review`
+3. Provide specific, detailed `extra_instructions`
+4. Use multi-line instructions with bullet points
+5. Block merges on security labels via CI/CD integration
 
 **SE Demo Points**:
-- Live PR review on demo repo
-- Show issue ranking and prioritization
-- Demonstrate /implement fixing issues automatically
-- Compare with manual review time
+- Live review on customer PR showing findings in ~30 seconds
+- Demonstrate security vulnerability detection with label
+- Show effort estimation and ticket compliance validation
+- Configure custom `extra_instructions` for customer standards
 
-### 3. Qodo Command
-**What**: CLI for scripting and scheduling custom agents
-**Where**: Terminal, CI/CD pipelines
-**Use Cases**:
-- Automated code reviews in CI
-- Scheduled quality checks
-- Custom agent workflows
-- Batch processing
+---
+
+#### `/improve` Command (Complete Documentation)
+
+**Purpose**: Generates meaningful code improvement suggestions with direct and indirect implementation tracking
+
+**Invocation**:
+- **Manual**: `/improve` or `/improve --pr_code_suggestions.commitable_code_suggestions=true`
+- **Automatic**: Configure `pr_commands = ["/improve", ...]`
+- **Extended**: `/improve --more_suggestions=true` for additional suggestions
+
+**Suggestion Modes**:
+- **Table Format** (default, recommended): Cleaner PR experience, high-level suggestions, interactive features
+- **Committable Code Comments**: Inline editable suggestions
+
+**Key Configuration Options**:
+| Parameter | Default | Purpose |
+|-----------|---------|---------|
+| `suggestions_depth` | regular | Controls depth: selective/regular/exhaustive |
+| `num_code_suggestions_per_chunk` | 3 | Suggestions per chunk |
+| `num_best_practice_suggestions` | 1 | Best practice-specific suggestions |
+| `focus_only_on_problems` | true | Prioritize bugs vs style |
+| `commitable_code_suggestions` | false | Display as editable comments |
+| `persistent_comment` | true | Edit previous vs new comment |
+| `suggestions_score_threshold` | 0 | Minimum importance score |
+| `dual_publishing_score_threshold` | -1 | Score for dual publishing |
+
+**Advanced Features**:
+
+**Extended Mode** (Auto Chunking):
+- Divides large PRs into chunks (up to 32,000 tokens each)
+- Generates up to 3 suggestions per chunk
+- Maximum 3 chunks per PR
+- Scales with PR size
+
+**Best Practices System** (3-tier):
+- **Local**: Project-specific patterns
+- **Global Hierarchical**: Organization-wide standards
+- **Auto-Generated** (Qodo Merge): Learns from accepted suggestions
+
+**Self-Review Feature** (Qodo Merge):
+- Requires PR author acknowledgment
+- Auto-folds suggestions after review
+- Optional PR approval upon completion
+
+**Depth Control** (Qodo Merge):
+- `selective`: High-threshold filtering for critical issues
+- `regular`: Balanced suggestions
+- `exhaustive`: Maximum coverage with enhanced bug detection
+
+**Dual Publishing**: Highlights critical suggestions both in tables and PR comments when exceeding score threshold
 
 **SE Demo Points**:
-- Show CI integration
-- Demonstrate custom agent scripts
-- Highlight automation vs manual process
+- Show 3 suggestions generated on customer code
+- Demonstrate committable suggestions feature
+- Show best practices auto-learning (accepted suggestions → patterns)
+- Highlight self-review checkbox workflow
+- Configure `exhaustive` mode for comprehensive analysis
 
-### 4. Qodo Aware
-**What**: Advanced context engine for deep codebase understanding
-**Where**: Integrated across all Qodo products
-**Use Cases**:
-- Multi-repo codebase intelligence
-- Complex query answering
-- Impact analysis
-- System behavior reasoning
+---
+
+#### Installation & Setup
+
+**Qodo Merge** (Hosted - Easiest):
+1. Visit Qodo Merge app page for your platform
+2. Add app to relevant repositories
+3. Configure via `.qodo_merge.toml` in repo root (optional)
+
+**PR-Agent** (Self-Hosted - Full Control):
+- **Locally**: CLI for local repository operations
+- **GitHub Actions**: Workflow automation
+- **Webhooks**: Azure DevOps, GitLab, Bitbucket
+- **Docker**: Container deployment
+
+**Configuration File** (`.pr_agent.toml`):
+```toml
+[github_app]
+pr_commands = ["/describe", "/review", "/improve"]
+
+[pr_description]
+generate_ai_title = true
+enable_pr_diagram = true
+
+[pr_code_suggestions]
+suggestions_depth = "exhaustive"
+num_code_suggestions_per_chunk = 4
+
+[pr_reviewer]
+require_security_review = true
+extra_instructions = """
+Focus on:
+- Memory leaks
+- SQL injection vulnerabilities
+- Performance bottlenecks
+"""
+```
+
+**Environment Variables**:
+```bash
+# For Anthropic Claude
+export ANTHROPIC_API_KEY=your-key
+
+# For OpenAI
+export OPENAI_API_KEY=your-key
+```
+
+---
+
+#### Usage Patterns & Automation
+
+**Automatic PR Processing**:
+```toml
+[github_app]
+pr_commands = ["/describe", "/review", "/improve"]
+auto_review = true
+auto_describe = true
+auto_improve = true
+```
+
+**Selective Automation**:
+```toml
+# Only on specific branches
+[pr_reviewer]
+require_focused_review = true
+num_code_suggestions = 6
+
+# Only for large PRs
+[pr_description]
+enable_large_pr_handling = true
+```
+
+**CI/CD Integration**:
+```yaml
+# GitHub Actions example
+name: Qodo Review
+on: [pull_request]
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: qodo-ai/pr-agent-action@v1
+        with:
+          command: /review
+```
+
+---
+
+### 2. Qodo Gen (IDE Plugin) 💻
+
+**What**: Automated, context-aware code review directly in your IDE
+**Where**: Visual Studio Code, JetBrains IDEs, Visual Studio Professional
+**Language Support**: All programming languages
+
+#### Core Features
+
+- **Local Code Review**: Analyzes diffs and test logic in real-time
+- **AI-Powered Suggestions**: Issue resolution with single-click application
+- **Automated Test Identification**: Finds relevant tests for code modifications
+- **Customizable Review Agents**: Adapts to team-specific standards and rules
+- **Critical Issue Detection**: Breaking changes, security vulnerabilities, compliance violations
+
+#### Installation
+
+**Visual Studio Code**:
+1. Open Extensions menu (Extensions icon in Activity Bar)
+2. Search "Qodo Gen"
+3. Click Install
+4. Restart extensions to activate
+5. Icon appears in Activity Bar
+
+**Alternative**: Visit [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Codium.codium)
+
+**JetBrains IDEs**:
+1. Open Settings → Plugins (cog wheel → Plugins)
+2. Search "Qodo Gen"
+3. Click Install
+4. Restart IDE
+5. Icon appears in sidebar
+
+**Alternative**: Visit [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/21206-qodo-gen)
+
+**Requirements**:
+- JCEF (Java Chromium Embedded Framework) required for JetBrains
+- Most IntelliJ-based IDEs include JCEF by default
+- Android Studio and some versions lack JCEF (plugin won't load)
+
+**Visual Studio Professional**:
+Similar installation process via Visual Studio Marketplace
+
+#### Configuration
+
+**Enterprise Users**:
+- Log in with work email from registered domain
+- Automatically connects to organization workspace
+- Choose login method (SSO supported)
+
+**Settings**:
+- Access settings menu in IDE
+- Configure features like Code Completion
+- Enable/disable specific review agents
+- Customize review rules
+
+**Custom Review Agents**:
+Define organization-specific rules and standards in configuration files
+
+#### Usage Patterns
+
+**Real-Time Review**:
+- Makes code changes in IDE
+- Qodo Gen analyzes diffs automatically
+- Surfaces issues inline with suggestions
+- Apply fixes with single click
+
+**Test Discovery**:
+- Modify code
+- Qodo Gen identifies affected tests
+- Shows test coverage gaps
+- Suggests new test cases
 
 **SE Demo Points**:
-- Query complex codebase questions
-- Show cross-repo dependency analysis
-- Demonstrate context-aware recommendations
-- Highlight accuracy vs traditional tools
+- Show real-time code review as you type
+- Demonstrate single-click fix application
+- Show security vulnerability detection inline
+- Configure custom rules for customer's standards
+- Highlight test identification and coverage analysis
+
+---
+
+### 3. Qodo Command (CLI) ⌨️
+
+**What**: Command-line interface for running and managing AI agents
+**Where**: Terminal, CI/CD pipelines, automation scripts
+**Status**: Beta release
+
+#### Core Capabilities
+
+- **Execute AI Agents**: Run agents through terminal commands
+- **Custom Workflows**: Configure personalized automation
+- **External Tool Integration**: Custom schemas for tool connections
+- **HTTP Services**: Deploy agents as callable web services
+- **Model Selection**: Choose between Claude, GPT-4, and other LLMs
+- **MCP Integration**: Convert agents to Model Context Protocol format
+
+#### Available Modes
+
+**1. Interactive Chat** (`qodo chat`):
+- Direct natural language conversation with agents
+- Terminal-based interaction
+- Real-time responses
+
+**2. Custom Commands** (`qodo <command-name>`):
+- Run configured agents
+- Pass arguments and flags
+- Automated execution
+
+**3. Web UI Mode** (`qodo <command> --ui`):
+- Interactive web interface
+- Visual agent interaction
+- Browser-based access
+
+**4. HTTP/Webhook Mode** (`qodo <command> --mcp`):
+- Expose agents as web services
+- Webhook integration
+- API-style access
+
+**5. MCP Integration**:
+- Convert agents to MCP format
+- Tool server compatibility
+- Protocol standardization
+
+#### CLI Commands
+
+**Authentication**:
+```bash
+qodo login  # Authenticate and receive API key
+```
+
+**Agent Management**:
+```bash
+qodo <command-name>           # Run configured agent
+qodo <command-name> --mcp     # Run agent as MCP service
+qodo <command-name> --ui      # Run with web UI
+```
+
+**Tool Management**:
+```bash
+qodo list-mcp                 # List available local and remote tools
+```
+
+**Model Management**:
+```bash
+qodo models                   # List available AI models
+qodo <command> --model=<name> # Use specific model
+```
+
+**API Key Management**:
+```bash
+qodo key list                 # List API keys
+qodo key create <name>        # Create new API key
+qodo key revoke <name>        # Revoke API key
+```
+
+**Tool Selection**:
+```bash
+qodo <command> --tools=<tool1>,<tool2>  # Use specific tools
+```
+
+#### Agent Configuration
+
+**File Structure**:
+```
+project/
+└── agents/
+    ├── code-reviewer.toml
+    ├── test-generator.toml
+    └── bug-analyzer.toml
+```
+
+**Basic Agent Configuration** (`agent.toml`):
+```toml
+version = "1.0"
+
+[commands.my_agent]
+description = "Brief description of what this agent does"
+
+instructions = """
+Specify the agent's behavior and expected outcomes:
+1. Analyze the input code
+2. Identify potential issues
+3. Generate suggestions
+4. Format output as markdown
+"""
+
+# Optional: Arguments
+[[commands.my_agent.arguments]]
+name = "input_file"
+type = "string"
+description = "Path to the file to analyze"
+required = true
+
+[[commands.my_agent.arguments]]
+name = "threshold"
+type = "number"
+description = "Severity threshold (0.0-1.0)"
+required = false
+default = 0.8
+
+# Optional: MCP Servers
+[commands.my_agent.mcpServers]
+shell = { command = "npx", args = ["-y", "@modelcontextprotocol/server-shell"] }
+github = { command = "npx", args = ["-y", "@modelcontextprotocol/server-github"] }
+
+# Optional: Tools
+[commands.my_agent.tools]
+tools = ["filesystem", "git", "shell", "github"]
+```
+
+**Advanced Configuration Example**:
+```toml
+version = "1.0"
+
+[commands.security_scanner]
+description = "Scans code for security vulnerabilities"
+
+instructions = """
+Security Analysis Protocol:
+- Scan for SQL injection vulnerabilities
+- Check for XSS attack vectors
+- Identify hardcoded credentials
+- Verify input sanitization
+- Review authentication logic
+
+Output Format:
+- Severity: Critical/High/Medium/Low
+- Location: File and line number
+- Description: Issue explanation
+- Recommendation: Fix suggestion
+"""
+
+[[commands.security_scanner.arguments]]
+name = "directory"
+type = "string"
+description = "Directory to scan"
+required = true
+
+[[commands.security_scanner.arguments]]
+name = "output_format"
+type = "string"
+description = "Output format: json, markdown, or html"
+required = false
+default = "markdown"
+
+[commands.security_scanner.mcpServers]
+filesystem = { command = "npx", args = ["-y", "@modelcontextprotocol/server-filesystem", "."] }
+
+[commands.security_scanner.tools]
+tools = ["filesystem"]
+```
+
+#### Usage Examples
+
+**Simple Agent Execution**:
+```bash
+# Run code reviewer
+qodo code-reviewer --input_file=src/main.py
+
+# Run with specific model
+qodo code-reviewer --model=claude-4-opus --input_file=src/main.py
+
+# Run with specific tools
+qodo code-reviewer --tools=filesystem,git --input_file=src/main.py
+```
+
+**Interactive Chat**:
+```bash
+qodo chat
+# Then interact naturally:
+# > Review the authentication logic in auth.py
+# > Generate tests for the User class
+# > Explain the caching strategy
+```
+
+**Web UI Mode**:
+```bash
+qodo security_scanner --ui --directory=./src
+# Opens browser interface at http://localhost:3000
+```
+
+**HTTP Service Mode**:
+```bash
+qodo test_generator --mcp
+# Exposes agent as HTTP endpoint
+# POST requests trigger agent execution
+```
+
+**CI/CD Integration**:
+```yaml
+# GitHub Actions example
+name: Code Review
+on: [push]
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Qodo CLI
+        run: npm install -g @qodo/cli
+      - name: Run Code Review
+        run: qodo code-reviewer --directory=./src
+        env:
+          QODO_API_KEY: ${{ secrets.QODO_API_KEY }}
+```
+
+#### Multi-Agent Workflows
+
+**Sequential Execution**:
+```bash
+# Step 1: Analyze code
+qodo analyzer --input=src/ > analysis.json
+
+# Step 2: Generate tests based on analysis
+qodo test-generator --analysis=analysis.json
+
+# Step 3: Review generated tests
+qodo reviewer --tests=tests/
+```
+
+**Parallel Execution** (in CI):
+```yaml
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - run: qodo analyzer --input=src/
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: qodo linter --input=src/
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - run: qodo security-scanner --input=src/
+```
+
+#### TypeScript SDK
+
+**For programmatic access**:
+```typescript
+import { QodoClient } from '@qodo/cli-sdk';
+
+const client = new QodoClient({ apiKey: process.env.QODO_API_KEY });
+
+const result = await client.runAgent('code-reviewer', {
+  input_file: 'src/main.ts',
+  threshold: 0.8
+});
+
+console.log(result.suggestions);
+```
+
+#### SE Demo Points
+
+- Show custom agent creation for customer-specific workflow
+- Demonstrate CLI integration in existing CI/CD pipeline
+- Run multi-agent workflow (analyze → fix → review)
+- Show web UI mode for interactive demos
+- Expose agent as HTTP service for webhook integration
+- Configure model selection (Claude vs GPT-4)
+
+---
+
+### 4. Qodo Aware (Context Engine) 🧠
+
+**What**: Deep research agent purpose-built for large codebases
+**Purpose**: Turn your codebase into a living knowledge engine
+**Where**: Integrated across Qodo platform (Gen, Merge, Command)
+
+#### Core Purpose
+
+Qodo Context Engine provides foundational intelligence for all Qodo products, enabling deep codebase understanding across multiple repositories.
+
+#### Primary Capabilities
+
+- **Remote Codebase Querying**: Access across multiple repositories simultaneously
+- **Organizational Knowledge**: Access insights without switching tools
+- **Development Best Practices**: Explore patterns and standards
+- **Architectural Understanding**: Similar to senior engineer consultation
+- **Multi-Repo Analysis**: Cross-service dependency tracking
+
+#### Available Agents
+
+**1. Ask Agent**:
+- **Purpose**: Rapid responses from indexed code
+- **Speed**: Fast, immediate answers
+- **Use When**: Quick questions about specific functionality
+- **Example**: "Where is user authentication implemented?"
+
+**2. Deep Research Agent** (Principal Engineer):
+- **Purpose**: Multi-step analysis across services
+- **Depth**: Comprehensive investigation
+- **Use When**: Complex architectural questions
+- **Example**: "How does authentication flow across our microservices architecture?"
+
+#### Technical Architecture
+
+**Indexing**:
+- Creates structured, multi-layered codebase understanding
+- Connects to Git providers
+- Daily updates for popular open-source libraries
+- Supports thousands of repositories
+
+**Retrieval**:
+- Advanced retrieval beyond "nearby code"
+- Gathers relevant functions, documentation, commit patterns
+- Identifies architectural elements
+- Contextual relevance ranking
+
+**Agentic Reasoning**:
+- Analyzes relationships and dependencies
+- Understands intent beyond syntax
+- Multi-step decomposition for complex queries
+
+**Generation**:
+- Produces grounded, accurate responses
+- Evidence-based from actual code
+- Architectural insights and recommendations
+
+#### Key Differentiators
+
+**vs Traditional AI Tools**:
+1. **Advanced Retrieval**: Identifies "the *right* context, not just nearby code"
+2. **Multi-Agent Reasoning**: Complex decomposition and analysis
+3. **Enterprise Scale**: Thousands of repositories indexed
+
+#### Notable Use Cases
+
+**Feature Understanding**:
+- How feature X works across system layers
+- Dependencies and integration points
+- Historical context from commits
+
+**Architectural Planning**:
+- Impact analysis before changes
+- Design pattern identification
+- Best approach recommendations
+
+**Best Practice Discovery**:
+- Organizational standards and patterns
+- Proven solutions to common problems
+- Historical decisions and rationale
+
+**Impact Analysis**:
+- What will break if I change X?
+- Which services depend on this module?
+- Test coverage and risk assessment
+
+#### Usage Patterns
+
+**Simple Queries**:
+```
+Ask: "Where is the payment processing logic?"
+Response: Points to specific files, functions, and explains flow
+```
+
+**Complex Analysis**:
+```
+Ask: "How should I implement feature flags across our microservices?"
+Deep Research: Analyzes existing patterns, suggests architecture,
+provides examples from codebase
+```
+
+**Architectural Questions**:
+```
+Ask: "What's our caching strategy and where is it implemented?"
+Response: Explains strategy, shows implementations, identifies gaps
+```
+
+#### Integration Points
+
+**Qodo Gen** (IDE):
+- Context-aware code suggestions
+- Relevant test identification
+- Impact analysis for changes
+
+**Qodo Merge** (PR Review):
+- Deeper code understanding for reviews
+- Architectural compliance checking
+- Historical pattern matching
+
+**Qodo Command** (CLI):
+- Agent access to codebase knowledge
+- Multi-repo workflow automation
+- Documentation generation
+
+#### MCP Integration
+
+**Model Context Protocol**:
+- Exposes code intelligence as callable tools
+- Compatible with Claude and other AI systems
+- Real-time codebase access
+
+**Endpoint**: `https://open-aware.qodo.ai/mcp`
+
+**Tools Available**:
+- `get_context`: Semantic search with language filtering
+- `deep_research`: Multi-step analysis across repos
+- `ask`: Q&A about indexed repositories
+
+#### Configuration
+
+**Repository Indexing**:
+```bash
+# Index repositories
+qodo aware index --repos "org/repo1,org/repo2,org/repo3"
+
+# Update schedule
+qodo aware index --update-schedule daily
+
+# Language filtering
+qodo aware index --languages python,typescript
+```
+
+**Query Examples**:
+```bash
+# Simple query
+qodo aware query "authentication implementation"
+
+# Cross-repo query
+qodo aware query "service communication patterns" \
+  --repos service-a,service-b --format markdown
+
+# Deep research
+qodo aware research "optimal caching strategy" \
+  --scope multi-repo --depth comprehensive
+```
+
+#### SE Demo Points
+
+- Show multi-repo query answering complex architectural question
+- Demonstrate speed difference: Ask Agent (2 sec) vs Deep Research (30 sec)
+- Query customer's actual codebase (with permission)
+- Show how Context Engine powers Qodo Gen suggestions
+- Demonstrate MCP integration with Claude
+- Compare accuracy vs traditional code search (keyword matching)
+
+---
 
 ### Key Features (All Products)
-- **15+ Specialized Review Agents**: Bug detection, test coverage, documentation, security, compliance
-- **Multi-Agent Architecture**: Generation, testing, compliance, review agents working together
+
+**Universal Capabilities**:
+- **20+ Tools**: Describe, Review, Improve, Ask, Help, Documentation, Analyze, CI Feedback, Compliance, Test Generation, and more
+- **Multi-Platform**: GitHub, GitLab, Bitbucket, Azure DevOps, Gitea, VS Code, JetBrains, Visual Studio
+- **Multi-LLM**: Anthropic Claude, OpenAI GPT-4, and others
+- **Context Engine**: Deep codebase understanding powered by Qodo Aware
 - **Enterprise Security**: SOC 2 Type II, on-premises, VPC, air-gapped deployment
 - **Data Privacy**: Auto-purge within 48 hours for Teams/Enterprise
-- **Context-Aware**: Deep understanding of codebases, not just syntax
+- **Customization**: Extra instructions, custom prompts, best practices, review agents
+
+**Integration Options**:
+- IDE plugins (real-time)
+- Git platform webhooks (automated)
+- CLI tools (scripted)
+- CI/CD pipelines (integrated)
+- HTTP/MCP services (exposed)
+
+**Deployment Models**:
+- Hosted (Qodo Merge) - Zero setup
+- Self-hosted (PR-Agent) - Full control
+- Hybrid - Mix and match
+- On-premises - Enterprise security
 
 ---
 
