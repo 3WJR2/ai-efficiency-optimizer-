@@ -1,0 +1,84 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-02-17",
+  "sections": {
+    "qodo_merge": {
+      "file": "knowledge-core.md",
+      "start_line": 28,
+      "end_line": 800,
+      "subsections": {
+        "slash_commands": {
+          "describe": {"start": 150, "end": 250},
+          "review": {"start": 250, "end": 350},
+          "improve": {"start": 350, "end": 500}
+        },
+        "installation": {"start": 500, "end": 600},
+        "configuration": {"start": 600, "end": 700}
+      }
+    },
+    "qodo_gen": {
+      "file": "knowledge-core.md",
+      "start_line": 800,
+      "end_line": 1100
+    },
+    "qodo_command": {
+      "file": "knowledge-core.md",
+      "start_line": 1100,
+      "end_line": 1400
+    },
+    "qodo_aware": {
+      "file": "knowledge-core.md",
+      "start_line": 1400,
+      "end_line": 1600
+    },
+    "server_agents": {
+      "file": "knowledge-core.md",
+      "start_line": 1700,
+      "end_line": 2200
+    },
+    "se_workflows": {
+      "file": "CLAUDE.md",
+      "sections": [
+        "demo_preparation",
+        "feature_testing",
+        "customer_communications",
+        "roi_calculation"
+      ]
+    }
+  },
+  "triggers": {
+    "demo_preparation": {
+      "keywords": ["prepare demo", "demo tomorrow", "showing qodo", "customer meeting", "presentation"],
+      "sections_needed": ["qodo_merge", "qodo_gen", "se_workflows.demo_preparation"],
+      "templates": ["se-templates/demo-prep-checklist.md"]
+    },
+    "feature_testing": {
+      "keywords": ["test feature", "validate release", "qa this", "testing checklist"],
+      "sections_needed": ["qodo_merge", "qodo_gen", "se_workflows.feature_testing"],
+      "templates": ["se-templates/feature-testing-checklist.md"]
+    },
+    "configuration_help": {
+      "keywords": ["configure", "setup", "how to set", "configuration", "toml", "yaml"],
+      "sections_needed": ["qodo_merge.configuration", "qodo_gen", "qodo_command"]
+    },
+    "roi_calculation": {
+      "keywords": ["calculate roi", "cost savings", "value", "payback", "savings"],
+      "sections_needed": ["se_workflows.roi_calculation"],
+      "templates": ["se-templates/roi-calculator.sh"]
+    }
+  },
+  "frequent_queries": {
+    "/review_configuration": {
+      "query": "How do I configure /review command?",
+      "section": "qodo_merge.slash_commands.review",
+      "access_count": 0,
+      "last_accessed": null
+    },
+    "vscode_installation": {
+      "query": "How to install Qodo Gen in VS Code?",
+      "section": "qodo_gen.installation",
+      "access_count": 0,
+      "last_accessed": null
+    }
+  }
+}
