@@ -1261,4 +1261,474 @@ helm install qodo-platform qodo/qodo-platform \
 
 ---
 
+## 🛠️ Internal Development Tools: Server-Agents Platform
+
+### Overview
+
+**Server-Agents** is an enterprise-grade AI Agent Platform for automating workflows across the Software Development Lifecycle (SDLC). It provides a client-server architecture where AI-powered agents assist developers, QA engineers, and other contributors with intelligent automation.
+
+**Repository**: `/Users/wallonwalusayi/Downloads/server-agents-trunk`
+**Status**: ✅ Running Locally
+**Architecture**: Client-Server with WebSocket communication
+
+---
+
+### Platform Components
+
+#### 1. **spring-agents** (Server - Port 8080)
+**Purpose**: Central hub orchestrating AI agent interactions
+
+**Key Features**:
+- **WebSocket Server**: `/agent` endpoint with API key authentication
+- **Multi-LLM Support**: Anthropic Claude + Ollama via Spring AI
+- **Remote Tool Execution**: Proxies tool calls to connected clients
+- **Multi-Tenant Architecture**: Per-customer token allowances
+- **Usage Tracking**: Per-model token usage with configurable reset policies
+- **Security**: JWT tokens, API key hashing, audit logging, rate limiting
+- **Observability**: Prometheus metrics, Grafana dashboards, structured logging
+
+**Database Entities**:
+- `CUSTOMER` - Multi-tenant customer records
+- `CUSTOMER_TOKEN` - Hashed API tokens with versioned secrets
+- `LLM_MODEL` - Supported LLM models (Claude, Ollama)
+- `POLICY_TYPE` - Token reset policies (daily, weekly, monthly, unlimited)
+- `CUSTOMER_MODEL_ALLOWANCE` - Per-customer, per-model token limits
+- `SECURITY_AUDIT_LOG` - Comprehensive audit trail
+
+**Tech Stack**: Spring Boot, Java 21, H2/PostgreSQL
+
+---
+
+#### 2. **agent-sdk** (Client - Port 8081)
+**Purpose**: Runs on developer machines, bridging local tools with remote server
+
+**Key Features**:
+- **WebSocket Client**: Auto-reconnect with exponential backoff
+- **MCP Server Manager**: Manages local Model Context Protocol servers
+- **Session Isolation**: Each session gets its own MCP server instances
+- **Tool Execution**: Executes tools locally and returns results to server
+- **Configuration**: YAML/JSON-based agent and MCP server configuration
+
+**Supported MCP Server Types**:
+| Type | Transport | Example |
+|------|-----------|---------|
+| STDIO | stdin/stdout | `npx @modelcontextprotocol/server-filesystem` |
+| HTTP | Streamable HTTP | `https://mcp.sentry.dev/mcp` |
+| SSE | Server-Sent Events | Legacy remote servers |
+
+**Tech Stack**: Spring Boot, Java 21, Spring AI MCP
+
+---
+
+#### 3. **admin-client-spring-agents** (Admin Portal - Port 3000)
+**Purpose**: Web application for platform administration
+
+**Features**:
+| Page | Functionality |
+|------|---------------|
+| Dashboard | System statistics, recent activity, quick actions |
+| Customers | Create, enable/disable, manage API tokens, view allowances |
+| Models | Add/configure LLM models, set default token allocations |
+| Policies | Configure token reset policies (daily, weekly, monthly) |
+| Audit Logs | View/filter security audit trail, cleanup old logs |
+| Settings | Configure admin token and API settings |
+
+**Tech Stack**: Next.js 15, TypeScript, Tailwind CSS, React Query
+
+**Access**: http://localhost:3000
+
+---
+
+#### 4. **agent-message-protocol** (Shared Library)
+**Purpose**: Shared Java library defining WebSocket message protocol
+
+**Message Types**:
+| Direction | Message | Description |
+|-----------|---------|-------------|
+| Server → Client | `ConnectionEstablished` | Connection confirmation |
+| Server → Client | `SessionStarted` | Session creation confirmation |
+| Server → Client | `ToolCallRequest` | Request to execute a tool |
+| Server → Client | `StreamChunk` | Streaming response chunk |
+| Server → Client | `SessionResult` | Final session result |
+| Server → Client | `ErrorMessage` | Error notification |
+| Client → Server | `CreateSession` | Create new session with agent config |
+| Client → Server | `ToolCallResponse` | Tool execution result |
+| Client → Server | `CancelSession` | Cancel active session |
+| Bidirectional | `Heartbeat` | Keep-alive message |
+
+---
+
+### Agent Types (SDLC Roles)
+
+| Agent Type | Purpose | Writes Code | Uses Tools |
+|------------|---------|-------------|------------|
+| **ANALYST** | Understands intent, resolves ambiguity, produces execution plans and technical designs | No | Yes |
+| **ENGINEER** | Implements approved designs by producing production-ready code | Yes | Yes |
+| **REVIEWER** | Validates correctness, security, and alignment with requirements | No | Yes |
+| **DIAGNOSTICIAN** | Performs root cause analysis when other agents fail | No | Yes |
+
+---
+
+### Architecture Diagram
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│          ADMIN PORTAL (Port 3000)                            │
+│          Next.js Web Application                             │
+│  Dashboard | Customers | Models | Policies | Audit Logs     │
+└────────────────────────┬────────────────────────────────────┘
+                         │ REST API (Bearer Token Auth)
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│          SPRING-AGENTS SERVER (Port 8080)                    │
+│                                                              │
+│  WebSocket: /agent (API Key Auth)                           │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
+│  │ LLM (Claude) │  │ Customer     │  │ Agents:      │     │
+│  │ (Spring AI)  │  │ Management   │  │ • ANALYST    │     │
+│  │ + Ollama     │  │ • Tokens     │  │ • ENGINEER   │     │
+│  └──────────────┘  │ • Usage      │  │ • REVIEWER   │     │
+│                    └──────────────┘  │ • DIAGNOSTICIAN│     │
+│                                      └──────────────┘     │
+│  Database: CUSTOMER | TOKEN | MODEL | POLICY | AUDIT      │
+└────────────────────────┬────────────────────────────────────┘
+                         │ WebSocket (TLS)
+                         │ Tool Call Requests ↓ / Results ↑
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│          AGENT-SDK (Port 8081)                               │
+│          Developer Machine                                   │
+│                                                              │
+│  WebSocket Client Handler (Auto-reconnect)                  │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │ MCP Server Manager (Spring AI MCP)                    │  │
+│  │ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │  │
+│  │ │Filesystem│ │ Terminal │ │   Git    │ │ Custom   │ │  │
+│  │ │ (STDIO)  │ │ (STDIO)  │ │ (STDIO)  │ │(HTTP/SSE)│ │  │
+│  │ └──────────┘ └──────────┘ └──────────┘ └──────────┘ │  │
+│  └───────────────────────────────────────────────────────┘  │
+│                                                              │
+│  Local Resources: File System | Terminal | Git | APIs       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### Current Status (Running Locally)
+
+**Services Running**:
+- ✅ Spring-Agents Server: http://localhost:8080 (PID in `server.pid`)
+- ✅ Admin Portal: http://localhost:3000 (PID in `admin-portal.pid`)
+- ✅ Agent SDK Client: http://localhost:8081 (PID in `agent-sdk.pid`)
+
+**Credentials** (Local Dev):
+```bash
+# Admin Portal Token
+Bearer MyFixedAdminToken123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ==
+
+# Agent SDK API Token (JWT)
+eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiIzMmViNTZiMS0zNDY3LTQ5ODQtYTU4OS1jNDRkZWE1ZjdlZTEiLCJpc3MiOiJzcHJpbmctYWdlbnRzIiwic3ViIjoiYjA2MTdhMzYtOWE0YS00ODQ4LThmOGUtOGNhYTQ3OGVjOGI4IiwiaWF0IjoxNzcxMjk0NzgwLCJjdXN0b21lcklkIjoiYjA2MTdhMzYtOWE0YS00ODQ4LThmOGUtOGNhYTQ3OGVjOGI4IiwiY3VzdG9tZXJOYW1lIjoiYWNtZSIsInRva2VuVHlwZSI6IkFQSSJ9.2jpzpSkq26D2kxro1rUKfL8TtcGbVVMOsaQK77wt2J892EYQ4PpnVFw28tUiwTmE
+
+# Stored in:
+# - .env.fixed (server)
+# - .env.agent-sdk (client)
+# - .admin-token (backup)
+```
+
+**Demo Customers**:
+- `acme` (ID: b0617a36-9a4a-4848-8f8e-8caa478ec8b8)
+- `globex` (second demo customer)
+
+---
+
+### Usage Patterns
+
+#### 1. **Admin Portal (Web UI)**
+**Access**: http://localhost:3000
+
+**Common Tasks**:
+- View dashboard and system statistics
+- Manage customers and generate API tokens
+- Configure LLM models and token allowances
+- View audit logs and monitor usage
+- Enable/disable customers
+
+**Quick Actions**:
+```
+1. Go to http://localhost:3000
+2. Click "Customers" → View demo customers
+3. Click "acme" → View details and token usage
+4. Click "Generate Token" → Create new API tokens
+```
+
+---
+
+#### 2. **REST API (Automation)**
+
+**Get System Stats**:
+```bash
+curl -H "Authorization: Bearer MyFixedAdminToken123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ==" \
+  http://localhost:8080/api/admin/stats
+```
+
+**List All Customers**:
+```bash
+curl -H "Authorization: Bearer MyFixedAdminToken123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ==" \
+  http://localhost:8080/api/customers
+```
+
+**Create New Customer**:
+```bash
+curl -X POST \
+  -H "Authorization: Bearer MyFixedAdminToken123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ==" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "my-team",
+    "enabled": true,
+    "defaultMinTokenNotificationThreshold": 10000
+  }' \
+  http://localhost:8080/api/customers
+```
+
+**Generate API Token**:
+```bash
+curl -X POST \
+  -H "Authorization: Bearer MyFixedAdminToken123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ==" \
+  http://localhost:8080/api/customers/b0617a36-9a4a-4848-8f8e-8caa478ec8b8/tokens
+```
+
+**View Customer Details**:
+```bash
+curl -H "Authorization: Bearer MyFixedAdminToken123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ==" \
+  http://localhost:8080/api/customers/b0617a36-9a4a-4848-8f8e-8caa478ec8b8
+```
+
+---
+
+#### 3. **WebSocket Agent Sessions (Python)**
+
+**Test WebSocket Connection**:
+```bash
+cd /Users/wallonwalusayi/Downloads/server-agents-trunk/examples/
+python3 3-test-websocket-connection.py
+```
+
+**Create Agent Session**:
+```bash
+python3 4-create-agent-session.py
+```
+
+---
+
+### Agent Configuration Example
+
+**YAML Configuration**:
+```yaml
+version: "1.0"
+agents:
+  code-reviewer:
+    description: "Reviews code for quality and security"
+    type: REVIEWER
+    instructions: |
+      Review the provided code for:
+      1. Code quality and maintainability
+      2. Security vulnerabilities
+      3. Performance issues
+      4. Adherence to best practices
+    mcpServers: |
+      {
+        "filesystem": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-filesystem", "/project"]
+        }
+      }
+    tools:
+      - filesystem.read_file
+      - filesystem.list_directory
+    output_schema: '{"type": "object", "properties": {"findings": {...}}}'
+```
+
+---
+
+### Prerequisites
+
+**Required**:
+- Java 21+
+- Node.js 18+
+- Gradle 8+
+- Anthropic API key (for Claude models)
+
+**Optional**:
+- Ollama (for local LLM support)
+
+---
+
+### Starting Services
+
+**1. Start Spring-Agents Server**:
+```bash
+cd spring-agents
+
+# Set environment variables
+export ANTHROPIC_API_KEY=your-key
+export AGENT_ADMIN_API_TOKEN=$(openssl rand -base64 48)
+export AGENT_HASHING_SECRET_V1=$(openssl rand -base64 64)
+export AGENT_JWT_SIGNING_KEY=$(openssl rand -base64 48)
+
+# Run with local profile
+./gradlew bootRun --args='--spring.profiles.active=local'
+```
+
+**2. Start Admin Portal**:
+```bash
+cd admin-client-spring-agents/admin-ui
+npm install
+npm run dev
+```
+
+**3. Start Agent SDK Client**:
+```bash
+cd agent-sdk
+# Configure in application.yml or environment variables
+./gradlew bootRun
+```
+
+---
+
+### Example Scripts
+
+Located in `examples/` directory:
+- `1-create-customer.sh` - Create new customer via API
+- `2-generate-api-token.sh` - Generate API token for customer
+- `3-test-websocket-connection.py` - Test WebSocket connectivity
+- `4-create-agent-session.py` - Create and interact with agent session
+
+---
+
+### Security Model
+
+**Authentication**:
+- Admin API: Bearer token authentication
+- WebSocket: API key in `X-API-Key` header
+- JWT tokens for session management
+
+**Token Management**:
+- Hashed storage with versioned secrets
+- Configurable reset policies (daily, weekly, monthly)
+- Per-customer, per-model allowances
+- Low balance notifications
+
+**Audit Logging**:
+- All API calls logged
+- Token generation/usage tracked
+- Security events captured
+- Cleanup policies configurable
+
+---
+
+### Observability
+
+**Metrics** (Prometheus):
+- Customer-level token usage
+- Model-specific metrics
+- WebSocket connection statistics
+- Tool execution metrics
+
+**Logging**:
+- Structured JSON logging
+- Per-service log files (server.log, agent-sdk.log, admin-portal.log)
+- Configurable log levels
+
+**Health Endpoints**:
+- `/actuator/health` - Service health
+- `/actuator/metrics` - Prometheus metrics
+- `/actuator/info` - Build/version information
+
+---
+
+### SDLC Workflow Examples
+
+#### Code Review Workflow
+1. Developer commits code to Git
+2. REVIEWER agent analyzes changes via filesystem MCP
+3. Agent produces structured review findings
+4. Results returned to developer via UI/API
+
+#### Test Generation Workflow
+1. ANALYST agent examines codebase structure
+2. ENGINEER agent generates test cases
+3. REVIEWER agent validates test coverage
+4. Tests committed to repository
+
+#### Bug Diagnosis Workflow
+1. Developer reports issue
+2. DIAGNOSTICIAN agent analyzes logs and code
+3. Agent identifies root cause
+4. Provides fix recommendations
+
+---
+
+### Integration Points
+
+**Works With**:
+- Model Context Protocol (MCP) servers
+- Anthropic Claude API
+- Ollama (local LLMs)
+- Git repositories (via MCP)
+- File systems (via MCP)
+- Terminal/shell commands (via MCP)
+- Custom HTTP/SSE MCP servers
+
+**Can Be Extended With**:
+- Custom MCP servers
+- Additional LLM providers
+- Custom agent types
+- Specialized tools
+
+---
+
+### SE Knowledge: Using Server-Agents for Development
+
+**Use Cases for SEs**:
+1. **Demo Environment Setup**: Automated environment provisioning with ENGINEER agents
+2. **Code Review Automation**: REVIEWER agents for customer demo code
+3. **Integration Testing**: DIAGNOSTICIAN agents for troubleshooting
+4. **Documentation Generation**: ANALYST agents for technical docs
+5. **Custom Workflow Automation**: Agent chains for repetitive tasks
+
+**Tips**:
+- Use ANALYST agents for understanding customer requirements
+- Use ENGINEER agents for generating demo code quickly
+- Use REVIEWER agents to QA customer integrations
+- Use DIAGNOSTICIAN agents when demos fail unexpectedly
+
+---
+
+### Quick Reference
+
+**Key Files**:
+- `README.md` - Complete platform documentation
+- `HOW_TO_USE.md` - Usage guide with examples
+- `SETUP_COMPLETE.md` - Current running status
+- `agent_types.md` - Detailed agent type specifications
+
+**Key Directories**:
+- `spring-agents/` - Server implementation
+- `agent-sdk/` - Client implementation
+- `admin-client-spring-agents/` - Admin portal
+- `agent-message-protocol/` - Shared protocol library
+- `examples/` - Example scripts and usage patterns
+
+**Logs**:
+- `server.log` - Spring-Agents server logs
+- `agent-sdk.log` - Agent SDK client logs
+- `admin-portal.log` - Admin portal logs
+
+**Process Management**:
+- `server.pid` - Server process ID
+- `agent-sdk.pid` - Client process ID
+- `admin-portal.pid` - Portal process ID
+
+---
+
 *This knowledge-core.md is maintained by Claude's adaptive learning system and updated as new patterns emerge from actual SE workflows.*
