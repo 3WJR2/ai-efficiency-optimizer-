@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "learning_enabled": true,
+  "learning_features": {
+    "cache_optimization": true,
+    "parallel_optimization": true,
+    "pattern_recognition": true,
+    "auto_tuning": true
+  },
+  "learning_thresholds": {
+    "min_samples_for_learning": 10,
+    "confidence_threshold": 0.70,
+    "adaptation_aggressiveness": 0.2
+  },
+  "cache_learning": {
+    "target_hit_rate": 0.65,
+    "similarity_adjustment_step": 0.02,
+    "min_similarity_threshold": 0.70,
+    "max_similarity_threshold": 0.95
+  },
+  "parallel_learning": {
+    "target_success_rate": 0.90,
+    "concurrent_adjustment_step": 1,
+    "min_concurrent_processes": 2,
+    "max_concurrent_processes": 10
+  },
+  "analysis_intervals": {
+    "outcome_tracking_interval_seconds": 300,
+    "pattern_analysis_interval_seconds": 3600,
+    "config_adaptation_interval_seconds": 7200
+  },
+  "last_updated": "2026-02-03T00:00:00Z"
+}

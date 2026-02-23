@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "initialized_at": "2026-02-02T00:00:00Z",
+  "prompt_cache": {
+    "total_requests": 2,
+    "cache_hits": 0,
+    "cache_misses": 2,
+    "tokens_saved": 0,
+    "cost_saved_usd": 0
+  },
+  "semantic_cache": {
+    "total_requests": 4,
+    "cache_hits": 2,
+    "cache_misses": 2,
+    "cost_saved_usd": 0.0,
+    "avg_similarity_score": 0.9035
+  },
+  "performance": {
+    "avg_latency_ms": 3000.5,
+    "avg_latency_with_cache_ms": 87.5,
+    "latency_reduction_pct": 97.08381936343943
+  },
+  "last_updated": "2026-02-02T17:33:01Z"
+}

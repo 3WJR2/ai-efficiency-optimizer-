@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "context_window": 200000,
+  "safe_threshold": 150000,
+  "critical_threshold": 180000,
+  "current_session": {
+    "base_context_tokens": 0,
+    "loaded_context_tokens": 500,
+    "conversation_tokens": 0,
+    "total_tokens": 500,
+    "last_updated": "2026-02-19T19:28:59Z"
+  },
+  "history": [
+    {
+      "base_context_tokens": 0,
+      "loaded_context_tokens": 0,
+      "conversation_tokens": 0,
+      "total_tokens": 0,
+      "last_updated": "2026-02-19T19:27:23Z",
+      "base_context": 1000,
+      "reset_reason": "manual_reset"
+    },
+    {
+      "base_context_tokens": 1000,
+      "loaded_context_tokens": 0,
+      "conversation_tokens": 0,
+      "total_tokens": 1000,
+      "last_updated": "2026-02-19T19:27:47Z",
+      "reset_reason": "manual_reset"
+    },
+    {
+      "base_context_tokens": 1000,
+      "loaded_context_tokens": 0,
+      "conversation_tokens": 0,
+      "total_tokens": 1000,
+      "last_updated": "2026-02-19T19:27:54Z",
+      "reset_reason": "manual_reset"
+    },
+    {
+      "base_context_tokens": 1000,
+      "loaded_context_tokens": 500,
+      "conversation_tokens": 0,
+      "total_tokens": 1500,
+      "last_updated": "2026-02-19T19:28:06Z",
+      "reset_reason": "manual_reset"
+    },
+    {
+      "base_context_tokens": 0,
+      "loaded_context_tokens": 500,
+      "conversation_tokens": 0,
+      "total_tokens": 500,
+      "last_updated": "2026-02-19T19:28:41Z",
+      "reset_reason": "manual_reset"
+    }
+  ]
+}

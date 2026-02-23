@@ -1,0 +1,9 @@
+[skill]
+name = "qodo-pr"
+version = "1.0.0"
+description = "Comprehensive PR readiness check using Qodo CLI - runs full review and validates PR requirements"
+user_invocable = true
+
+[skill.parameters]
+post_comment = { type = "boolean", description = "Post results to Azure DevOps PR (requires PR_ID)", default = false }
+pr_id = { type = "string", description = "Azure DevOps Pull Request ID for posting comments", required = false }

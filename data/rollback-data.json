@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "snapshots": [],
+  "rollback_history": [],
+  "degradation_threshold": 0.10
+}

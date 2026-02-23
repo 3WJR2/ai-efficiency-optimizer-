@@ -1,0 +1,92 @@
+{
+  "version": "1.0",
+  "description": "SE Workflow Data Integrations Configuration",
+
+  "credentials_path": "~/.claude/credentials",
+
+  "integrations": {
+    "gong": {
+      "enabled": false,
+      "base_url": "https://api.gong.io",
+      "api_version": "v2",
+      "rate_limit": {
+        "requests_per_minute": 60,
+        "burst": 10
+      },
+      "features": [
+        "call_transcripts",
+        "content_analysis",
+        "pain_point_extraction",
+        "decision_maker_identification"
+      ]
+    },
+
+    "hubspot": {
+      "enabled": false,
+      "base_url": "https://api.hubapi.com",
+      "api_version": "v3",
+      "rate_limit": {
+        "requests_per_second": 10,
+        "daily_limit": 500000
+      },
+      "features": [
+        "company_info",
+        "deal_details",
+        "contact_list",
+        "interaction_history"
+      ]
+    },
+
+    "github": {
+      "enabled": false,
+      "base_url": "https://api.github.com",
+      "api_version": "2022-11-28",
+      "rate_limit": {
+        "requests_per_hour": 5000
+      },
+      "features": [
+        "org_repos",
+        "tech_stack_detection",
+        "code_style_analysis",
+        "pr_creation"
+      ]
+    },
+
+    "qodo": {
+      "enabled": true,
+      "base_url": "https://api.qodo.ai",
+      "api_version": "v1",
+      "features": [
+        "feature_catalog",
+        "pricing_calculator",
+        "use_cases",
+        "integration_guides"
+      ]
+    }
+  },
+
+  "data_collection": {
+    "timeout_seconds": 30,
+    "retry_attempts": 3,
+    "retry_delay_seconds": 2,
+    "parallel_fetching": true,
+    "max_concurrent_requests": 4
+  },
+
+  "caching": {
+    "enabled": true,
+    "ttl_seconds": 3600,
+    "cache_dir": "~/.claude/cache/integrations"
+  },
+
+  "demo_generation": {
+    "default_duration_minutes": 25,
+    "sections": [
+      "intro",
+      "problem",
+      "solution",
+      "roi",
+      "next_steps"
+    ]
+  }
+}

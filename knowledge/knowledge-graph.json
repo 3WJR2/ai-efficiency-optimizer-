@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "k_2026-02-17-session-1-3d3a_msg1_20260217",
+      "type": "error",
+      "tags": [
+        "debug",
+        "error",
+        "python"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "id": "k_2026-02-17-session-1-3d3a_msg3_20260217",
+      "type": "solution",
+      "tags": [
+        "error",
+        "fix",
+        "index",
+        "python"
+      ],
+      "confidence": 0.80
+    },
+    {
+      "id": "k_2026-02-17-session-1-df2f_msg1_20260217",
+      "type": "error",
+      "tags": [
+        "debug",
+        "error",
+        "python"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "id": "k_2026-02-17-session-1-df2f_msg3_20260217",
+      "type": "solution",
+      "tags": [
+        "error",
+        "fix",
+        "index",
+        "python"
+      ],
+      "confidence": 0.80
+    }
+  ],
+  "edges": []
+}

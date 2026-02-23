@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "auto_orchestration": false,
+  "auto_indexing": true,
+  "default_index_dir": "/Users/wallonwalusayi/.claude/scripts",
+  "cache_enabled": true,
+  "parallel_execution": true,
+  "max_concurrent_agents": 5,
+  "context_preloading": true,
+  "verbose": false
+}

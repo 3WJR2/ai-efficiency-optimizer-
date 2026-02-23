@@ -1,0 +1,11 @@
+[skill]
+name = "qodo-review"
+version = "1.0.0"
+description = "AI-powered code review using Qodo CLI - security, performance, and quality analysis"
+user_invocable = true
+
+[skill.parameters]
+type = { type = "string", description = "Review type: security, performance, quality, full, or custom agent name", default = "security" }
+files = { type = "string", description = "Optional: specific files or directories to review", required = false }
+model = { type = "string", description = "Optional: AI model to use (claude-sonnet-4-5, claude-haiku-4-5, claude-opus-4-6)", required = false }
+threshold = { type = "string", description = "Optional: custom threshold or parameters", required = false }

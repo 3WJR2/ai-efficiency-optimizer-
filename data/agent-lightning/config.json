@@ -1,0 +1,35 @@
+{
+  "bridge_enabled": true,
+  "store_type": "file",
+  "store_path": "/Users/wallonwalusayi/.claude/data/agent-lightning/lightning-store",
+  "emit_to_lightning": true,
+  "training_enabled": false,
+  "algorithm": "apo",
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "reward_shaping": {
+    "cache_hit_reward": 1.0,
+    "cache_miss_penalty": -0.1,
+    "latency_threshold_ms": 1000,
+    "fast_response_reward": 0.5,
+    "slow_response_penalty": -0.2,
+    "parallel_success_reward": 0.8,
+    "parallel_failure_penalty": -0.3
+  },
+  "integration": {
+    "sync_interval_seconds": 300,
+    "auto_train": false,
+    "min_samples_for_training": 100,
+    "adaptive_intelligence": true,
+    "caching": true,
+    "parallel_execution": true,
+    "outcome_tracking": true
+  },
+  "tracing": {
+    "enabled": true,
+    "collect_token_ids": false,
+    "collect_logprobs": false,
+    "collect_spans": true
+  },
+  "version": "1.0.0"
+}

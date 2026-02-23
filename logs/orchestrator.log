@@ -1,0 +1,226 @@
+[2026-02-18 08:30:53] [INFO] === Starting orchestration ===
+[2026-02-18 08:30:53] [INFO] Request: Debug authentication failure
+[2026-02-18 08:30:53] [INFO] Classifying request...
+[2026-02-18 08:30:54] [DEBUG] Classification: {
+  "type": "debug",
+  "confidence": 0.56,
+  "intent": "mixed",
+  "complexity": "low",
+  "keywords": [],
+  "domains": [
+    "security",
+    "ml"
+  ],
+  "secondary_types": [],
+  "all_scores": {
+    "debug": 0.56,
+    "implement": 0,
+    "refactor": 0,
+    "explore": 0,
+    "test": 0,
+    "design": 0,
+    "research": 0,
+    "fix": 0,
+    "optimize": 0
+  },
+  "timestamp": "2026-02-18T15:30:54Z",
+  "learned_technologies": [
+    "python",
+    "shell",
+    "javascript"
+  ]
+}
+[2026-02-18 08:30:54] [INFO] Task type:  (confidence: )
+[2026-02-18 08:30:54] [INFO] Complexity: 
+[2026-02-18 08:30:54] [WARNING] No strategy found for task type: 
+[2026-02-18 08:30:54] [INFO] Strategy: 
+[2026-02-18 08:30:54] [INFO] Generating execution plan...
+[2026-02-18 08:30:54] [INFO] Strategy requires  agents
+[2026-02-18 08:30:54] [INFO] Execution plan has  priority groups
+[2026-02-18 08:30:54] [INFO] === DRY RUN MODE - No agents will be spawned ===
+[2026-02-18 08:30:54] [INFO] Classification:
+[2026-02-18 08:31:18] [INFO] === Starting orchestration ===
+[2026-02-18 08:31:18] [INFO] Request: Debug auth
+[2026-02-18 08:31:18] [INFO] Classifying request...
+[2026-02-18 08:31:20] [DEBUG] Classification: {
+  "type": "debug",
+  "confidence": 0.67,
+  "intent": "mixed",
+  "complexity": "low",
+  "keywords": [],
+  "domains": [
+    "security"
+  ],
+  "secondary_types": [],
+  "all_scores": {
+    "debug": 0.67,
+    "implement": 0,
+    "refactor": 0,
+    "explore": 0,
+    "test": 0,
+    "design": 0,
+    "research": 0,
+    "fix": 0,
+    "optimize": 0
+  },
+  "timestamp": "2026-02-18T15:31:20Z",
+  "learned_technologies": [
+    "python",
+    "shell",
+    "javascript"
+  ]
+}
+[2026-02-18 08:31:20] [INFO] Task type:  (confidence: )
+[2026-02-18 08:31:20] [INFO] Complexity: 
+[2026-02-18 08:31:20] [WARNING] No strategy found for task type: 
+[2026-02-18 08:31:20] [INFO] Strategy: 
+[2026-02-18 08:31:20] [INFO] Generating execution plan...
+[2026-02-18 08:31:20] [INFO] Strategy requires  agents
+[2026-02-18 08:31:20] [INFO] Execution plan has  priority groups
+[2026-02-18 08:31:20] [INFO] === DRY RUN MODE - No agents will be spawned ===
+[2026-02-18 08:31:20] [INFO] Classification:
+[2026-02-18 08:31:43] [INFO] === Starting orchestration ===
+[2026-02-18 08:31:43] [INFO] Request: Debug authentication
+[2026-02-18 08:31:43] [INFO] Classifying request...
+[2026-02-18 08:31:45] [ERROR] Failed to classify request
+[2026-02-18 08:31:45] [INFO] Task type:  (confidence: )
+[2026-02-18 08:31:45] [INFO] Complexity: 
+[2026-02-18 08:31:45] [WARNING] No strategy found for task type: 
+[2026-02-18 08:31:45] [INFO] Strategy: 
+[2026-02-18 08:31:45] [INFO] Generating execution plan...
+[2026-02-18 08:31:45] [INFO] Strategy requires  agents
+[2026-02-18 08:31:45] [INFO] Execution plan has  priority groups
+[2026-02-18 08:31:45] [INFO] === DRY RUN MODE - No agents will be spawned ===
+[2026-02-18 08:31:45] [INFO] Classification:
+[2026-02-18 08:32:01] [INFO] === Starting orchestration ===
+[2026-02-18 08:32:01] [INFO] Request: Debug authentication
+[2026-02-18 08:32:01] [INFO] Classifying request...
+[2026-02-18 08:32:03] [DEBUG] Classification: {
+  "type": "debug",
+  "confidence": 0.67,
+  "intent": "mixed",
+  "complexity": "low",
+  "keywords": [],
+  "domains": [
+    "security"
+  ],
+  "secondary_types": [],
+  "all_scores": {
+    "debug": 0.67,
+    "implement": 0,
+    "refactor": 0,
+    "explore": 0,
+    "test": 0,
+    "design": 0,
+    "research": 0,
+    "fix": 0,
+    "optimize": 0
+  },
+[2026-02-18 08:32:03] [INFO] Task type:  (confidence: )
+[2026-02-18 08:32:03] [INFO] Complexity: 
+[2026-02-18 08:32:03] [WARNING] No strategy found for task type: 
+[2026-02-18 08:32:03] [INFO] Strategy: 
+[2026-02-18 08:32:03] [INFO] Generating execution plan...
+[2026-02-18 08:32:03] [INFO] Strategy requires  agents
+[2026-02-18 08:32:03] [INFO] Execution plan has  priority groups
+[2026-02-18 08:32:03] [INFO] === DRY RUN MODE - No agents will be spawned ===
+[2026-02-18 08:32:03] [INFO] Classification:
+[2026-02-18 08:32:15] [INFO] === Starting orchestration ===
+[2026-02-18 08:32:15] [INFO] Request: Debug authentication
+[2026-02-18 08:32:15] [INFO] Classifying request...
+[2026-02-18 08:32:16] [DEBUG] Classification: {
+  "type": "debug",
+  "confidence": 0.67,
+  "intent": "mixed",
+  "complexity": "low",
+  "keywords": [],
+  "domains": [
+    "security"
+  ],
+  "secondary_types": [],
+  "all_scores": {
+    "debug": 0.67,
+    "implement": 0,
+    "refactor": 0,
+    "explore": 0,
+    "test": 0,
+    "design": 0,
+    "research": 0,
+    "fix": 0,
+    "optimize": 0
+  },
+[2026-02-18 08:32:16] [INFO] Task type:  (confidence: )
+[2026-02-18 08:32:16] [INFO] Complexity: 
+[2026-02-18 08:32:16] [WARNING] No strategy found for task type: 
+[2026-02-18 08:32:16] [INFO] Strategy: 
+[2026-02-18 08:32:16] [INFO] Generating execution plan...
+[2026-02-18 08:32:16] [INFO] Strategy requires  agents
+[2026-02-18 08:32:16] [INFO] Execution plan has  priority groups
+[2026-02-18 08:32:16] [INFO] === DRY RUN MODE - No agents will be spawned ===
+[2026-02-18 08:32:16] [INFO] Classification:
+[2026-02-18 08:32:36] [INFO] === Starting orchestration ===
+[2026-02-18 08:32:36] [INFO] Request: Debug authentication
+[2026-02-18 08:32:36] [INFO] Classifying request...
+[2026-02-18 08:32:37] [DEBUG] Classification: {
+  "type": "debug",
+  "confidence": 0.67,
+  "intent": "mixed",
+  "complexity": "low",
+  "keywords": [],
+  "domains": [
+    "security"
+  ],
+  "secondary_types": [],
+  "all_scores": {
+    "debug": 0.67,
+    "implement": 0,
+    "refactor": 0,
+    "explore": 0,
+    "test": 0,
+    "design": 0,
+    "research": 0,
+    "fix": 0,
+    "optimize": 0
+  },
+[2026-02-18 08:32:37] [INFO] Task type:  (confidence: )
+[2026-02-18 08:32:37] [INFO] Complexity: 
+[2026-02-18 08:32:37] [WARNING] No strategy found for task type: 
+[2026-02-18 08:32:37] [INFO] Strategy: 
+[2026-02-18 08:32:37] [INFO] Generating execution plan...
+[2026-02-18 08:32:37] [INFO] Strategy requires  agents
+[2026-02-18 08:32:37] [INFO] Execution plan has  priority groups
+[2026-02-18 08:32:37] [INFO] === DRY RUN MODE - No agents will be spawned ===
+[2026-02-18 08:32:37] [INFO] Classification:
+[2026-02-18 08:32:46] [INFO] === Starting orchestration ===
+[2026-02-18 08:32:46] [INFO] Request: Debug authentication
+[2026-02-18 08:32:46] [INFO] Classifying request...
+[2026-02-18 08:32:48] [DEBUG] Classification: {
+  "type": "debug",
+  "confidence": 0.67,
+  "intent": "mixed",
+  "complexity": "low",
+  "keywords": [],
+  "domains": [
+    "security"
+  ],
+  "secondary_types": [],
+  "all_scores": {
+    "debug": 0.67,
+    "implement": 0,
+    "refactor": 0,
+    "explore": 0,
+    "test": 0,
+    "design": 0,
+    "research": 0,
+    "fix": 0,
+    "optimize": 0
+  },
+[2026-02-18 08:32:48] [INFO] Task type:  (confidence: )
+[2026-02-18 08:32:48] [INFO] Complexity: 
+[2026-02-18 08:32:48] [WARNING] No strategy found for task type: 
+[2026-02-18 08:32:48] [INFO] Strategy: 
+[2026-02-18 08:32:48] [INFO] Generating execution plan...
+[2026-02-18 08:32:48] [INFO] Strategy requires  agents
+[2026-02-18 08:32:48] [INFO] Execution plan has  priority groups
+[2026-02-18 08:32:48] [INFO] === DRY RUN MODE - No agents will be spawned ===
+[2026-02-18 08:32:48] [INFO] Classification:

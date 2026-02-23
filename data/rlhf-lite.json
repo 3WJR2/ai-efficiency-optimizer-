@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "state_action_values": {
+    "general_verbose_detailed": 0.10
+  },
+  "policy": {
+    "exploration_rate": 0.15,
+    "learning_rate": 0.1,
+    "discount_factor": 0.95
+  },
+  "reward_model": {
+    "excellent_response": 1.0,
+    "good_response": 0.7,
+    "acceptable_response": 0.3,
+    "poor_response": -0.5,
+    "user_correction": -1.0
+  },
+  "episode_history": [
+    {
+      "state": "general_verbose_detailed",
+      "reward": 1.0,
+      "timestamp": "2026-01-31T20:29:15Z"
+    }
+  ],
+  "total_episodes": 1,
+  "avg_reward": 1.000
+}

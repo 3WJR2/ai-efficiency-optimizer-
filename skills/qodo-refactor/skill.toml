@@ -1,0 +1,9 @@
+[skill]
+name = "qodo-refactor"
+version = "1.0.0"
+description = "Get AI-powered refactoring suggestions using Qodo CLI"
+user_invocable = true
+
+[skill.parameters]
+target = { type = "string", description = "File, directory, or description of what to refactor", required = false }
+focus = { type = "string", description = "Refactoring focus: complexity, duplication, patterns, naming, all", default = "all" }

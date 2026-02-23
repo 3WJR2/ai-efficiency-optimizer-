@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "tier_settings": {
+    "tier1": {
+      "max_sessions": 2,
+      "max_age_days": 7,
+      "token_budget": 20000,
+      "load_full": true
+    },
+    "tier2": {
+      "max_sessions": 10,
+      "token_budget": 30000,
+      "load_summaries": true
+    },
+    "tier3": {
+      "token_budget": 10000,
+      "index_only": true
+    }
+  },
+  "total_token_budget": 60000,
+  "cost_target": 0.30,
+  "optimization": {
+    "enable_caching": true,
+    "prefer_summaries": true,
+    "adaptive_sizing": true
+  },
+  "metrics": {
+    "total_loads": 2,
+    "total_tokens": 502,
+    "total_cost": 0.001506,
+    "avg_load_time": 34.00
+  }
+}

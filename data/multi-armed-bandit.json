@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "strategies": {
+    "verbose_detailed": {
+      "description": "Detailed explanations with context",
+      "tries": 0,
+      "successes": 0,
+      "total_reward": 0,
+      "avg_reward": 0,
+      "confidence_bound": 999
+    },
+    "concise_direct": {
+      "description": "Brief, to-the-point responses",
+      "tries": 0,
+      "successes": 0,
+      "total_reward": 0,
+      "avg_reward": 0,
+      "confidence_bound": 999
+    },
+    "code_first": {
+      "description": "Code examples before explanation",
+      "tries": 0,
+      "successes": 0,
+      "total_reward": 0,
+      "avg_reward": 0,
+      "confidence_bound": 999
+    },
+    "theory_first": {
+      "description": "Explanation before code",
+      "tries": 0,
+      "successes": 0,
+      "total_reward": 0,
+      "avg_reward": 0,
+      "confidence_bound": 999
+    },
+    "examples_heavy": {
+      "description": "Multiple examples and use cases",
+      "tries": 0,
+      "successes": 0,
+      "total_reward": 0,
+      "avg_reward": 0,
+      "confidence_bound": 999
+    },
+    "diagrams_visual": {
+      "description": "Visual representations and diagrams",
+      "tries": 0,
+      "successes": 0,
+      "total_reward": 0,
+      "avg_reward": 0,
+      "confidence_bound": 999
+    }
+  },
+  "exploration_rate": 0.1,
+  "total_selections": 0,
+  "best_strategy": null
+}

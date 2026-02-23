@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "tasks": {
+    "cache-config.json": {
+      "task_id": "cache-config.json",
+      "command": "cat '/Users/wallonwalusayi/.claude/data/cache-config.json'",
+      "depends_on": [],
+      "status": "completed",
+      "created_at": "2026-02-05T16:13:48Z",
+      "started_at": "2026-02-05T16:13:48Z",
+      "completed_at": "2026-02-05T16:13:49Z",
+      "exit_code": 0,
+      "output": "{\n  \"version\": \"1.0.0\",\n  \"prompt_caching_enabled\": true,\n  \"semantic_caching_enabled\": true,\n  \"redis_host\": \"localhost\",\n  \"redis_port\": 6379,\n  \"cache_ttl_seconds\": 86400,\n  \"similarity_threshold\": 0.74,\n  \"embedding_provider\": \"anthropic\",\n  \"max_cache_size_mb\": 100,\n  \"feature_flags\": {\n    \"enable_cache\": true,\n    \"enable_metrics\": true,\n    \"enable_debug_logging\": false\n  },\n  \"cost_per_1k_tokens\": {\n    \"input\": 0.003,\n    \"output\": 0.015,\n    \"cached_input\": 0.0003\n  }\n}",
+      "error": null
+    },
+    "learning-config.json": {
+      "task_id": "learning-config.json",
+      "command": "cat '/Users/wallonwalusayi/.claude/data/learning-config.json'",
+      "depends_on": [],
+      "status": "completed",
+      "created_at": "2026-02-05T16:13:48Z",
+      "started_at": "2026-02-05T16:13:49Z",
+      "completed_at": "2026-02-05T16:13:50Z",
+      "exit_code": 0,
+      "output": "{\n  \"version\": \"1.0.0\",\n  \"learning_enabled\": true,\n  \"learning_features\": {\n    \"cache_optimization\": true,\n    \"parallel_optimization\": true,\n    \"pattern_recognition\": true,\n    \"auto_tuning\": true\n  },\n  \"learning_thresholds\": {\n    \"min_samples_for_learning\": 10,\n    \"confidence_threshold\": 0.70,\n    \"adaptation_aggressiveness\": 0.2\n  },\n  \"cache_learning\": {\n    \"target_hit_rate\": 0.65,\n    \"similarity_adjustment_step\": 0.02,\n    \"min_similarity_threshold\": 0.70,\n    \"max_similarity_threshold\": 0.95\n  },\n  \"parallel_learning\": {\n    \"target_success_rate\": 0.90,\n    \"concurrent_adjustment_step\": 1,\n    \"min_concurrent_processes\": 2,\n    \"max_concurrent_processes\": 10\n  },\n  \"analysis_intervals\": {\n    \"outcome_tracking_interval_seconds\": 300,\n    \"pattern_analysis_interval_seconds\": 3600,\n    \"config_adaptation_interval_seconds\": 7200\n  },\n  \"last_updated\": \"2026-02-03T00:00:00Z\"\n}",
+      "error": null
+    },
+    "parallel-config.json": {
+      "task_id": "parallel-config.json",
+      "command": "cat '/Users/wallonwalusayi/.claude/data/parallel-config.json'",
+      "depends_on": [],
+      "status": "completed",
+      "created_at": "2026-02-05T16:13:48Z",
+      "started_at": "2026-02-05T16:13:48Z",
+      "completed_at": "2026-02-05T16:13:49Z",
+      "exit_code": 0,
+      "output": "{\n  \"version\": \"1.0.0\",\n  \"max_concurrent_processes\": 5,\n  \"process_timeout_seconds\": 300,\n  \"retry_attempts\": 3,\n  \"retry_delay_seconds\": 2,\n  \"enable_resource_limits\": true,\n  \"max_memory_mb_per_process\": 500,\n  \"enable_metrics_tracking\": true,\n  \"aggregation_strategy\": \"concatenate\"\n}",
+      "error": null
+    },
+    "interaction-learning.json": {
+      "task_id": "interaction-learning.json",
+      "command": "cat '/Users/wallonwalusayi/.claude/data/interaction-learning.json'",
+      "depends_on": [],
+      "status": "completed",
+      "created_at": "2026-02-05T16:13:48Z",
+      "started_at": "2026-02-05T16:13:48Z",
+      "completed_at": "2026-02-05T16:13:49Z",
+      "exit_code": 0,
+      "output": "{\n  \"version\": \"1.0.0\",\n  \"learning_system\": {\n    \"enabled\": true,\n    \"confidence_threshold\": 0.70,\n    \"min_samples_for_learning\": 3,\n    \"adaptation_rate\": 0.15\n  },\n  \"interaction_patterns\": {\n    \"request_categories\": {\n      \"code_implementation\": {\n        \"count\": 0,\n        \"avg_complexity\": 0,\n        \"preferred_approach\": \"unknown\",\n        \"success_rate\": 0,\n        \"common_patterns\": []\n      },\n      \"system_design\": {\n        \"count\": 0,\n        \"avg_complexity\": 0,\n        \"preferred_approach\": \"unknown\",\n        \"success_rate\": 0,\n        \"common_patterns\": []\n      },\n      \"debugging\": {\n        \"count\": 0,\n        \"avg_complexity\": 0,\n        \"preferred_approach\": \"unknown\",\n        \"success_rate\": 0,\n        \"common_patterns\": []\n      },\n      \"explanation_requests\": {\n        \"count\": 0,\n        \"depth_preference\": \"unknown\",\n        \"preferred_format\": \"unknown\",\n        \"success_rate\": 0\n      },\n      \"research_tasks\": {\n        \"count\": 0,\n        \"thoroughness_preference\": \"unknown\",\n        \"success_rate\": 0,\n        \"common_patterns\": []\n      }\n    },\n    \"communication_style\": {\n      \"brevity_vs_detail\": {\n        \"score\": 0.5,\n        \"confidence\": 0.0,\n        \"samples\": 0\n      },\n      \"technical_depth\": {\n        \"score\": 0.5,\n        \"confidence\": 0.0,\n        \"samples\": 0\n      },\n      \"code_examples_preferred\": {\n        \"score\": 0.5,\n        \"confidence\": 0.0,\n        \"samples\": 0\n      },\n      \"visual_diagrams_preferred\": {\n        \"score\": 0.5,\n        \"confidence\": 0.0,\n        \"samples\": 0\n      }\n    },\n    \"problem_solving_style\": {\n      \"systematic_vs_exploratory\": 0.5,\n      \"top_down_vs_bottom_up\": 0.5,\n      \"theory_first_vs_practice_first\": 0.5,\n      \"confidence\": 0.0\n    },\n    \"quality_indicators\": {\n      \"follows_up_with_questions\": 0,\n      \"requests_clarifications\": 0,\n      \"provides_detailed_context\": 0,\n      \"accepts_suggestions\": 0,\n      \"rejects_suggestions\": 0\n    }\n  },\n  \"learned_preferences\": {\n    \"technologies\": {\n      \"javascript\": 8,\n      \"python\": 97,\n      \"shell\": 95,\n      \"typescript\": 1\n    },\n    \"frameworks\": {},\n    \"methodologies\": {},\n    \"documentation_sources\": {}\n  },\n  \"behavioral_insights\": {\n    \"typical_workflows\": [],\n    \"common_pitfalls\": [],\n    \"strengths\": [],\n    \"areas_needing_support\": []\n  },\n  \"adaptation_history\": [],\n  \"\": {\n    \"interaction_patterns\": {\n      \"request_categories\": {\n        \"system_design\": {\n          \"count\": 1\n        }\n      }\n    }\n  }\n}",
+      "error": null
+    }
+  },
+  "metadata": {
+    "created_at": "2026-02-05T16:13:48Z",
+    "last_updated": "2026-02-05T16:13:50Z"
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "version": "1.0.0",
+  "classifications": [
+    {
+      "request": "Debug authentication failure",
+      "classification": {
+        "type": "debug",
+        "confidence": 0.56,
+        "intent": "mixed",
+        "complexity": "low",
+        "keywords": [],
+        "domains": [
+          "security",
+          "ml"
+        ],
+        "secondary_types": [],
+        "all_scores": {
+          "debug": 0.56,
+          "implement": 0,
+          "refactor": 0,
+          "explore": 0,
+          "test": 0,
+          "design": 0,
+          "research": 0,
+          "fix": 0,
+          "optimize": 0
+        },
+        "timestamp": "2026-02-18T15:30:54Z",
+        "learned_technologies": [
+          "python",
+          "shell",
+          "javascript"
+        ]
+      },
+      "outcome": "pending",
+      "timestamp": "2026-02-18T15:30:54Z"
+    },
+    {
+      "request": "Debug authentication failure",
+      "classification": {
+        "type": "debug",
+        "confidence": 0.56,
+        "intent": "mixed",
+        "complexity": "low",
+        "keywords": [],
+        "domains": [
+          "security",
+          "ml"
+        ],
+        "secondary_types": [],
+        "all_scores": {
+          "debug": 0.56,
+          "implement": 0,
+          "refactor": 0,
+          "explore": 0,
+          "test": 0,
+          "design": 0,
+          "research": 0,
+          "fix": 0,
+          "optimize": 0
+        },
+        "timestamp": "2026-02-18T15:31:00Z",
+        "learned_technologies": [
+          "python",
+          "shell",
+          "javascript"
+        ]
+      },
+      "outcome": "pending",
+      "timestamp": "2026-02-18T15:31:00Z"
+    },
+    {
+      "request": "Debug auth",
+      "classification": {
+        "type": "debug",
+        "confidence": 0.67,
+        "intent": "mixed",
+        "complexity": "low",
+        "keywords": [],
+        "domains": [
+          "security"
+        ],
+        "secondary_types": [],
+        "all_scores": {
+          "debug": 0.67,
+          "implement": 0,
+          "refactor": 0,
+          "explore": 0,
+          "test": 0,
+          "design": 0,
+          "research": 0,
+          "fix": 0,
+          "optimize": 0
+        },
+        "timestamp": "2026-02-18T15:31:13Z",
+        "learned_technologies": [
+          "python",
+          "shell",
+          "javascript"
+        ]
+      },
+      "outcome": "pending",
+      "timestamp": "2026-02-18T15:31:13Z"
+    },
+    {
+      "request": "Debug auth",
+      "classification": {
+        "type": "debug",
+        "confidence": 0.67,
+        "intent": "mixed",
+        "complexity": "low",
+        "keywords": [],
+        "domains": [
+          "security"
+        ],
+        "secondary_types": [],
+        "all_scores": {
+          "debug": 0.67,
+          "implement": 0,
+          "refactor": 0,
+          "explore": 0,
+          "test": 0,
+          "design": 0,
+          "research": 0,
+          "fix": 0,
+          "optimize": 0
+        },
+        "timestamp": "2026-02-18T15:31:20Z",
+        "learned_technologies": [
+          "python",
+          "shell",
+          "javascript"
+        ]
+      },
+      "outcome": "pending",
+      "timestamp": "2026-02-18T15:31:20Z"
+    },
+    {
+      "request": "Debug auth",
+      "classification": {
+        "type": "debug",
+        "confidence": 0.67,
+        "intent": "mixed",
+        "complexity": "low",
+        "keywords": [],
+        "domains": [
+          "security"
+        ],
+        "secondary_types": [],
+        "all_scores": {
+          "debug": 0.67,
+          "implement": 0,
+          "refactor": 0,
+          "explore": 0,
+          "test": 0,
+          "design": 0,
+          "research": 0,
+          "fix": 0,
+          "optimize": 0
+        },
+        "timestamp": "2026-02-18T15:31:30Z",
+        "learned_technologies": [
+          "python",
+          "shell",
+          "javascript"
+        ]
+      },
+      "outcome": "pending",
+      "timestamp": "2026-02-18T15:31:30Z"
+    },
+    {
+      "request": "Debug authentication",
+      "classification": {
+        "type": "debug",
+        "confidence": 0.67,
+        "intent": "mixed",
+        "complexity": "low",
+        "keywords": [],
+        "domains": [
+          "security"
+        ],
+        "secondary_types": [],
+        "all_scores": {
+          "debug": 0.67,
+          "implement": 0,
+          "refactor": 0,
+          "explore": 0,
+          "test": 0,
+          "design": 0,
+          "research": 0,
+          "fix": 0,
+          "optimize": 0
+        },
+        "timestamp": "2026-02-18T15:31:45Z",
+        "learned_technologies": [
+          "python",
+          "shell",
+          "javascript"
+        ]
+      },
+      "outcome": "pending",
+      "timestamp": "2026-02-18T15:31:45Z"
+    },
+    {
+      "request": "Debug authentication",
+      "classification": {
+        "type": "debug",
+        "confidence": 0.67,
+        "intent": "mixed",
+        "complexity": "low",
+        "keywords": [],
+        "domains": [
+          "security"
+        ],
+        "secondary_types": [],
+        "all_scores": {
+          "debug": 0.67,
+          "implement": 0,
+          "refactor": 0,
+          "explore": 0,
+          "test": 0,
+          "design": 0,
+          "research": 0,
+          "fix": 0,
+          "optimize": 0
+        },
+        "timestamp": "2026-02-18T15:31:51Z",
+        "learned_technologies": [
+          "python",
+          "shell",
+          "javascript"
+        ]
+      },
+      "outcome": "pending",
+      "timestamp": "2026-02-18T15:31:51Z"
+    },
+    {
+      "request": "Debug authentication",
+      "classification": {
+        "type": "debug",
+        "confidence": 0.67,
+        "intent": "mixed",
+        "complexity": "low",
+        "keywords": [],
+        "domains": [
+          "security"
+        ],
+        "secondary_types": [],
+        "all_scores": {
+          "debug": 0.67,
+          "implement": 0,
+          "refactor": 0,
+          "explore": 0,
+          "test": 0,
+          "design": 0,
+          "research": 0,
+          "fix": 0,
+          "optimize": 0
+        },
+        "timestamp": "2026-02-18T15:32:03Z",
+        "learned_technologies": [
+          "python",
+          "shell",
+          "javascript"
+        ]
+      },
+      "outcome": "pending",
+      "timestamp": "2026-02-18T15:32:03Z"
+    }
+  ],
+  "pattern_accuracy": {},
+  "total_classifications": 8,
+  "last_updated": "2026-02-18T15:32:03Z"
+}

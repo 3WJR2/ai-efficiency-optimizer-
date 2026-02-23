@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-02-21T20:49:59Z",
+  "interaction_count": 136,
+  "learning_stage": "personalized_expertise",
+  "insights": {
+    "top_request_types": "code_implementation: 0, system_design: 0, debugging: 0",
+    "confidence_level": 1.36,
+    "recommendations": [
+      "Continue building interaction history for better personalization",
+      "System is learning your communication patterns",
+      "Quality-first approach is active and monitoring"
+    ]
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "version": "1.0.0",
+  "framework": {
+    "enabled": true,
+    "enforcement_level": "mandatory",
+    "quality_threshold": 0.85
+  },
+  "thinking_protocols": {
+    "problem_analysis": {
+      "steps": [
+        "1. Understand the core problem (not just symptoms)",
+        "2. Identify constraints and requirements",
+        "3. Map dependencies and relationships",
+        "4. Evaluate scope and complexity",
+        "5. Check for hidden assumptions"
+      ],
+      "required_for": ["code_implementation", "system_design", "debugging"]
+    },
+    "solution_design": {
+      "steps": [
+        "1. Generate multiple candidate approaches",
+        "2. Evaluate trade-offs (performance, maintainability, complexity)",
+        "3. Consider edge cases and failure modes",
+        "4. Validate against requirements",
+        "5. Choose optimal solution with rationale"
+      ],
+      "required_for": ["code_implementation", "system_design", "architecture"]
+    },
+    "quality_validation": {
+      "steps": [
+        "1. Verify solution completeness",
+        "2. Check for security vulnerabilities",
+        "3. Assess maintainability and extensibility",
+        "4. Validate performance characteristics",
+        "5. Ensure testability"
+      ],
+      "required_for": ["all"]
+    },
+    "knowledge_verification": {
+      "steps": [
+        "1. Verify information currency (check versions)",
+        "2. Validate against authoritative sources",
+        "3. Cross-reference multiple sources",
+        "4. Flag assumptions and uncertainties",
+        "5. Cite sources for verification"
+      ],
+      "required_for": ["research_tasks", "code_implementation"]
+    }
+  },
+  "thinking_modes": {
+    "quick_analysis": {
+      "duration_target": "30-60s",
+      "depth": "surface",
+      "use_for": ["simple_queries", "clarifications", "routine_tasks"]
+    },
+    "standard_thinking": {
+      "duration_target": "1-2min",
+      "depth": "moderate",
+      "use_for": ["code_review", "implementation", "explanation"]
+    },
+    "deep_thinking": {
+      "duration_target": "2-5min",
+      "depth": "comprehensive",
+      "use_for": ["architecture", "complex_debugging", "optimization"]
+    },
+    "critical_thinking": {
+      "duration_target": "5-10min",
+      "depth": "exhaustive",
+      "use_for": ["system_design", "novel_problems", "high_stakes_decisions"]
+    }
+  },
+  "quality_gates": {
+    "solution_completeness": {
+      "weight": 0.25,
+      "criteria": [
+        "Addresses all stated requirements",
+        "Handles edge cases",
+        "Includes error handling",
+        "Provides rollback/recovery"
+      ]
+    },
+    "technical_correctness": {
+      "weight": 0.30,
+      "criteria": [
+        "Uses correct APIs/patterns",
+        "Follows best practices",
+        "No security vulnerabilities",
+        "Performance considerations"
+      ]
+    },
+    "maintainability": {
+      "weight": 0.20,
+      "criteria": [
+        "Clear, readable code/documentation",
+        "Modular and extensible",
+        "Well-tested",
+        "Documented rationale"
+      ]
+    },
+    "user_alignment": {
+      "weight": 0.25,
+      "criteria": [
+        "Matches user's skill level",
+        "Addresses stated goals",
+        "Considers user's context",
+        "Clear communication"
+      ]
+    }
+  },
+  "critical_thinking_triggers": {
+    "auto_enable_for": [
+      "requests mentioning 'production'",
+      "requests mentioning 'critical'",
+      "system architecture tasks",
+      "security-related tasks",
+      "performance optimization",
+      "data integrity concerns",
+      "multi-component integration"
+    ],
+    "warning_indicators": [
+      "insufficient information provided",
+      "conflicting requirements detected",
+      "high complexity with simple approach",
+      "potential security implications",
+      "scalability concerns",
+      "multiple valid approaches with unclear tradeoffs"
+    ]
+  }
+}

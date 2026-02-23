@@ -1,0 +1,67 @@
+{
+  "version": "1.0.0",
+  "sessions": [
+    {
+      "session_id": "session-claude-multi-workspace-1771361051-8289fba1",
+      "started_at": "2026-02-17T20:44:11Z",
+      "ended_at": "2026-02-17T20:44:26Z",
+      "outcome": "success",
+      "satisfaction_score": 9,
+      "insights_injected": true,
+      "operations": [
+        {
+          "timestamp": "2026-02-17T20:44:20Z",
+          "outcome": "success",
+          "details": "Implemented learning reader component"
+        },
+        {
+          "timestamp": "2026-02-17T20:44:21Z",
+          "outcome": "success",
+          "details": "Implemented insight injector component"
+        }
+      ],
+      "feedback": null
+    },
+    {
+      "session_id": "session-tmp.nhzgIBygCZ-1771361192-aa4b3333",
+      "started_at": "2026-02-17T20:46:32Z",
+      "ended_at": "2026-02-17T20:46:33Z",
+      "outcome": "success",
+      "satisfaction_score": 9,
+      "insights_injected": true,
+      "operations": [
+        {
+          "timestamp": "2026-02-17T20:46:32Z",
+          "outcome": "success",
+          "details": "Test operation 1"
+        },
+        {
+          "timestamp": "2026-02-17T20:46:32Z",
+          "outcome": "success",
+          "details": "Test operation 2"
+        }
+      ],
+      "feedback": null
+    }
+  ],
+  "current_session": {
+    "session_id": "1771706999",
+    "start_time": "2026-02-21T20:49:59Z",
+    "end_time": null,
+    "topics": [
+      "general"
+    ],
+    "technologies": [],
+    "questions_asked": 0,
+    "tasks_completed": 0,
+    "unresolved_items": []
+  },
+  "continuous_topics": [
+    "adaptive_intelligence",
+    "general",
+    "test"
+  ],
+  "unresolved_questions": [],
+  "total_sessions": 2,
+  "last_updated": "2026-02-17T20:46:33Z"
+}

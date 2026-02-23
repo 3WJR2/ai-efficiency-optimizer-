@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "max_concurrent_processes": 5,
+  "process_timeout_seconds": 300,
+  "retry_attempts": 3,
+  "retry_delay_seconds": 2,
+  "enable_resource_limits": true,
+  "max_memory_mb_per_process": 500,
+  "enable_metrics_tracking": true,
+  "aggregation_strategy": "concatenate"
+}

@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "weights": {
+    "cache_hit_rate": 0.4,
+    "cache_latency": 0.3,
+    "parallel_success_rate": 0.2,
+    "parallel_throughput": 0.1
+  },
+  "normalization": {
+    "cache_hit_rate": {"min": 0.0, "max": 1.0, "higher_better": true},
+    "cache_latency": {"min": 0.0, "max": 100.0, "higher_better": false},
+    "parallel_success_rate": {"min": 0.0, "max": 1.0, "higher_better": true},
+    "parallel_throughput": {"min": 0.0, "max": 10.0, "higher_better": true}
+  },
+  "pareto_enabled": true,
+  "adaptive_weights": false
+}

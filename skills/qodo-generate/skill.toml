@@ -1,0 +1,10 @@
+[skill]
+name = "qodo-generate"
+version = "1.0.0"
+description = "Generate tests, documentation, and code using Qodo CLI AI agents"
+user_invocable = true
+
+[skill.parameters]
+type = { type = "string", description = "What to generate: tests, docs, api-docs, changelog, e2e-tests", default = "tests" }
+target = { type = "string", description = "Target file or directory", required = false }
+coverage = { type = "string", description = "Test coverage target (0.0-1.0)", default = "0.9" }

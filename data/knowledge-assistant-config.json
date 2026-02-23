@@ -1,0 +1,7 @@
+{
+  "auto_extract": true,
+  "min_confidence": 0.5,
+  "max_injected": 5,
+  "realtime_capture": true,
+  "pipeline_enabled": true
+}

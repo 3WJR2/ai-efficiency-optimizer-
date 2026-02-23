@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "weights": {
+    "similarity": 0.5,
+    "recency": 0.2,
+    "success_rate": 0.2,
+    "complexity": 0.1
+  },
+  "recency_decay_hours": 24,
+  "min_similarity_threshold": 0.70,
+  "complexity_analysis_enabled": true,
+  "cache_entries": {},
+  "access_history": [],
+  "performance_metrics": {
+    "smart_hits": 0,
+    "smart_misses": 0,
+    "traditional_hits": 0,
+    "traditional_misses": 0
+  }
+}

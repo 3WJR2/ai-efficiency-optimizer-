@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "check_interval_seconds": 3600,
+  "optimization_interval_seconds": 21600,
+  "min_queries_for_optimization": 50,
+  "auto_apply_optimizations": true,
+  "optimization_aggressiveness": 0.2,
+  "thresholds": {
+    "min_success_rate": 0.75,
+    "min_avg_confidence": 0.7,
+    "min_token_savings": 0.6
+  },
+  "embeddings": {
+    "auto_rebuild": false,
+    "rebuild_interval_days": 30,
+    "rebuild_on_usage_change": true,
+    "usage_change_threshold": 0.3
+  }
+}

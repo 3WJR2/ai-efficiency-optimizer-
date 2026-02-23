@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "languages": {},
+  "global_preferences": {
+    "comment_style": "unknown",
+    "documentation_verbosity": "medium",
+    "error_handling_approach": "unknown",
+    "test_coverage_preference": "unknown"
+  },
+  "last_analyzed": null,
+  "total_files_analyzed": 0
+}

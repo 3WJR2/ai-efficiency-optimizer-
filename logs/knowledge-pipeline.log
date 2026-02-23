@@ -1,0 +1,280 @@
+[2026-02-18 12:50:36] [INFO] Initialized pipeline state file
+[2026-02-18 12:59:59] [INFO] Starting FULL knowledge pipeline
+[2026-02-18 12:59:59] [INFO] Stage 1: Extract - Mode: full
+[2026-02-18 12:59:59] [INFO] Full extraction: processing all sessions
+[2026-02-18 12:59:59] [INFO] Found 133 sessions to process
+[2026-02-18 12:59:59] [INFO] Extracting from session: 2026-02-13-session-1-166e
+[2026-02-18 12:59:59] [SUCCESS] Extracted        0 entries from 2026-02-13-session-1-166e
+[2026-02-18 12:59:59] [INFO] Extracting from session: 2026-02-13-session-2-0bd0
+[2026-02-18 12:59:59] [SUCCESS] Extracted        0 entries from 2026-02-13-session-2-0bd0
+[2026-02-18 12:59:59] [INFO] Extracting from session: 2026-02-16-session-1-00ed
+[2026-02-18 12:59:59] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-00ed
+[2026-02-18 12:59:59] [INFO] Extracting from session: 2026-02-16-session-1-0994
+[2026-02-18 12:59:59] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-0994
+[2026-02-18 12:59:59] [INFO] Extracting from session: 2026-02-16-session-1-174c
+[2026-02-18 12:59:59] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-174c
+[2026-02-18 12:59:59] [INFO] Extracting from session: 2026-02-16-session-1-1b03
+[2026-02-18 12:59:59] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-1b03
+[2026-02-18 12:59:59] [INFO] Extracting from session: 2026-02-16-session-1-2489
+[2026-02-18 12:59:59] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-2489
+[2026-02-18 12:59:59] [INFO] Extracting from session: 2026-02-16-session-1-2640
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-2640
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-27a1
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-27a1
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-2e1b
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-2e1b
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-3020
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-3020
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-3ba1
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-3ba1
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-41f9
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-41f9
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-4252
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-4252
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-44b4
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-44b4
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-45e1
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-45e1
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-46e7
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-46e7
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-50e3
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-50e3
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-5d42
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-5d42
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-67ca
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-67ca
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-698b
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-698b
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-6a2d
+[2026-02-18 13:00:00] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-6a2d
+[2026-02-18 13:00:00] [INFO] Extracting from session: 2026-02-16-session-1-6f83
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-6f83
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-71f0
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-71f0
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-7780
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-7780
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-7b18
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-7b18
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-81de
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-81de
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-827b
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-827b
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-8374
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-8374
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-8f44
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-8f44
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-95a1
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-95a1
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-a05d
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-a05d
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-a1a2
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-a1a2
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-a3fb
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-a3fb
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-a9f0
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-a9f0
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-aae8
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-aae8
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-ac78
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-ac78
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-af21
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-af21
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-afc2
+[2026-02-18 13:00:01] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-afc2
+[2026-02-18 13:00:01] [INFO] Extracting from session: 2026-02-16-session-1-b60e
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-b60e
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-bf41
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-bf41
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-c4d3
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-c4d3
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-c64f
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-c64f
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-c869
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-c869
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-d888
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-d888
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-e146
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-e146
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-e451
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-e451
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-e6bf
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-e6bf
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-e98d
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-e98d
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-eec7
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-eec7
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-f170
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-f170
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-f450
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-f450
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-1-f6f7
+[2026-02-18 13:00:02] [SUCCESS] Extracted        0 entries from 2026-02-16-session-1-f6f7
+[2026-02-18 13:00:02] [INFO] Extracting from session: 2026-02-16-session-2-05b9
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-05b9
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-1f5f
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-1f5f
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-269a
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-269a
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-2a86
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-2a86
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-3560
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-3560
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-3714
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-3714
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-377c
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-377c
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-3ad1
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-3ad1
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-3d17
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-3d17
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-3d6b
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-3d6b
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-44d2
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-44d2
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-44f5
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-44f5
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-4752
+[2026-02-18 13:00:03] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-4752
+[2026-02-18 13:00:03] [INFO] Extracting from session: 2026-02-16-session-2-48ea
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-48ea
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-4a32
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-4a32
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-503d
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-503d
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-5204
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-5204
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-607b
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-607b
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-78cb
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-78cb
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-80b1
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-80b1
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-857f
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-857f
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-8675
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-8675
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-8913
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-8913
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-971c
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-971c
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-9c69
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-9c69
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-9d02
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-9d02
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-a34a
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-a34a
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-a470
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-a470
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-a8ee
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-a8ee
+[2026-02-18 13:00:04] [INFO] Extracting from session: 2026-02-16-session-2-a927
+[2026-02-18 13:00:04] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-a927
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-b08b
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-b08b
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-b5a2
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-b5a2
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-c228
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-c228
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-c312
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-c312
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-c5e7
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-c5e7
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-c9b5
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-c9b5
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-cd1b
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-cd1b
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-cebf
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-cebf
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-d461
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-d461
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-d519
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-d519
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-d5a2
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-d5a2
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-d63a
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-d63a
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-d6af
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-d6af
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-db62
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-db62
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-e230
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-e230
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-f292
+[2026-02-18 13:00:05] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-f292
+[2026-02-18 13:00:05] [INFO] Extracting from session: 2026-02-16-session-2-f2af
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-f2af
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-2-ff35
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-2-ff35
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-3-014d
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-3-014d
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-3-0904
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-3-0904
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-3-0d01
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-3-0d01
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-3-10a4
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-3-10a4
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-3-9ec9
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-3-9ec9
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-3-bc7a
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-3-bc7a
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-3-ebba
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-3-ebba
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-4-5fd6
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-4-5fd6
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-5-771f
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-5-771f
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-16-session-6-c5c1
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-16-session-6-c5c1
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-17-session-1-1163
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-17-session-1-1163
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-17-session-1-1dcb
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-17-session-1-1dcb
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-17-session-1-2800
+[2026-02-18 13:00:06] [SUCCESS] Extracted        0 entries from 2026-02-17-session-1-2800
+[2026-02-18 13:00:06] [INFO] Extracting from session: 2026-02-17-session-1-3d3a
+[2026-02-18 13:00:07] [SUCCESS] Extracted        2 entries from 2026-02-17-session-1-3d3a
+[2026-02-18 13:00:07] [INFO] Extracting from session: 2026-02-17-session-1-a40c
+[2026-02-18 13:00:07] [SUCCESS] Extracted        0 entries from 2026-02-17-session-1-a40c
+[2026-02-18 13:00:07] [INFO] Extracting from session: 2026-02-17-session-1-b101
+[2026-02-18 13:00:07] [SUCCESS] Extracted        0 entries from 2026-02-17-session-1-b101
+[2026-02-18 13:00:07] [INFO] Extracting from session: 2026-02-17-session-1-d3c9
+[2026-02-18 13:00:07] [SUCCESS] Extracted        0 entries from 2026-02-17-session-1-d3c9
+[2026-02-18 13:00:07] [INFO] Extracting from session: 2026-02-17-session-1-df2f
+[2026-02-18 13:00:08] [SUCCESS] Extracted        2 entries from 2026-02-17-session-1-df2f
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-1-e0aa
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-1-e0aa
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-1-f635
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-1-f635
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-2-0a16
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-2-0a16
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-2-1ff2
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-2-1ff2
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-2-29c4
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-2-29c4
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-2-2b7d
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-2-2b7d
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-2-37f5
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-2-37f5
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-2-8284
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-2-8284
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-2-a73e
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-2-a73e
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-3-1029
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-3-1029
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-3-693f
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-3-693f
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-4-4177
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-4-4177
+[2026-02-18 13:00:08] [INFO] Extracting from session: 2026-02-17-session-4-db6e
+[2026-02-18 13:00:08] [SUCCESS] Extracted        0 entries from 2026-02-17-session-4-db6e
+[2026-02-18 13:00:09] [INFO] Extracting from session: 2026-02-17-session-5-e417
+[2026-02-18 13:00:09] [SUCCESS] Extracted        0 entries from 2026-02-17-session-5-e417
+[2026-02-18 13:00:09] [SUCCESS] Stage 1 complete: 4 knowledge entries extracted
+[2026-02-18 13:00:09] [INFO] Stage 2: Categorize and tag knowledge
+[2026-02-18 13:00:09] [INFO] Categorizing        4 knowledge entries
+[2026-02-18 13:00:09] [SUCCESS] Stage 2 complete: Knowledge categorized
+[2026-02-18 13:00:09] [INFO] Stage 3: Index knowledge for semantic search
+[2026-02-18 13:00:11] [SUCCESS] Stage 3 complete: Knowledge indexed
+[2026-02-18 13:00:11] [INFO] Stage 4: Build knowledge graph
+[2026-02-18 13:00:11] [SUCCESS] Stage 4 complete: Knowledge graph built
+[2026-02-18 13:00:11] [INFO] Stage 5: Deduplicate similar entries

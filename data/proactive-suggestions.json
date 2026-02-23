@@ -1,0 +1,90 @@
+{
+  "version": "1.0.0",
+  "suggestion_patterns": {
+    "after_code_implementation": [
+      {
+        "trigger": "code_written",
+        "suggestion": "Run tests to verify implementation",
+        "confidence_threshold": 0.75,
+        "frequency": 0
+      },
+      {
+        "trigger": "code_written",
+        "suggestion": "Add documentation for new functions",
+        "confidence_threshold": 0.70,
+        "frequency": 0
+      },
+      {
+        "trigger": "code_written",
+        "suggestion": "Check for error handling",
+        "confidence_threshold": 0.75,
+        "frequency": 0
+      }
+    ],
+    "after_feature_complete": [
+      {
+        "trigger": "feature_done",
+        "suggestion": "Create git commit with descriptive message",
+        "confidence_threshold": 0.80,
+        "frequency": 0
+      },
+      {
+        "trigger": "feature_done",
+        "suggestion": "Update CHANGELOG or documentation",
+        "confidence_threshold": 0.70,
+        "frequency": 0
+      }
+    ],
+    "authentication_code": [
+      {
+        "trigger": "auth_detected",
+        "suggestion": "Review security best practices (password hashing, JWT validation)",
+        "confidence_threshold": 0.85,
+        "frequency": 0
+      },
+      {
+        "trigger": "auth_detected",
+        "suggestion": "Add rate limiting to prevent brute force attacks",
+        "confidence_threshold": 0.80,
+        "frequency": 0
+      }
+    ],
+    "database_operations": [
+      {
+        "trigger": "db_query_detected",
+        "suggestion": "Consider adding database indexes for performance",
+        "confidence_threshold": 0.75,
+        "frequency": 0
+      },
+      {
+        "trigger": "db_query_detected",
+        "suggestion": "Add error handling for database connection failures",
+        "confidence_threshold": 0.80,
+        "frequency": 0
+      }
+    ],
+    "api_endpoint": [
+      {
+        "trigger": "api_created",
+        "suggestion": "Add input validation and sanitization",
+        "confidence_threshold": 0.85,
+        "frequency": 0
+      },
+      {
+        "trigger": "api_created",
+        "suggestion": "Document API endpoint in OpenAPI/Swagger",
+        "confidence_threshold": 0.70,
+        "frequency": 0
+      },
+      {
+        "trigger": "api_created",
+        "suggestion": "Add rate limiting and authentication",
+        "confidence_threshold": 0.80,
+        "frequency": 0
+      }
+    ]
+  },
+  "user_acceptance_rate": {},
+  "total_suggestions_made": 1,
+  "total_suggestions_accepted": 0
+}

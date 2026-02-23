@@ -1,0 +1,184 @@
+{
+  "version": "1.0.0",
+  "initialized_at": "2026-02-17T20:49:35Z",
+  "last_collection": "2026-02-17T20:50:01Z",
+  "collection_count": 1,
+  "cache_metrics": {
+    "current": {
+      "status": "active",
+      "timestamp": "2026-02-17T20:50:01Z",
+      "prompt_cache": {
+        "requests": 2,
+        "hits": 0,
+        "misses": 2,
+        "hit_rate": 0,
+        "tokens_saved": 0,
+        "cost_saved_usd": 0
+      },
+      "semantic_cache": {
+        "requests": 4,
+        "hits": 2,
+        "misses": 2,
+        "hit_rate": 0.5000,
+        "avg_similarity": 0.9035,
+        "cost_saved_usd": 0.0
+      },
+      "combined": {
+        "total_requests": 6,
+        "total_hits": 2,
+        "hit_rate": 0.3333,
+        "total_cost_saved_usd": 0
+      },
+      "performance": {
+        "avg_latency_ms": 3000.5,
+        "avg_latency_cached_ms": 87.5,
+        "latency_reduction_pct": 97.08381936343943
+      }
+    },
+    "history": [
+      {
+        "status": "active",
+        "timestamp": "2026-02-17T20:50:01Z",
+        "prompt_cache": {
+          "requests": 2,
+          "hits": 0,
+          "misses": 2,
+          "hit_rate": 0,
+          "tokens_saved": 0,
+          "cost_saved_usd": 0
+        },
+        "semantic_cache": {
+          "requests": 4,
+          "hits": 2,
+          "misses": 2,
+          "hit_rate": 0.5000,
+          "avg_similarity": 0.9035,
+          "cost_saved_usd": 0.0
+        },
+        "combined": {
+          "total_requests": 6,
+          "total_hits": 2,
+          "hit_rate": 0.3333,
+          "total_cost_saved_usd": 0
+        },
+        "performance": {
+          "avg_latency_ms": 3000.5,
+          "avg_latency_cached_ms": 87.5,
+          "latency_reduction_pct": 97.08381936343943
+        }
+      }
+    ]
+  },
+  "parallel_metrics": {
+    "current": {
+      "status": "active",
+      "timestamp": "2026-02-17T20:50:01Z",
+      "executions": 0,
+      "parallel_tasks": 0,
+      "avg_execution_time_ms": 0,
+      "avg_parallelism": 0,
+      "time_saved_ms": 0,
+      "success_rate_pct": 100.0,
+      "speedup_factor": 1.0
+    },
+    "history": [
+      {
+        "status": "active",
+        "timestamp": "2026-02-17T20:50:01Z",
+        "executions": 0,
+        "parallel_tasks": 0,
+        "avg_execution_time_ms": 0,
+        "avg_parallelism": 0,
+        "time_saved_ms": 0,
+        "success_rate_pct": 100.0,
+        "speedup_factor": 1.0
+      }
+    ]
+  },
+  "learning_metrics": {
+    "current": {
+      "status": "active",
+      "timestamp": "2026-02-17T20:50:01Z",
+      "samples": {
+        "cache_outcomes": 0,
+        "parallel_outcomes": 0
+      },
+      "adaptations": {
+        "total_count": 0
+      },
+      "learned_patterns": {
+        "optimal_cache_threshold": 0,
+        "optimal_concurrent_processes": 0,
+        "confidence": 0
+      }
+    },
+    "history": [
+      {
+        "status": "active",
+        "timestamp": "2026-02-17T20:50:01Z",
+        "samples": {
+          "cache_outcomes": 0,
+          "parallel_outcomes": 0
+        },
+        "adaptations": {
+          "total_count": 0
+        },
+        "learned_patterns": {
+          "optimal_cache_threshold": 0,
+          "optimal_concurrent_processes": 0,
+          "confidence": 0
+        }
+      }
+    ]
+  },
+  "session_metrics": {
+    "current": {
+      "status": "active",
+      "timestamp": "2026-02-17T20:50:01Z",
+      "interactions": {
+        "total_count": 18,
+        "learning_stage": "early_learning"
+      },
+      "quality": {
+        "satisfaction_signals": 0,
+        "retry_rate_pct": 0,
+        "clarification_rate_pct": 0,
+        "success_rate_pct": 0
+      },
+      "sessions": {
+        "active": 0,
+        "completed": 0
+      }
+    },
+    "history": [
+      {
+        "status": "active",
+        "timestamp": "2026-02-17T20:50:01Z",
+        "interactions": {
+          "total_count": 18,
+          "learning_stage": "early_learning"
+        },
+        "quality": {
+          "satisfaction_signals": 0,
+          "retry_rate_pct": 0,
+          "clarification_rate_pct": 0,
+          "success_rate_pct": 0
+        },
+        "sessions": {
+          "active": 0,
+          "completed": 0
+        }
+      }
+    ]
+  },
+  "system_health": {
+    "timestamp": "2026-02-17T20:50:01Z",
+    "components": {
+      "cache_system": "healthy",
+      "parallel_execution": "healthy",
+      "learning_system": "healthy",
+      "session_management": "healthy"
+    },
+    "overall_status": "healthy"
+  }
+}

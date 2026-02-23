@@ -1,0 +1,380 @@
+{
+  "version": "1.0.0",
+  "description": "Agent orchestration strategies for different task types",
+  "last_updated": "",
+  "strategies": {
+    "debug": {
+      "description": "Debugging and error investigation strategy",
+      "agents": [
+        {
+          "type": "explore",
+          "role": "find_error_location",
+          "prompt": "Explore the codebase to locate where the error is occurring. Focus on stack traces, error messages, and related files.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "grep",
+          "role": "search_logs",
+          "prompt": "Search for relevant log entries, error messages, and stack traces across the codebase.",
+          "pane": 2,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "general",
+          "role": "analyze_root_cause",
+          "prompt": "Analyze the error, stack trace, and related code to identify the root cause. Provide a detailed explanation.",
+          "pane": 3,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["find_error_location", "search_logs"]
+        }
+      ],
+      "coordinator": "synthesize_root_cause",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "low"
+    },
+    "implement": {
+      "description": "New feature implementation strategy",
+      "agents": [
+        {
+          "type": "explore",
+          "role": "understand_context",
+          "prompt": "Explore the existing codebase to understand the context and architecture relevant to this feature.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "plan",
+          "role": "design_solution",
+          "prompt": "Create a detailed implementation plan including file changes, new components, and integration points.",
+          "pane": 2,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["understand_context"]
+        },
+        {
+          "type": "general",
+          "role": "implement_code",
+          "prompt": "Implement the feature according to the plan. Write clean, maintainable code following project conventions.",
+          "pane": 3,
+          "priority": 3,
+          "parallel": false,
+          "depends_on": ["design_solution"]
+        },
+        {
+          "type": "general",
+          "role": "write_tests",
+          "prompt": "Write comprehensive tests for the new feature, including unit tests and integration tests.",
+          "pane": 4,
+          "priority": 4,
+          "parallel": false,
+          "depends_on": ["implement_code"]
+        }
+      ],
+      "coordinator": "review_and_integrate",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "medium"
+    },
+    "refactor": {
+      "description": "Code refactoring and improvement strategy",
+      "agents": [
+        {
+          "type": "explore",
+          "role": "analyze_current_code",
+          "prompt": "Analyze the current code structure, identify code smells, duplication, and improvement opportunities.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "plan",
+          "role": "create_refactoring_plan",
+          "prompt": "Create a step-by-step refactoring plan that minimizes risk and maintains functionality.",
+          "pane": 2,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["analyze_current_code"]
+        },
+        {
+          "type": "general",
+          "role": "execute_refactoring",
+          "prompt": "Execute the refactoring plan systematically, ensuring tests pass after each change.",
+          "pane": 3,
+          "priority": 3,
+          "parallel": false,
+          "depends_on": ["create_refactoring_plan"]
+        }
+      ],
+      "coordinator": "validate_improvements",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "medium"
+    },
+    "explore": {
+      "description": "Codebase exploration and understanding strategy",
+      "agents": [
+        {
+          "type": "explore",
+          "role": "map_codebase",
+          "prompt": "Map the relevant parts of the codebase, identifying key files, modules, and their relationships.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "grep",
+          "role": "find_patterns",
+          "prompt": "Search for specific patterns, functions, or implementations related to the query.",
+          "pane": 2,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "general",
+          "role": "explain_findings",
+          "prompt": "Synthesize findings into a clear explanation of how the code works and where key functionality resides.",
+          "pane": 3,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["map_codebase", "find_patterns"]
+        }
+      ],
+      "coordinator": "synthesize_understanding",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "low"
+    },
+    "test": {
+      "description": "Testing and validation strategy",
+      "agents": [
+        {
+          "type": "explore",
+          "role": "identify_test_targets",
+          "prompt": "Identify code that needs testing and analyze existing test coverage.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "general",
+          "role": "generate_tests",
+          "prompt": "Generate comprehensive test cases including edge cases, error conditions, and happy paths.",
+          "pane": 2,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["identify_test_targets"]
+        },
+        {
+          "type": "general",
+          "role": "run_validation",
+          "prompt": "Run tests and validate that all tests pass. Fix any failing tests.",
+          "pane": 3,
+          "priority": 3,
+          "parallel": false,
+          "depends_on": ["generate_tests"]
+        }
+      ],
+      "coordinator": "validate_coverage",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "medium"
+    },
+    "design": {
+      "description": "Architecture and design strategy",
+      "agents": [
+        {
+          "type": "explore",
+          "role": "analyze_requirements",
+          "prompt": "Analyze requirements and constraints. Explore existing architecture patterns in the codebase.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "plan",
+          "role": "create_architecture",
+          "prompt": "Design a scalable, maintainable architecture. Consider patterns, trade-offs, and future extensibility.",
+          "pane": 2,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["analyze_requirements"]
+        },
+        {
+          "type": "general",
+          "role": "document_design",
+          "prompt": "Document the architecture with diagrams, component descriptions, and decision rationale.",
+          "pane": 3,
+          "priority": 3,
+          "parallel": false,
+          "depends_on": ["create_architecture"]
+        }
+      ],
+      "coordinator": "validate_design",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "low"
+    },
+    "research": {
+      "description": "Documentation research and learning strategy",
+      "agents": [
+        {
+          "type": "general",
+          "role": "search_documentation",
+          "prompt": "Search for official documentation, API references, and authoritative sources.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "explore",
+          "role": "find_examples",
+          "prompt": "Find relevant code examples in the codebase or documentation.",
+          "pane": 2,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "general",
+          "role": "synthesize_knowledge",
+          "prompt": "Synthesize findings into a comprehensive guide with examples and best practices.",
+          "pane": 3,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["search_documentation", "find_examples"]
+        }
+      ],
+      "coordinator": "create_guide",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "low"
+    },
+    "fix": {
+      "description": "Bug fix strategy",
+      "agents": [
+        {
+          "type": "explore",
+          "role": "locate_bug",
+          "prompt": "Locate the source of the bug. Analyze related code and recent changes.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "general",
+          "role": "implement_fix",
+          "prompt": "Implement a fix that addresses the root cause without introducing regressions.",
+          "pane": 2,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["locate_bug"]
+        },
+        {
+          "type": "general",
+          "role": "add_test",
+          "prompt": "Add a test that reproduces the bug and verifies the fix.",
+          "pane": 3,
+          "priority": 3,
+          "parallel": false,
+          "depends_on": ["implement_fix"]
+        }
+      ],
+      "coordinator": "validate_fix",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "medium"
+    },
+    "optimize": {
+      "description": "Performance optimization strategy",
+      "agents": [
+        {
+          "type": "explore",
+          "role": "identify_bottlenecks",
+          "prompt": "Identify performance bottlenecks through profiling and code analysis.",
+          "pane": 1,
+          "priority": 1,
+          "parallel": true
+        },
+        {
+          "type": "plan",
+          "role": "plan_optimizations",
+          "prompt": "Plan optimizations with measurable goals. Consider algorithmic improvements and caching strategies.",
+          "pane": 2,
+          "priority": 2,
+          "parallel": false,
+          "depends_on": ["identify_bottlenecks"]
+        },
+        {
+          "type": "general",
+          "role": "implement_optimizations",
+          "prompt": "Implement optimizations and measure performance improvements.",
+          "pane": 3,
+          "priority": 3,
+          "parallel": false,
+          "depends_on": ["plan_optimizations"]
+        }
+      ],
+      "coordinator": "validate_performance",
+      "success_rate": 0.0,
+      "total_executions": 0,
+      "avg_duration_minutes": 0,
+      "estimated_cost": "medium"
+    }
+  },
+  "coordinator_strategies": {
+    "synthesize_root_cause": {
+      "description": "Synthesize debugging results to identify root cause",
+      "approach": "Analyze error patterns, stack traces, and code context to determine the root cause and suggest fixes."
+    },
+    "review_and_integrate": {
+      "description": "Review implementation and ensure integration",
+      "approach": "Validate code quality, test coverage, and integration points. Ensure consistency with codebase patterns."
+    },
+    "validate_improvements": {
+      "description": "Validate refactoring improvements",
+      "approach": "Verify that refactoring maintains functionality, improves code quality, and passes all tests."
+    },
+    "synthesize_understanding": {
+      "description": "Synthesize exploration findings into clear understanding",
+      "approach": "Combine search results and code exploration into a coherent explanation of system architecture."
+    },
+    "validate_coverage": {
+      "description": "Validate test coverage and quality",
+      "approach": "Ensure comprehensive test coverage, validate all tests pass, and verify edge cases are handled."
+    },
+    "validate_design": {
+      "description": "Validate architectural design",
+      "approach": "Review architecture for scalability, maintainability, and alignment with requirements."
+    },
+    "create_guide": {
+      "description": "Create comprehensive learning guide",
+      "approach": "Synthesize documentation and examples into an actionable guide with best practices."
+    },
+    "validate_fix": {
+      "description": "Validate bug fix completeness",
+      "approach": "Verify fix addresses root cause, doesn't introduce regressions, and includes test coverage."
+    },
+    "validate_performance": {
+      "description": "Validate performance improvements",
+      "approach": "Measure and verify performance gains meet targets without introducing bugs."
+    }
+  },
+  "learning_config": {
+    "min_executions_for_adaptation": 5,
+    "success_rate_threshold": 0.70,
+    "adaptation_aggressiveness": 0.15
+  }
+}

@@ -1,0 +1,689 @@
+{
+  "version": "1.0.0",
+  "last_run": {
+    "timestamp": null,
+    "mode": null,
+    "sessions_processed": 0,
+    "knowledge_extracted": 0,
+    "duration_seconds": 0
+  },
+  "statistics": {
+    "total_runs": 0,
+    "total_sessions_processed": 0,
+    "total_knowledge_extracted": 0,
+    "last_full_run": null,
+    "last_incremental_run": null
+  },
+  "sessions": {
+    "2026-02-13-session-1-166e": {
+      "last_processed": "2026-02-18T19:59:59Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-13-session-2-0bd0": {
+      "last_processed": "2026-02-18T19:59:59Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-00ed": {
+      "last_processed": "2026-02-18T19:59:59Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-0994": {
+      "last_processed": "2026-02-18T19:59:59Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-174c": {
+      "last_processed": "2026-02-18T19:59:59Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-1b03": {
+      "last_processed": "2026-02-18T19:59:59Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-2489": {
+      "last_processed": "2026-02-18T19:59:59Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-2640": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-27a1": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-2e1b": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-3020": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-3ba1": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-41f9": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-4252": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-44b4": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-45e1": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-46e7": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-50e3": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-5d42": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-67ca": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-698b": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-6a2d": {
+      "last_processed": "2026-02-18T20:00:00Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-6f83": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-71f0": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-7780": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-7b18": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-81de": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-827b": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-8374": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-8f44": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-95a1": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-a05d": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-a1a2": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-a3fb": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-a9f0": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-aae8": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-ac78": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-af21": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-afc2": {
+      "last_processed": "2026-02-18T20:00:01Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-b60e": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-bf41": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-c4d3": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-c64f": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-c869": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-d888": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-e146": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-e451": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-e6bf": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-e98d": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-eec7": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-f170": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-f450": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-1-f6f7": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-05b9": {
+      "last_processed": "2026-02-18T20:00:02Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-1f5f": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-269a": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-2a86": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-3560": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-3714": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-377c": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-3ad1": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-3d17": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-3d6b": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-44d2": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-44f5": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-4752": {
+      "last_processed": "2026-02-18T20:00:03Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-48ea": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-4a32": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-503d": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-5204": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-607b": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-78cb": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-80b1": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-857f": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-8675": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-8913": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-971c": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-9c69": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-9d02": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-a34a": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-a470": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-a8ee": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-a927": {
+      "last_processed": "2026-02-18T20:00:04Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-b08b": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-b5a2": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-c228": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-c312": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-c5e7": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-c9b5": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-cd1b": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-cebf": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-d461": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-d519": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-d5a2": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-d63a": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-d6af": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-db62": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-e230": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-f292": {
+      "last_processed": "2026-02-18T20:00:05Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-f2af": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-2-ff35": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-3-014d": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-3-0904": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-3-0d01": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-3-10a4": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-3-9ec9": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-3-bc7a": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-3-ebba": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-4-5fd6": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-5-771f": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-16-session-6-c5c1": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-1163": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-1dcb": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-2800": {
+      "last_processed": "2026-02-18T20:00:06Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-3d3a": {
+      "last_processed": "2026-02-18T20:00:07Z",
+      "knowledge_extracted": 2,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-a40c": {
+      "last_processed": "2026-02-18T20:00:07Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-b101": {
+      "last_processed": "2026-02-18T20:00:07Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-d3c9": {
+      "last_processed": "2026-02-18T20:00:07Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-df2f": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 2,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-e0aa": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-1-f635": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-2-0a16": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-2-1ff2": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-2-29c4": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-2-2b7d": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-2-37f5": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-2-8284": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-2-a73e": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-3-1029": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-3-693f": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-4-4177": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-4-db6e": {
+      "last_processed": "2026-02-18T20:00:08Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    },
+    "2026-02-17-session-5-e417": {
+      "last_processed": "2026-02-18T20:00:09Z",
+      "knowledge_extracted": 0,
+      "checksum": ""
+    }
+  },
+  "daemon": {
+    "enabled": false,
+    "pid": null,
+    "started_at": null
+  }
+}

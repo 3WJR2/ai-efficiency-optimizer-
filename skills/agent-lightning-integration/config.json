@@ -1,0 +1,65 @@
+{
+  "name": "agent-lightning-integration",
+  "version": "1.0.0",
+  "description": "Integrate Microsoft's agent-lightning RL framework with Claude's adaptive learning system",
+  "author": "Claude Enhanced",
+  "handler": "./handler.sh",
+  "user_invocable": true,
+  "commands": [
+    {
+      "name": "init",
+      "description": "Initialize agent-lightning integration",
+      "usage": "/agent-lightning init"
+    },
+    {
+      "name": "sync",
+      "description": "Sync learning data to agent-lightning",
+      "usage": "/agent-lightning sync"
+    },
+    {
+      "name": "train",
+      "description": "Run RL training on collected spans",
+      "usage": "/agent-lightning train"
+    },
+    {
+      "name": "status",
+      "description": "View integration status and metrics",
+      "usage": "/agent-lightning status"
+    },
+    {
+      "name": "config",
+      "description": "Configure integration settings",
+      "usage": "/agent-lightning config"
+    },
+    {
+      "name": "apply",
+      "description": "Apply learned optimizations",
+      "usage": "/agent-lightning apply"
+    },
+    {
+      "name": "dashboard",
+      "description": "Launch web dashboard",
+      "usage": "/agent-lightning dashboard"
+    }
+  ],
+  "dependencies": {
+    "python": ">=3.10",
+    "packages": [
+      "agentlightning>=0.3.0"
+    ],
+    "scripts": [
+      "~/.claude/scripts/agent-lightning-bridge.sh",
+      "~/.claude/scripts/outcome-tracker.sh",
+      "~/.claude/scripts/pattern-analyzer.sh",
+      "~/.claude/scripts/adaptive-config-manager.sh"
+    ]
+  },
+  "integration": {
+    "systems": [
+      "adaptive-intelligence",
+      "caching-infrastructure",
+      "parallel-execution",
+      "active-learning"
+    ]
+  }
+}

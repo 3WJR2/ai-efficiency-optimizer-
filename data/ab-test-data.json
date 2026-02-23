@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "active_tests": [],
+  "completed_tests": [],
+  "min_samples_per_variant": 20,
+  "significance_level": 0.05,
+  "minimum_effect_size": 0.05
+}
