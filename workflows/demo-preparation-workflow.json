@@ -1,0 +1,133 @@
+{
+  "workflow_name": "demo_preparation",
+  "version": "1.0",
+  "description": "Complete demo preparation workflow with parallel task execution",
+  "trigger_patterns": [
+    "prepare demo",
+    "demo tomorrow",
+    "showing qodo to",
+    "customer meeting",
+    "presentation for"
+  ],
+  "required_inputs": [
+    "customer_name",
+    "customer_context"
+  ],
+  "optional_inputs": [
+    "tech_stack",
+    "pain_points",
+    "team_size",
+    "decision_makers"
+  ],
+  "tasks": [
+    {
+      "id": "research_customer",
+      "name": "Research Customer Background",
+      "type": "sequential",
+      "dependencies": [],
+      "actions": [
+        "Read knowledge-core for similar customer patterns",
+        "Search customer website/LinkedIn if provided",
+        "Identify industry and tech stack"
+      ],
+      "outputs": ["customer_profile"]
+    },
+    {
+      "id": "generate_demo_script",
+      "name": "Generate Demo Script",
+      "type": "parallel",
+      "dependencies": ["research_customer"],
+      "actions": [
+        "Use demo-prep-checklist.md template",
+        "Customize for customer tech stack",
+        "Include specific pain point addressing",
+        "Add demo timing (25 min script)"
+      ],
+      "outputs": ["demo_script"]
+    },
+    {
+      "id": "calculate_roi",
+      "name": "Calculate ROI",
+      "type": "parallel",
+      "dependencies": ["research_customer"],
+      "actions": [
+        "Use ROI calculation framework",
+        "Apply customer team size and pain points",
+        "Generate elevator pitch",
+        "Create visual comparison"
+      ],
+      "outputs": ["roi_calculation"]
+    },
+    {
+      "id": "prepare_follow_up_email",
+      "name": "Prepare Follow-up Email",
+      "type": "parallel",
+      "dependencies": ["research_customer"],
+      "actions": [
+        "Use customer-communications.md template",
+        "Customize with customer name and pain points",
+        "Include demo key points",
+        "Add ROI summary"
+      ],
+      "outputs": ["follow_up_email"]
+    },
+    {
+      "id": "prepare_objections",
+      "name": "Prepare Objection Responses",
+      "type": "parallel",
+      "dependencies": [],
+      "actions": [
+        "Identify likely objections based on industry",
+        "Prepare responses with data",
+        "Include competitive positioning if needed"
+      ],
+      "outputs": ["objection_responses"]
+    },
+    {
+      "id": "compile_package",
+      "name": "Compile Demo Package",
+      "type": "sequential",
+      "dependencies": [
+        "generate_demo_script",
+        "calculate_roi",
+        "prepare_follow_up_email",
+        "prepare_objections"
+      ],
+      "actions": [
+        "Combine all outputs",
+        "Format for presentation",
+        "Provide next steps checklist"
+      ],
+      "outputs": ["complete_demo_package"]
+    }
+  ],
+  "execution_plan": {
+    "level_0": ["research_customer"],
+    "level_1_parallel": [
+      "generate_demo_script",
+      "calculate_roi",
+      "prepare_follow_up_email",
+      "prepare_objections"
+    ],
+    "level_2": ["compile_package"]
+  },
+  "estimated_time": "5-10 minutes",
+  "success_criteria": [
+    "All 5 components generated",
+    "Customized for specific customer",
+    "ROI calculation with their numbers",
+    "Ready to use immediately"
+  ],
+  "proactive_additions": [
+    {
+      "name": "Testing Checklist",
+      "condition": "If mentioning new features in demo",
+      "action": "Include feature testing checklist"
+    },
+    {
+      "name": "Integration Examples",
+      "condition": "If customer has specific tech stack",
+      "action": "Include integration code examples"
+    }
+  ]
+}

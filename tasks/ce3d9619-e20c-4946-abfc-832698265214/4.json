@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "Phase 4: Integrate TipTap editor",
+  "description": "Create CodiumChatEditor component with TipTap, @mentions, and image paste support.",
+  "activeForm": "Integrating TipTap editor",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

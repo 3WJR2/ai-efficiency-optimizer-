@@ -1,0 +1,9 @@
+{
+  "id": "6",
+  "subject": "Phase 6: Integrate Radix UI component library",
+  "description": "Create common UI components (Button, Dialog, Dropdown, Tooltip, Select) using Radix UI primitives.",
+  "activeForm": "Integrating Radix UI components",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

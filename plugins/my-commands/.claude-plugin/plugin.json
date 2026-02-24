@@ -1,0 +1,9 @@
+{
+  "name": "my-commands",
+  "description": "Custom workflow and automation commands",
+  "author": {
+    "name": "User",
+    "email": "user@local"
+  },
+  "version": "1.0.0"
+}

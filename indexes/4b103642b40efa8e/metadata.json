@@ -1,0 +1,27 @@
+{
+  "codebase_path": "/Users/wallonwalusayi/claude-multi-workspace",
+  "created_at": "2026-02-18T15:32:15Z",
+  "updated_at": "2026-02-18T15:47:05Z",
+  "version": "1.0.0",
+  "stats": {
+    "files_indexed": 60,
+    "total_definitions": 750,
+    "total_loc": 10993,
+    "last_scan": "2026-02-18T15:47:05Z"
+  },
+  "config": {
+    "excluded_dirs": [
+      "node_modules",
+      "venv",
+      ".git",
+      "build",
+      "dist",
+      "target",
+      ".next",
+      ".cache",
+      "__pycache__",
+      "vendor"
+    ],
+    "max_file_size_kb": 1024
+  }
+}

@@ -1,0 +1,15 @@
+# Phase 2: Vector Search System Dependencies
+# Install with: pip3 install -r requirements-vector-search.txt
+
+# Core ML libraries
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Vector embeddings (lightweight, fast)
+sentence-transformers>=2.2.0
+
+# Optional: For faster similarity search
+faiss-cpu>=1.7.0
+
+# JSON processing
+# (included in stdlib, listed for completeness)

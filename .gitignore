@@ -1,0 +1,94 @@
+# Logs
+logs/
+*.log
+
+# Cache data
+cache/
+*.cache
+
+# Temporary files
+*.tmp
+*.swp
+*~
+.DS_Store
+
+# Redis dumps
+dump.rdb
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Private/sensitive data (if any)
+data/*-private.json
+.env
+secrets.json
+
+# Keep data directory structure but ignore some files
+data/*.tmp
+data/backup/
+
+# Keep empty directories
+!.gitkeep
+
+# Node modules (if any)
+node_modules/
+
+# OS files
+Thumbs.db
+
+# Project transcripts (may contain sensitive data)
+projects/
+*.jsonl
+
+# Debug and file history (may contain sensitive data)
+debug/
+file-history/
+
+# Local settings (may contain tokens)
+settings.local.json
+*.local.json
+
+# Temporary task files
+todos/
+
+# Personal learning & session data
+data/learned-insights.json
+data/learning-data.json
+data/session-history.json
+data/user-profile.json
+stats-cache.json
+
+# Knowledge backups (personal)
+knowledge.backup.*/
+
+# Personal session artifacts
+paste-cache/
+shell-snapshots/
+session-env/
+statsig/
+telemetry/
+audit/
+security/
+
+# Old personal config backups
+CLAUDE-OLD-*.md

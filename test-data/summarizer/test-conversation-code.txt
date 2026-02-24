@@ -1,0 +1,15 @@
+Here's the implementation:
+
+```javascript
+function authenticateUser(username, password) {
+    const user = findUser(username);
+    if (!user) return null;
+
+    if (verifyPassword(password, user.passwordHash)) {
+        return generateToken(user.id);
+    }
+    return null;
+}
+```
+
+This works perfectly.

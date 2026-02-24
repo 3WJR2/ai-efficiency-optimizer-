@@ -1,0 +1,27 @@
+{
+  "codebase_path": "/tmp/test_project",
+  "created_at": "2026-02-18T15:34:42Z",
+  "updated_at": "2026-02-18T15:34:44Z",
+  "version": "1.0.0",
+  "stats": {
+    "files_indexed": 1,
+    "total_definitions": 2,
+    "total_loc": 9,
+    "last_scan": "2026-02-18T15:34:44Z"
+  },
+  "config": {
+    "excluded_dirs": [
+      "node_modules",
+      "venv",
+      ".git",
+      "build",
+      "dist",
+      "target",
+      ".next",
+      ".cache",
+      "__pycache__",
+      "vendor"
+    ],
+    "max_file_size_kb": 1024
+  }
+}

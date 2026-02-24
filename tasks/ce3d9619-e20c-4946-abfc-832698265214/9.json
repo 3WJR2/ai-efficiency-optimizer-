@@ -1,0 +1,9 @@
+{
+  "id": "9",
+  "subject": "Phase 9: Integration & end-to-end testing",
+  "description": "Wire everything together, test build, runtime functionality, service integration, and UI interactions.",
+  "activeForm": "Running integration testing",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

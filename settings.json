@@ -1,0 +1,60 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(echo:*)"
+    ]
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/on-session-start.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/capture-interaction.sh \"$CLAUDE_USER_PROMPT\" 2>/dev/null || true"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/outcome-tracker.sh track-interaction 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/pattern-analyzer.sh analyze 2>/dev/null || true"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/adaptive-config-manager.sh update 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/preserve-session-context.sh 2>/dev/null || true"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/analyze-interaction-patterns.sh 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

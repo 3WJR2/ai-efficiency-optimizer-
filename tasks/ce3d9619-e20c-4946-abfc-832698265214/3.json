@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "subject": "Phase 3: Build context provider architecture",
+  "description": "Create ADOContext and ChatContext providers to replace VSCode IDE context with Azure DevOps context.",
+  "activeForm": "Building context provider architecture",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

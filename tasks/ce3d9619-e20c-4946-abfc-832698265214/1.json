@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "Phase 1: Add dependencies & build setup",
+  "description": "Add Radix UI, TipTap, and lucide-react dependencies to package.json. Verify build completes successfully.",
+  "activeForm": "Adding dependencies and verifying build",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

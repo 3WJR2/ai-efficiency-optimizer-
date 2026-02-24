@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "Phase 2: Create ADO theme adapter",
+  "description": "Create ado-theme.css with Azure DevOps color variables and copy/adapt core styling from qodo-gen-chat.",
+  "activeForm": "Creating ADO theme adapter",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

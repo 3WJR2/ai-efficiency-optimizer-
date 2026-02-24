@@ -1,0 +1,19 @@
+Session: Bug fix for login endpoint
+
+I found a bug where users can't login after password reset.
+
+The problem is: Password reset invalidates the user session but doesn't clear Redis cache.
+
+The solution is: Clear Redis cache entry when password is reset.
+
+```python
+def reset_password(user_id, new_password):
+    # Update password in database
+    user.password = hash_password(new_password)
+    user.save()
+
+    # Clear Redis cache
+    redis_client.delete(f"user:{user_id}:session")
+```
+
+This works. Successfully tested and deployed.

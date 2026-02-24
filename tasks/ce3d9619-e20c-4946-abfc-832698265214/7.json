@@ -1,0 +1,9 @@
+{
+  "id": "7",
+  "subject": "Phase 7: Redesign Settings UI",
+  "description": "Replace SettingsPanel with Radix UI Dialog-based SettingsDialog component.",
+  "activeForm": "Redesigning Settings UI",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}
