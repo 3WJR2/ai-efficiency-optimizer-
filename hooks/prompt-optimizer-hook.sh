@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-# prompt-optimizer-hook.sh - UserPromptSubmit hook
-# Automatically generates an optimized prompt and injects it as additionalContext
-# so Claude sees it and presents it to the user for review before proceeding.
+# prompt-optimizer-hook.sh v2.0 - UserPromptSubmit hook
+# Automatically generates an optimized prompt with project-aware context,
+# few-shot examples, edit learning, task decomposition, ambiguity detection,
+# and tailored output formats. Injects result as additionalContext.
 
 # Read hook input from stdin
 INPUT=$(cat)
 PROMPT=$(echo "$INPUT" | jq -r '.prompt // ""' 2>/dev/null || echo "")
+CWD=$(echo "$INPUT" | jq -r '.cwd // "."' 2>/dev/null || echo ".")
 
 # Bail if we couldn't parse the prompt
 if [ -z "$PROMPT" ]; then
@@ -40,13 +42,18 @@ case "$PROMPT_LOWER" in
     also\ *|and\ *|but\ *|wait\ *|actually\ *|"never mind"*|"nevermind"*|change\ *|"update that"*|instead\ *) exit 0 ;;
 esac
 
-# Run the prompt optimizer
+# 6. Skip for git/commit/PR operations
+case "$PROMPT_LOWER" in
+    *commit*|*push*|*"pull request"*|*"create pr"*|*"merge"*|*"git "*) exit 0 ;;
+esac
+
+# Run the prompt optimizer with CWD for project-aware context
 OPTIMIZER="$HOME/.claude/scripts/prompt-optimizer.sh"
 if [ ! -x "$OPTIMIZER" ]; then
     exit 0
 fi
 
-OPTIMIZED=$("$OPTIMIZER" generate "$PROMPT" 2>/dev/null) || exit 0
+OPTIMIZED=$("$OPTIMIZER" generate "$PROMPT" "$CWD" 2>/dev/null) || exit 0
 
 if [ -z "$OPTIMIZED" ]; then
     exit 0
@@ -55,23 +62,25 @@ fi
 # Extract metadata lines and prompt body
 CATEGORY=$(echo "$OPTIMIZED" | grep '^# Task Category:' | sed 's/# Task Category: //')
 TECH=$(echo "$OPTIMIZED" | grep '^# Detected Tech:' | sed 's/# Detected Tech: //')
+PROJECT_CTX=$(echo "$OPTIMIZED" | grep '^# Project Context:' | sed 's/# Project Context: //')
 COMPLEXITY=$(echo "$OPTIMIZED" | grep '^# Complexity:' | sed 's/# Complexity: //')
 INTENT=$(echo "$OPTIMIZED" | grep '^# Intent:' | sed 's/# Intent: //')
 PROMPT_BODY=$(echo "$OPTIMIZED" | sed '1,/^---$/d')
 
-# Output plain text to stdout - Claude Code injects this as additionalContext
+# Build output
 cat <<HOOKEOF
-PROMPT OPTIMIZER (Auto-Generated)
+PROMPT OPTIMIZER v2.0 (Auto-Generated)
 
 The Prompt Optimizer has analyzed the user's request and generated an optimized prompt based on Anthropic's prompting best practices.
 
 Classification: ${CATEGORY} | Tech: ${TECH:-none detected} | Complexity: ${COMPLEXITY} | Intent: ${INTENT}
+Project: ${PROJECT_CTX:-none detected}
 
 --- OPTIMIZED PROMPT ---
 ${PROMPT_BODY}
 --- END OPTIMIZED PROMPT ---
 
-IMPORTANT: Present the optimized prompt above to the user BEFORE starting work on their task. Show the classification and the prompt content clearly. Ask the user to:
+IMPORTANT: Present the optimized prompt above to the user BEFORE starting work on their task. Show the classification metadata and the prompt content clearly. Ask the user to:
 1. Accept - proceed using the optimized prompt as guidance
 2. Edit - tell you what to change in the prompt
 3. Skip - ignore the optimization and use their original request as-is
