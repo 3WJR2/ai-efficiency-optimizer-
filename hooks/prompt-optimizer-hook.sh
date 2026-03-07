@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# prompt-optimizer-hook.sh v2.0 - UserPromptSubmit hook
+# prompt-optimizer-hook.sh v3.0 - UserPromptSubmit hook
 # Automatically generates an optimized prompt with project-aware context,
+# codebase pattern sniffing, git-aware context, semantic classification,
 # few-shot examples, edit learning, task decomposition, ambiguity detection,
-# and tailored output formats. Injects result as additionalContext.
+# tailored output formats, and iterative refinement. Injects result as additionalContext.
 
 # Read hook input from stdin
 INPUT=$(cat)
@@ -47,6 +48,11 @@ case "$PROMPT_LOWER" in
     *commit*|*push*|*"pull request"*|*"create pr"*|*"merge"*|*"git "*) exit 0 ;;
 esac
 
+# 7. Skip for prompt refinement requests (these are handled in-conversation)
+case "$PROMPT_LOWER" in
+    *"make it simpler"*|*"more detail"*|*"focus on"*|*"add test"*|*"too verbose"*|*"refine"*) exit 0 ;;
+esac
+
 # Run the prompt optimizer with CWD for project-aware context
 OPTIMIZER="$HOME/.claude/scripts/prompt-optimizer.sh"
 if [ ! -x "$OPTIMIZER" ]; then
@@ -69,7 +75,7 @@ PROMPT_BODY=$(echo "$OPTIMIZED" | sed '1,/^---$/d')
 
 # Build output
 cat <<HOOKEOF
-PROMPT OPTIMIZER v2.0 (Auto-Generated)
+PROMPT OPTIMIZER v3.0 (Auto-Generated)
 
 The Prompt Optimizer has analyzed the user's request and generated an optimized prompt based on Anthropic's prompting best practices.
 
@@ -82,8 +88,15 @@ ${PROMPT_BODY}
 
 IMPORTANT: Present the optimized prompt above to the user BEFORE starting work on their task. Show the classification metadata and the prompt content clearly. Ask the user to:
 1. Accept - proceed using the optimized prompt as guidance
-2. Edit - tell you what to change in the prompt
+2. Edit - tell you what to change in the prompt (the optimizer supports iterative refinement)
 3. Skip - ignore the optimization and use their original request as-is
+
+If the user requests edits, you can refine the prompt iteratively. Common refinements:
+- "make it simpler" / "shorter" - removes verbose sections
+- "more detail" / "be thorough" - adds extra validation guidance
+- "focus on X" / "prioritize X" - adds priority emphasis
+- "add tests" - adds testing requirements
+- "security focus" - adds security review requirements
 
 Wait for the user's choice before proceeding.
 HOOKEOF

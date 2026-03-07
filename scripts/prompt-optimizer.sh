@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# prompt-optimizer.sh v2.0 - Auto-generates optimal prompts based on Anthropic's best practices
+# prompt-optimizer.sh v3.0 - Auto-generates optimal prompts based on Anthropic's best practices
 # Enhanced with: project-aware context, few-shot learning, edit-based adaptation,
 # task decomposition, codebase complexity detection, ambiguity detection,
-# tailored output formats, and agent-lightning RL integration.
+# tailored output formats, agent-lightning RL integration, codebase pattern sniffing,
+# git-aware context, semantic TF-IDF classification, and iterative refinement.
 #
 # Usage: prompt-optimizer.sh <command> [args]
 #   generate "<user_request>" [cwd]  - Generate optimized prompt (cwd optional)
@@ -193,10 +194,212 @@ detect_project_context() {
     echo "$context"
 }
 
+# ─── IMPROVEMENT #9: Codebase Pattern Sniffing ─────────────────────
+
+detect_codebase_patterns() {
+    local cwd="${1:-.}"
+
+    if [ ! -d "$cwd" ]; then
+        return
+    fi
+
+    local patterns=""
+
+    # -- Architecture patterns --
+
+    # MVC / Service / Repository pattern detection
+    local has_controllers="" has_services="" has_repositories="" has_models="" has_routes=""
+    [ -d "$cwd/controllers" ] || [ -d "$cwd/src/controllers" ] || [ -d "$cwd/app/controllers" ] && has_controllers="yes"
+    [ -d "$cwd/services" ] || [ -d "$cwd/src/services" ] || [ -d "$cwd/app/services" ] && has_services="yes"
+    [ -d "$cwd/repositories" ] || [ -d "$cwd/src/repositories" ] || [ -d "$cwd/src/repos" ] && has_repositories="yes"
+    [ -d "$cwd/models" ] || [ -d "$cwd/src/models" ] || [ -d "$cwd/app/models" ] && has_models="yes"
+    [ -d "$cwd/routes" ] || [ -d "$cwd/src/routes" ] || [ -d "$cwd/app/routes" ] || [ -d "$cwd/src/api" ] && has_routes="yes"
+
+    if [ -n "$has_controllers" ] && [ -n "$has_models" ]; then
+        if [ -n "$has_services" ] && [ -n "$has_repositories" ]; then
+            patterns="${patterns}- Architecture: Layered (Controller → Service → Repository → Model)\n"
+        elif [ -n "$has_services" ]; then
+            patterns="${patterns}- Architecture: MVC + Service layer\n"
+        else
+            patterns="${patterns}- Architecture: MVC pattern\n"
+        fi
+    elif [ -n "$has_services" ]; then
+        patterns="${patterns}- Architecture: Service-oriented\n"
+    fi
+
+    # Next.js App Router vs Pages Router
+    if [ -d "$cwd/app" ] && [ -f "$cwd/app/layout.tsx" ] || [ -f "$cwd/app/layout.js" ] 2>/dev/null; then
+        patterns="${patterns}- Routing: Next.js App Router (app/ directory)\n"
+        [ -d "$cwd/app/api" ] && patterns="${patterns}- API: Next.js Route Handlers (app/api/)\n"
+    elif [ -d "$cwd/pages" ]; then
+        patterns="${patterns}- Routing: Next.js Pages Router (pages/ directory)\n"
+        [ -d "$cwd/pages/api" ] && patterns="${patterns}- API: Next.js API Routes (pages/api/)\n"
+    fi
+
+    # Express/Fastify route patterns
+    if [ -n "$has_routes" ]; then
+        local route_files
+        route_files=$(find "$cwd/routes" "$cwd/src/routes" "$cwd/src/api" -name "*.ts" -o -name "*.js" 2>/dev/null | head -5)
+        if [ -n "$route_files" ]; then
+            patterns="${patterns}- Routing: File-based route modules\n"
+        fi
+    fi
+
+    # -- State management --
+    if [ -d "$cwd" ]; then
+        grep -rql 'createSlice\|configureStore' "$cwd/src" 2>/dev/null | head -1 | grep -q . && patterns="${patterns}- State: Redux Toolkit\n"
+        grep -rql 'create.*Store\|useStore' "$cwd/src" 2>/dev/null | head -1 | grep -q . && patterns="${patterns}- State: Zustand\n"
+        grep -rql 'createContext\|useContext' "$cwd/src" 2>/dev/null | head -1 | grep -q . && patterns="${patterns}- State: React Context API\n"
+    fi
+
+    # -- Test patterns --
+    local test_dir=""
+    [ -d "$cwd/tests" ] && test_dir="$cwd/tests"
+    [ -d "$cwd/test" ] && test_dir="$cwd/test"
+    [ -d "$cwd/__tests__" ] && test_dir="$cwd/__tests__"
+    [ -d "$cwd/src/__tests__" ] && test_dir="$cwd/src/__tests__"
+    [ -d "$cwd/spec" ] && test_dir="$cwd/spec"
+
+    if [ -n "$test_dir" ]; then
+        local test_count
+        test_count=$(find "$test_dir" -name "*.test.*" -o -name "*.spec.*" -o -name "test_*" 2>/dev/null | wc -l | tr -d ' ')
+        patterns="${patterns}- Tests: $test_count test files in $test_dir/\n"
+    fi
+    # Co-located test pattern (test files next to source)
+    if [ -z "$test_dir" ]; then
+        local colocated
+        colocated=$(find "$cwd/src" -name "*.test.*" -o -name "*.spec.*" 2>/dev/null | head -1)
+        [ -n "$colocated" ] && patterns="${patterns}- Tests: Co-located (test files next to source)\n"
+    fi
+
+    # -- Naming conventions --
+    if [ -d "$cwd/src" ]; then
+        # Check for kebab-case vs camelCase vs PascalCase filenames
+        local kebab_count camel_count pascal_count
+        kebab_count=$(find "$cwd/src" -maxdepth 3 -name "*-*" -not -path "*/node_modules/*" 2>/dev/null | wc -l | tr -d ' ')
+        pascal_count=$(find "$cwd/src" -maxdepth 3 -type f \( -name "[A-Z]*.tsx" -o -name "[A-Z]*.ts" -o -name "[A-Z]*.jsx" \) -not -path "*/node_modules/*" 2>/dev/null | wc -l | tr -d ' ')
+
+        if [ "$pascal_count" -gt 5 ]; then
+            patterns="${patterns}- Naming: PascalCase components\n"
+        elif [ "$kebab_count" -gt 5 ]; then
+            patterns="${patterns}- Naming: kebab-case files\n"
+        fi
+    fi
+
+    # -- Config files that inform conventions --
+    [ -f "$cwd/.eslintrc.json" ] || [ -f "$cwd/.eslintrc.js" ] || [ -f "$cwd/eslint.config.js" ] || [ -f "$cwd/eslint.config.mjs" ] && patterns="${patterns}- Linting: ESLint configured\n"
+    [ -f "$cwd/.prettierrc" ] || [ -f "$cwd/.prettierrc.json" ] || [ -f "$cwd/prettier.config.js" ] && patterns="${patterns}- Formatting: Prettier configured\n"
+    [ -f "$cwd/biome.json" ] && patterns="${patterns}- Linting/Formatting: Biome configured\n"
+    [ -f "$cwd/.env.example" ] && patterns="${patterns}- Config: .env pattern (see .env.example for vars)\n"
+    [ -f "$cwd/mypy.ini" ] || [ -f "$cwd/pyrightconfig.json" ] && patterns="${patterns}- Type checking: Configured\n"
+
+    # -- Middleware / Auth patterns --
+    if grep -rql 'middleware' "$cwd/src" "$cwd/app" 2>/dev/null | head -1 | grep -q .; then
+        patterns="${patterns}- Middleware: Custom middleware detected\n"
+    fi
+    if grep -rql 'NextAuth\|next-auth\|Auth0\|passport\|jsonwebtoken\|jwt' "$cwd/src" "$cwd/app" "$cwd/pages" 2>/dev/null | head -1 | grep -q .; then
+        patterns="${patterns}- Auth: Authentication implementation detected\n"
+    fi
+
+    # -- ORM / DB patterns --
+    if grep -rql 'prisma\.\|PrismaClient' "$cwd/src" "$cwd/app" "$cwd/lib" 2>/dev/null | head -1 | grep -q .; then
+        patterns="${patterns}- ORM: Prisma (check prisma/schema.prisma for models)\n"
+    fi
+    [ -f "$cwd/prisma/schema.prisma" ] && patterns="${patterns}- Schema: prisma/schema.prisma\n"
+    [ -f "$cwd/drizzle.config.ts" ] || [ -f "$cwd/drizzle.config.js" ] && patterns="${patterns}- ORM: Drizzle\n"
+
+    echo -e "$patterns"
+}
+
+# ─── IMPROVEMENT #10: Git-Aware Context ────────────────────────────
+
+detect_git_context() {
+    local cwd="${1:-.}"
+
+    if [ ! -d "$cwd/.git" ]; then
+        return
+    fi
+
+    local context=""
+
+    # Current branch name
+    local branch
+    branch=$(git -C "$cwd" branch --show-current 2>/dev/null)
+    [ -n "$branch" ] && context="${context}- Branch: $branch\n"
+
+    # Branch purpose inference from name
+    if [ -n "$branch" ]; then
+        case "$branch" in
+            feat/*|feature/*) context="${context}- Branch purpose: Feature development\n" ;;
+            fix/*|bugfix/*|hotfix/*) context="${context}- Branch purpose: Bug fix\n" ;;
+            refactor/*) context="${context}- Branch purpose: Refactoring\n" ;;
+            chore/*) context="${context}- Branch purpose: Maintenance/chores\n" ;;
+            test/*) context="${context}- Branch purpose: Testing\n" ;;
+            release/*) context="${context}- Branch purpose: Release preparation\n" ;;
+        esac
+    fi
+
+    # Recent commits (last 5, one-line)
+    local recent_commits
+    recent_commits=$(git -C "$cwd" log --oneline -5 2>/dev/null)
+    if [ -n "$recent_commits" ]; then
+        context="${context}- Recent commits:\n"
+        while IFS= read -r line; do
+            context="${context}  $line\n"
+        done <<< "$recent_commits"
+    fi
+
+    # Uncommitted changes summary
+    local status_summary
+    status_summary=$(git -C "$cwd" diff --stat HEAD 2>/dev/null | tail -1)
+    if [ -n "$status_summary" ]; then
+        context="${context}- Uncommitted changes: $status_summary\n"
+    fi
+
+    # Staged files
+    local staged
+    staged=$(git -C "$cwd" diff --cached --name-only 2>/dev/null)
+    if [ -n "$staged" ]; then
+        local staged_count
+        staged_count=$(echo "$staged" | wc -l | tr -d ' ')
+        context="${context}- Staged files: $staged_count files ready to commit\n"
+    fi
+
+    # Recently modified files (unstaged)
+    local modified
+    modified=$(git -C "$cwd" diff --name-only 2>/dev/null | head -10)
+    if [ -n "$modified" ]; then
+        context="${context}- Modified files:\n"
+        while IFS= read -r line; do
+            context="${context}  $line\n"
+        done <<< "$modified"
+    fi
+
+    # Untracked files count
+    local untracked_count
+    untracked_count=$(git -C "$cwd" ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')
+    [ "$untracked_count" -gt 0 ] && context="${context}- Untracked files: $untracked_count new files\n"
+
+    echo -e "$context"
+}
+
 # ─── Task Classification ───────────────────────────────────────────
 
 classify_task() {
     local request="$1"
+
+    # Primary: Use semantic TF-IDF classifier if available
+    local semantic_classifier="$HOME/.claude/scripts/semantic-classifier.py"
+    if [ -f "$semantic_classifier" ] && command -v python3 >/dev/null 2>&1; then
+        local semantic_result
+        semantic_result=$(python3 "$semantic_classifier" "$request" 2>/dev/null)
+        if [ -n "$semantic_result" ] && [ "$semantic_result" != "general" ]; then
+            echo "$semantic_result"
+            return
+        fi
+    fi
+
+    # Fallback: grep-based pattern matching
     local request_lower
     request_lower=$(echo "$request" | tr '[:upper:]' '[:lower:]')
 
@@ -478,6 +681,12 @@ generate_prompt() {
         tech=$(echo "$project_context" | sed -n 's/.*Language: \([^ |]*\).*/\1/p')
     fi
 
+    # Step 2b: Detect codebase patterns and git context
+    local codebase_patterns
+    codebase_patterns=$(detect_codebase_patterns "$cwd")
+    local git_context
+    git_context=$(detect_git_context "$cwd")
+
     # Step 3: Dynamic complexity detection
     local complexity
     complexity=$(detect_complexity "$user_request" "$category" "$cwd")
@@ -555,11 +764,23 @@ generate_prompt() {
     local prompt="$role"
 
     # ── IMPROVEMENT #1: Project Context Section ──
-    if [ -n "$project_context" ]; then
+    if [ -n "$project_context" ] || [ -n "$codebase_patterns" ] || [ -n "$git_context" ]; then
         prompt="$prompt
 
-<project_context>
-$project_context
+<project_context>"
+        [ -n "$project_context" ] && prompt="$prompt
+$project_context"
+        if [ -n "$codebase_patterns" ]; then
+            prompt="$prompt
+Codebase Patterns:
+$codebase_patterns"
+        fi
+        if [ -n "$git_context" ]; then
+            prompt="$prompt
+Git Context:
+$git_context"
+        fi
+        prompt="$prompt
 </project_context>"
     fi
 
@@ -1167,6 +1388,84 @@ show_status() {
     echo "  [v2.0] Ambiguity detection: ON"
     echo "  [v2.0] Tailored output format: ON"
     echo "  [v2.0] Agent-lightning RL: $([ -x "$RL_BRIDGE" ] && echo "ON" || echo "OFF (bridge not found)")"
+    echo "  [v3.0] Codebase pattern sniffing: ON"
+    echo "  [v3.0] Git-aware context: ON"
+    echo "  [v3.0] Semantic TF-IDF classifier: $([ -f "$HOME/.claude/scripts/semantic-classifier.py" ] && command -v python3 >/dev/null 2>&1 && echo "ON (primary)" || echo "OFF (grep fallback)")"
+    echo "  [v3.0] Iterative refinement: ON"
+}
+
+# ─── IMPROVEMENT #12: Iterative Refinement ─────────────────────────
+
+refine_prompt() {
+    local original_prompt="$1"
+    local user_feedback="$2"
+    local category="$3"
+    local cwd="${4:-.}"
+
+    # Analyze what the user wants changed
+    local feedback_lower
+    feedback_lower=$(echo "$user_feedback" | tr '[:upper:]' '[:lower:]')
+
+    local refined="$original_prompt"
+
+    # Handle common refinement requests
+    if echo "$feedback_lower" | grep -qE '(simpl|shorter|concis|less verbose)'; then
+        # Strip verbose sections, keep core
+        refined=$(echo "$refined" | sed '/<quality_validation>/,/<\/quality_validation>/d')
+        refined=$(echo "$refined" | sed '/<task_decomposition>/,/<\/task_decomposition>/d')
+        refined=$(echo "$refined" | sed '/<clarifying_questions>/,/<\/clarifying_questions>/d')
+    elif echo "$feedback_lower" | grep -qE '(more detail|elaborate|thorough)'; then
+        # Add extra validation and detail instructions
+        refined="$refined
+
+<additional_guidance>
+Take extra care to be thorough:
+- Consider all edge cases and failure modes.
+- Provide detailed explanations for each decision.
+- Include examples where they aid clarity.
+- Validate your work step by step.
+</additional_guidance>"
+    elif echo "$feedback_lower" | grep -qE '(focus on|prioritize|emphasize)'; then
+        # Extract the focus area and add emphasis
+        local focus_area
+        focus_area=$(echo "$user_feedback" | sed -E 's/.*(focus on|prioritize|emphasize) //i' | head -1)
+        refined="$refined
+
+<priority_focus>
+PRIMARY FOCUS: $focus_area
+Prioritize this aspect above all others in your response.
+</priority_focus>"
+    elif echo "$feedback_lower" | grep -qE '(add.*test|include.*test)'; then
+        refined="$refined
+
+<testing_requirement>
+Include comprehensive tests for all changes:
+- Unit tests for core logic
+- Edge case coverage
+- Integration tests if multiple components are affected
+</testing_requirement>"
+    elif echo "$feedback_lower" | grep -qE '(security|secure)'; then
+        refined="$refined
+
+<security_requirement>
+Apply security best practices throughout:
+- Validate all inputs at system boundaries
+- Check for OWASP Top 10 vulnerabilities
+- Use parameterized queries for any database operations
+- Sanitize outputs to prevent XSS
+</security_requirement>"
+    fi
+
+    # If none of the patterns matched, append the feedback as a custom constraint
+    if [ "$refined" = "$original_prompt" ]; then
+        refined="$refined
+
+<user_refinement>
+Additional requirement from user: $user_feedback
+</user_refinement>"
+    fi
+
+    echo "$refined"
 }
 
 # ─── Main ───────────────────────────────────────────────────────────
@@ -1227,6 +1526,29 @@ main() {
             record_outcome "$category" "$result"
             ;;
 
+        refine)
+            local original="${2:-}"
+            local feedback="${3:-}"
+            local cat="${4:-general}"
+            local cwd="${5:-.}"
+            if [ -z "$original" ] || [ -z "$feedback" ]; then
+                echo "Error: Need original prompt and feedback"
+                echo "Usage: prompt-optimizer.sh refine \"<original_prompt>\" \"<feedback>\" [category] [cwd]"
+                exit 1
+            fi
+            refine_prompt "$original" "$feedback" "$cat" "$cwd"
+            ;;
+
+        detect-codebase)
+            local cwd="${2:-.}"
+            detect_codebase_patterns "$cwd"
+            ;;
+
+        detect-git)
+            local cwd="${2:-.}"
+            detect_git_context "$cwd"
+            ;;
+
         history)
             [ -f "$HISTORY_FILE" ] && jq '.' "$HISTORY_FILE" || echo "No history yet"
             ;;
@@ -1236,12 +1558,15 @@ main() {
             ;;
 
         help|*)
-            echo "Prompt Optimizer v2.0 - Auto-generate optimal prompts (Anthropic best practices)"
+            echo "Prompt Optimizer v3.0 - Auto-generate optimal prompts (Anthropic best practices)"
             echo ""
             echo "Commands:"
             echo "  generate \"<request>\" [cwd]               Generate optimized prompt"
             echo "  classify \"<request>\"                     Classify task category"
+            echo "  refine \"<prompt>\" \"<feedback>\" [cat]     Refine prompt based on user feedback"
             echo "  detect-project [cwd]                      Detect project context"
+            echo "  detect-codebase [cwd]                     Detect codebase patterns"
+            echo "  detect-git [cwd]                          Detect git context"
             echo "  record-edit \"<cat>\" \"<orig>\" \"<edit>\"    Record user's edit for learning"
             echo "  record-outcome \"<cat>\" \"<result>\"        Record outcome (success/partial/failure)"
             echo "  history                                   Show generation history"
