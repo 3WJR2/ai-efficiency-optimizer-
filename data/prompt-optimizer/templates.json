@@ -1,0 +1,187 @@
+{
+  "version": "1.0.0",
+  "templates": {
+    "code_implementation": {
+      "role": "You are an expert software engineer specializing in {language/framework}.",
+      "structure": [
+        "<task_context>",
+        "<requirements>",
+        "<constraints>",
+        "<output_format>",
+        "<quality_criteria>"
+      ],
+      "principles_emphasis": ["be_clear_and_direct", "sequential_steps", "use_xml_tags"]
+    },
+    "debugging": {
+      "role": "You are an expert debugger and systems analyst.",
+      "structure": [
+        "<problem_description>",
+        "<observed_behavior>",
+        "<expected_behavior>",
+        "<environment>",
+        "<investigation_steps>"
+      ],
+      "principles_emphasis": ["add_context_for_motivation", "sequential_steps", "quality_validation"]
+    },
+    "refactoring": {
+      "role": "You are an expert software architect focused on code quality and maintainability.",
+      "structure": [
+        "<current_code_context>",
+        "<refactoring_goals>",
+        "<constraints>",
+        "<quality_criteria>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["be_clear_and_direct", "use_xml_tags", "quality_validation"]
+    },
+    "code_review": {
+      "role": "You are a senior code reviewer focused on correctness, security, and best practices.",
+      "structure": [
+        "<code_to_review>",
+        "<review_focus_areas>",
+        "<standards>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["structured_output_format", "specify_constraints", "quality_validation"]
+    },
+    "system_design": {
+      "role": "You are a senior systems architect with deep expertise in distributed systems and scalable design.",
+      "structure": [
+        "<problem_statement>",
+        "<requirements>",
+        "<constraints>",
+        "<scale_expectations>",
+        "<trade_off_priorities>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["add_context_for_motivation", "use_examples_when_helpful", "sequential_steps"]
+    },
+    "research": {
+      "role": "You are a thorough technical researcher with expertise in {domain}.",
+      "structure": [
+        "<research_question>",
+        "<scope>",
+        "<known_context>",
+        "<desired_depth>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["add_context_for_motivation", "structured_output_format", "quality_validation"]
+    },
+    "testing": {
+      "role": "You are a QA engineer and testing specialist.",
+      "structure": [
+        "<code_under_test>",
+        "<test_requirements>",
+        "<coverage_goals>",
+        "<testing_framework>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["be_clear_and_direct", "use_examples_when_helpful", "specify_constraints"]
+    },
+    "frontend": {
+      "role": "You are a frontend engineer specializing in {framework} with strong UI/UX sensibility.",
+      "structure": [
+        "<component_description>",
+        "<design_requirements>",
+        "<interaction_behavior>",
+        "<accessibility_requirements>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["be_clear_and_direct", "use_examples_when_helpful", "specify_constraints"]
+    },
+    "api_integration": {
+      "role": "You are a backend engineer specializing in API design and third-party integrations.",
+      "structure": [
+        "<integration_target>",
+        "<data_flow>",
+        "<authentication>",
+        "<error_handling>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["sequential_steps", "specify_constraints", "quality_validation"]
+    },
+    "performance_optimization": {
+      "role": "You are a performance engineer specializing in profiling, bottleneck analysis, and optimization.",
+      "structure": [
+        "<current_performance>",
+        "<target_performance>",
+        "<constraints>",
+        "<profiling_data>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["add_context_for_motivation", "sequential_steps", "quality_validation"]
+    },
+    "documentation": {
+      "role": "You are a technical writer who creates clear, comprehensive documentation.",
+      "structure": [
+        "<subject>",
+        "<audience>",
+        "<scope>",
+        "<format_requirements>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["be_clear_and_direct", "use_examples_when_helpful", "structured_output_format"]
+    },
+    "security_audit": {
+      "role": "You are a security engineer specializing in vulnerability assessment and secure coding practices.",
+      "structure": [
+        "<code_or_system_to_audit>",
+        "<threat_model>",
+        "<compliance_requirements>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["sequential_steps", "quality_validation", "specify_constraints"]
+    },
+    "migration": {
+      "role": "You are a migration specialist experienced in safely transitioning systems between technologies.",
+      "structure": [
+        "<source_system>",
+        "<target_system>",
+        "<data_considerations>",
+        "<rollback_plan>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["sequential_steps", "add_context_for_motivation", "quality_validation"]
+    },
+    "devops": {
+      "role": "You are a DevOps engineer specializing in CI/CD, infrastructure, and deployment automation.",
+      "structure": [
+        "<infrastructure_context>",
+        "<task_description>",
+        "<constraints>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["be_clear_and_direct", "sequential_steps", "specify_constraints"]
+    },
+    "database": {
+      "role": "You are a database engineer specializing in schema design, query optimization, and data modeling.",
+      "structure": [
+        "<current_schema>",
+        "<requirements>",
+        "<performance_expectations>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["be_clear_and_direct", "specify_constraints", "quality_validation"]
+    },
+    "data_analysis": {
+      "role": "You are a data analyst specializing in extracting insights from complex datasets.",
+      "structure": [
+        "<data_description>",
+        "<analysis_goals>",
+        "<output_requirements>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["add_context_for_motivation", "structured_output_format", "quality_validation"]
+    },
+    "general": {
+      "role": "You are a helpful and thorough assistant.",
+      "structure": [
+        "<task>",
+        "<context>",
+        "<constraints>",
+        "<output_format>"
+      ],
+      "principles_emphasis": ["be_clear_and_direct", "add_context_for_motivation", "structured_output_format"]
+    }
+  }
+}

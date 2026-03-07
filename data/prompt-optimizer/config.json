@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "auto_trigger_on_new_task": true,
+  "show_prompt_to_user": true,
+  "editable_before_execution": true,
+  "learn_from_edits": true,
+  "task_categories": [
+    "code_implementation",
+    "debugging",
+    "refactoring",
+    "code_review",
+    "system_design",
+    "research",
+    "documentation",
+    "testing",
+    "devops",
+    "data_analysis",
+    "api_integration",
+    "frontend",
+    "backend",
+    "database",
+    "performance_optimization",
+    "security_audit",
+    "migration",
+    "general"
+  ],
+  "prompt_principles": {
+    "be_clear_and_direct": true,
+    "add_context_for_motivation": true,
+    "use_xml_tags": true,
+    "give_role": true,
+    "use_examples_when_helpful": true,
+    "structured_output_format": true,
+    "specify_constraints": true,
+    "sequential_steps": true,
+    "quality_validation": true
+  },
+  "defaults": {
+    "include_role": true,
+    "include_constraints": true,
+    "include_output_format": true,
+    "include_validation_criteria": true,
+    "include_context": true,
+    "max_prompt_length_lines": 60
+  }
+}

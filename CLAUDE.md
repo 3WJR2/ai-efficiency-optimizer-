@@ -1,6 +1,6 @@
 # Claude Enhanced Configuration - Anthropic Skill Philosophy Integrated
 
-**Version**: 2.0.0 (Anthropic Skill Methodology)
+**Version**: 2.1.0 (Anthropic Skill Methodology + Prompt Optimizer)
 **Purpose**: Personal Claude configuration with Anthropic's skill-building philosophy
 **Philosophy**: Progressive disclosure, clear task decomposition, outcome-focused design
 **Performance**: 9-10x improvement potential with RL integration
@@ -42,6 +42,7 @@ All capabilities work together seamlessly, not in isolation.
 │ LEVEL 1: TRIGGER LAYER (Always in Context)                  │
 │                                                              │
 │ Capabilities:                                                │
+│ • prompt-optimizer → auto-generate optimal prompts          │
 │ • adaptive-intelligence → learning from patterns            │
 │ • caching → speed optimization                              │
 │ • parallel-execution → concurrent task handling             │
@@ -73,6 +74,106 @@ All capabilities work together seamlessly, not in isolation.
 ---
 
 ## Capabilities (Skill Format)
+
+### Capability 0: Prompt Optimizer (Auto-Trigger on Every New Task)
+
+**What it does**: Automatically analyzes the user's task intention and generates an optimal, structured prompt based on Anthropic's official prompting best practices. The generated prompt is shown to the user for review and editing before Claude begins work.
+
+**CRITICAL BEHAVIOR - This capability activates FIRST, before all others**:
+When a user starts a new Claude session and describes a task, Claude MUST:
+1. Classify the task category (code, debug, design, research, etc.)
+2. Generate an optimized prompt using `~/.claude/scripts/prompt-optimizer.sh generate "<user_request>"`
+3. Present the generated prompt to the user in a clear, readable format
+4. Ask the user to accept, edit, or skip the optimized prompt
+5. Only proceed with the task AFTER the user approves or edits the prompt
+
+**Use when**: EVERY new task in a new Claude session. This is the FIRST capability that activates.
+
+**Do NOT use when**:
+- The user is asking a quick question (< 5 words, conversational)
+- The user is giving follow-up instructions on an existing task
+- The user explicitly says "skip prompt optimization" or "just do it"
+- The user is running a slash command
+
+**Triggers**:
+- Any new task description in a new Claude session
+- Any substantial request (> 5 words describing work to be done)
+- "optimize my prompt"
+- "generate a better prompt"
+
+**Workflow**:
+```
+Step 1: Task Analysis
+├─ Classify task category (17 categories supported)
+├─ Detect technologies and frameworks mentioned
+├─ Assess complexity (low/medium/high)
+├─ Extract core intent (Create/Fix/Refactor/Review/etc.)
+
+Step 2: Prompt Generation (Anthropic Best Practices)
+├─ Assign expert role matching the task category
+├─ Structure with XML tags (<task>, <instructions>, <constraints>)
+├─ Add sequential numbered steps
+├─ Include category-specific guidance
+├─ Add quality validation criteria for medium/high complexity
+
+Step 3: Present to User
+├─ Show the generated prompt in a formatted code block
+├─ Display classification metadata (category, tech, complexity)
+├─ Ask user to: Accept / Edit / Skip
+├─ WAIT for user response before proceeding
+
+Step 4: Execute or Iterate
+├─ If accepted: Proceed with the optimized prompt as the task
+├─ If edited: Use the user's edited version
+├─ If skipped: Use the original raw request
+├─ Record the outcome for learning
+
+Step 5: Learn from Edits
+├─ Track acceptance vs edit rates
+├─ Record edit patterns for future improvement
+├─ Update category frequency data
+```
+
+**Presentation Format** (how to show the prompt to the user):
+```
+I've analyzed your task and generated an optimized prompt.
+
+**Classification**: [category] | **Tech**: [detected tech] | **Complexity**: [level]
+
+Here is the optimized prompt:
+
+---
+[generated prompt content]
+---
+
+You can:
+1. **Accept** this prompt and I'll proceed
+2. **Edit** it - tell me what to change
+3. **Skip** - I'll work with your original request
+```
+
+**Anthropic Principles Applied**:
+| Principle | Implementation |
+|-----------|---------------|
+| Be clear and direct | Specific instructions with numbered steps |
+| Add context | Motivation behind each instruction |
+| Use XML tags | `<task>`, `<instructions>`, `<constraints>`, `<output_format>` |
+| Give a role | Category-specific expert role assigned |
+| Sequential steps | Numbered, ordered instructions |
+| Quality validation | Self-check criteria for medium/high complexity |
+| Specify constraints | Clear boundaries per task type |
+
+**Tools used**:
+- `~/.claude/scripts/prompt-optimizer.sh` - Core engine
+- `~/.claude/data/prompt-optimizer/config.json` - Configuration
+- `~/.claude/data/prompt-optimizer/history.json` - Learning history
+- `~/.claude/data/prompt-optimizer/templates.json` - Category templates
+
+**References**:
+- Skill documentation: `~/.claude/skills/prompt-optimizer/skill.md`
+- Anthropic best practices: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+
+---
 
 ### Capability 1: Adaptive Intelligence
 
@@ -819,6 +920,15 @@ ROI: (Savings - Cost) / Cost × 100%
 
 ## Usage Commands (Trigger Format)
 
+### Prompt Optimizer
+
+| Command | Trigger Phrases | Action |
+|---------|----------------|--------|
+| Auto-Generate | Any new task in a new session | Generate and present optimized prompt |
+| Manual | "optimize my prompt", "generate better prompt" | Generate optimized prompt on demand |
+| Status | "prompt optimizer status" | Show generation stats and history |
+| Skip | "skip prompt optimization", "just do it" | Bypass optimizer for this task |
+
 ### Adaptive Intelligence
 
 | Command | Trigger Phrases | Action |
@@ -964,6 +1074,13 @@ This configuration integrates Anthropic's skill-building philosophy with:
 ---
 
 ## Version History
+
+- **2.1.0** (2026-03-06): Added Prompt Optimizer layer
+  - Auto-generates optimal prompts based on Anthropic's best practices
+  - Classifies task intent across 17 categories
+  - Presents editable prompt to user before execution
+  - Learns from user edits to improve over time
+  - Applies: XML tags, role prompting, sequential steps, quality validation
 
 - **2.0.0** (2026-02-16): Integrated Anthropic's skill philosophy
   - Progressive disclosure architecture
