@@ -2,14 +2,190 @@
   "permissions": {
     "allow": [
       "Bash(curl:*)",
-      "Bash(echo:*)"
-    ]
-  },
-  "skipDangerousModePermissionPrompt": true,
-  "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true
+      "Bash(echo:*)",
+      "Bash(gh pr list --head demo-query-optimization-broken)",
+      "Bash(gh pr list --state all --head demo-query-optimization-broken)",
+      "Bash(gh repo view --json owner,name)",
+      "Bash(gh pr list --state all --json number,headRefName,title)",
+      "Bash(gh repo clone:*)",
+      "Bash(cat:*)",
+      "Bash(netstat:*)",
+      "Bash(sysctl:*)",
+      "Bash(tput:*)",
+      "Bash(sampler:*)",
+      "Bash(if [ -n \"$ANTHROPIC_API_KEY\" ])",
+      "Bash(then echo \"API key is set\")",
+      "Bash(else echo \"API key not found\")",
+      "Bash(fi)",
+      "Bash(source ~/.zshrc)",
+      "Bash(then echo \"API key loaded successfully\")",
+      "Bash(chmod:*)",
+      "Bash(~/.config/sampler/usage_log.txt)",
+      "Bash(~/.config/sampler/scripts/track_usage.sh)",
+      "Bash(~/.config/sampler/scripts/log_api_call.sh:*)",
+      "WebFetch(domain:www.x-cmd.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "Bash(find:*)",
+      "Bash(lsof:*)",
+      "Bash(test:*)",
+      "Bash(~/.config/sampler/scripts/get_claude_input_tokens.sh)",
+      "Bash(~/.config/sampler/scripts/claude_usage_summary.sh:*)",
+      "Bash(~/.config/sampler/scripts/get_claude_output_tokens.sh:*)",
+      "Bash(~/.config/sampler/scripts/dancing_claude.sh:*)",
+      "Bash(~/.config/sampler/scripts/token_stats.sh:*)",
+      "Bash(~/.config/sampler/scripts/get_claude_input_tokens_k.sh:*)",
+      "Bash(~/.config/sampler/scripts/get_claude_output_tokens_k.sh)",
+      "Bash(~/.config/sampler/scripts/check_rate_limits.sh:*)",
+      "Bash(~/.config/sampler/scripts/get_claude_total_tokens.sh:*)",
+      "Bash(~/.config/sampler/scripts/get_claude_requests.sh)",
+      "Bash(~/.config/sampler/scripts/token_rate.sh:*)",
+      "Bash(~/.config/sampler/scripts/request_rate.sh:*)",
+      "Bash(sh -c:*)",
+      "Bash(/Users/wallonwalusayi/.config/sampler/scripts/get_claude_input_tokens.sh)",
+      "Bash(xxd:*)",
+      "Bash(ls:*)",
+      "Bash(tty:*)",
+      "Bash(claude --version:*)",
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(/Users/wallonwalusayi/claude-code-logo.sh)",
+      "Bash(/opt/homebrew/bin/claude:*)",
+      "Bash(python3 -m pip:*)",
+      "Bash(python3:*)",
+      "Bash(source venv/bin/activate)",
+      "Bash(pip install:*)",
+      "Bash(python -m claude_multi_terminal:*)",
+      "Bash(timeout 2 python:*)",
+      "Bash(python:*)",
+      "Bash(pkill:*)",
+      "Bash(pip3 list:*)",
+      "Bash(./run_app.sh:*)",
+      "Bash(xargs kill:*)",
+      "Bash(kill:*)",
+      "Bash(npm audit:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run package:*)",
+      "Bash(unzip:*)",
+      "Bash(tree:*)",
+      "Bash(npm run clean:*)",
+      "Bash(brew install:*)",
+      "Bash(az extension add:*)",
+      "Bash(az extension:*)",
+      "Bash(az login:*)",
+      "Bash(az devops configure:*)",
+      "Bash(az devops project:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:marketplace.visualstudio.com)",
+      "WebFetch(domain:docs.qodo.ai)",
+      "Bash(export AZURE_DEVOPS_EXT_PAT=***REDACTED***)",
+      "Bash(~/.zshrc)",
+      "Bash(~/.claude/scripts/capture-interaction.sh:*)",
+      "Bash(~/.claude/skills/adaptive-intelligence/skill.sh status:*)",
+      "Bash(~/.claude/hooks/on-session-start.sh)",
+      "Bash(~/.claude/scripts/detect-tech-stack.sh:*)",
+      "Bash(~/.claude/scripts/preserve-session-context.sh:*)",
+      "Bash(~/.claude/scripts/confidence-aware-response.sh code_implementation)",
+      "Bash(~/.claude/scripts/multi-armed-bandit.sh:*)",
+      "Bash(~/.claude/scripts/learn-code-style.sh:*)",
+      "Bash(~/.claude/scripts/track-error-patterns.sh:*)",
+      "Bash(~/.claude/scripts/project-context.sh:*)",
+      "Bash(~/.claude/scripts/proactive-suggestions.sh:*)",
+      "Bash(~/.claude/scripts/rlhf-lite.sh:*)",
+      "Bash(~/.claude/scripts/anomaly-detection.sh:*)",
+      "Bash(~/.claude/scripts/drift-detection.sh:*)",
+      "Bash(~/.claude/scripts/drift-detection.sh check:*)",
+      "Bash(~/.claude/skills/adaptive-intelligence/skill.sh:*)",
+      "Bash(~/.claude/scripts/autonomous-control.sh:*)",
+      "Bash(command -v:*)",
+      "Bash(redis-cli:*)",
+      "Bash(brew services:*)",
+      "Bash(source:*)",
+      "Bash(get_embedding:*)",
+      "Bash(/Users/wallonwalusayi/.claude/scripts/cache-manager.sh test:*)",
+      "Bash(/Users/wallonwalusayi/.claude/scripts/cache-manager.sh:*)",
+      "Bash(/Users/wallonwalusayi/.claude/scripts/test-cache-live.sh:*)",
+      "Bash(call_claude_api \"You are a helpful assistant.\" \"Say hello\")",
+      "Bash(zsh:*)",
+      "Bash(pip3 install:*)",
+      "Bash(bash:*)",
+      "Bash(/Users/wallonwalusayi/.claude/scripts/test-parallel.sh:*)",
+      "Bash(task_queue_stats:*)",
+      "Bash(task_queue_list:*)",
+      "Bash(task_queue_get_result:*)",
+      "Bash(task_queue_clear)",
+      "Bash(task_queue_add \"analyze_code\" \"echo ''Analyzing code structure''\")",
+      "Bash(task_queue_add \"check_tests\" \"echo ''Checking test coverage''\")",
+      "Bash(task_queue_add \"lint_code\" \"echo ''Running linter''\")",
+      "Bash(task_queue_add \"build\" \"echo ''Building project''\" \"analyze_code\" \"lint_code\")",
+      "Bash(task_queue_add \"run_tests\" \"echo ''Running tests''\" \"build\" \"check_tests\")",
+      "Bash(task_queue_add \"deploy_staging\" \"echo ''Deploying to staging''\" \"run_tests\")",
+      "Bash(task_queue_add \"deploy_prod\" \"echo ''Deploying to production''\" \"deploy_staging\")",
+      "Bash(validate_dependencies)",
+      "Bash(visualize_dependencies)",
+      "Bash(implement_parallel)",
+      "Bash(task_queue_add \"task_a\" \"echo ''Task A'' && sleep 1\")",
+      "Bash(task_queue_add \"task_b\" \"echo ''Task B'' && sleep 1\")",
+      "Bash(task_queue_add:*)",
+      "Bash(parallel_execute)",
+      "Bash(/Users/wallonwalusayi/.claude/scripts/workflow-optimizer.sh analyze:*)",
+      "Bash(/Users/wallonwalusayi/.claude/scripts/performance-monitor.sh:*)",
+      "Bash(~/.claude/scripts/outcome-tracker.sh track-cache:*)",
+      "Bash(~/.claude/scripts/outcome-tracker.sh:*)",
+      "Bash(~/.claude/scripts/pattern-analyzer.sh analyze:*)",
+      "Bash(~/.claude/scripts/adaptive-config-manager.sh:*)",
+      "Bash(launchctl unload:*)",
+      "Bash(launchctl load:*)",
+      "Bash(launchctl list:*)",
+      "Bash(~/.claude/scripts/learning-daemon.sh:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(~/.claude/scripts/pattern-import-export.sh:*)",
+      "Bash(git branch:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: Azure DevOps PR webhook setup script\n\nAdd interactive script for creating Azure DevOps service hook subscriptions\nfor Pull Request events. Includes comprehensive README with usage examples.\n\nFeatures:\n- Interactive prompts for all configuration values\n- Accepts organization name or full URL\n- Creates webhooks for all PR event types\n- Custom HTTP headers support\n- Error handling and validation\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(gh repo create:*)",
+      "Bash(~/.claude/scripts/automatic-rollback.sh:*)",
+      "Bash(~/.claude/scripts/workload-classifier.sh:*)",
+      "Bash(~/.claude/scripts/config-mab.sh:*)",
+      "Bash(~/.claude/scripts/ab-testing.sh:*)",
+      "Bash(~/.claude/scripts/smart-cache.sh:*)",
+      "Bash(~/.claude/scripts/multi-objective-optimization.sh:*)",
+      "Bash(git config:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git rm:*)",
+      "Bash(code --install-extension:*)",
+      "Bash(code:*)",
+      "Bash(ls -lh /Users/wallonwalusayi/Barcoa_Business_Proposal.pdf && open /Users/wallonwalusayi/Barcoa_Business_Proposal.pdf)",
+      "Bash(git checkout --orphan intelligence-layer && git rm -rf --cached . -q)",
+      "Bash(git -C /Users/wallonwalusayi/.claude diff --cached --stat | head -20 && echo \"...\" && git -C /Users/wallonwalusayi/.claude diff --cached --stat | tail -5222)",
+      "Bash(git -C /Users/wallonwalusayi/.claude commit -m \"$\\(cat <<'EOF'\nfeat: intelligence-layer branch — subsystems + learning core only\n\nScoped branch containing only the active intelligence subsystems\nand learning/adaptation layer:\n\nIntelligence Subsystems:\n  - agents/         \\(brahma suite, chief-architect, implementers, etc.\\)\n  - enhancements/   \\(Phase 1-3 ML/RL enhancements\\)\n  - scripts/        \\(143 automation scripts\\)\n  - skills/         \\(28 skill definitions\\)\n  - knowledge/      \\(structured knowledge modules\\)\n  - agent-lightning/ \\(RL training framework\\)\n\nLearning & Adaptation:\n  - data/           \\(learning data, session history, user profile\\)\n  - logs/           \\(execution logs\\)\n  - cache/          \\(performance cache + changelog\\)\n  - reports/        \\(generated reports\\)\n  - projects/.../MEMORY.md \\(cross-session memory\\)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C /Users/wallonwalusayi/.claude branch -a && git -C /Users/wallonwalusayi/.claude log --oneline)",
+      "mcp__mcp-registry__search_mcp_registry"
+    ],
+    "defaultMode": "dontAsk"
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "_R=\"$HOME/.claude/plugins/marketplaces/thedotmack/plugin\"; node \"$_R/scripts/bun-runner.js\" \"$_R/scripts/worker-service.cjs\" start 2>/dev/null || true",
+            "timeout": 60
+          },
+          {
+            "type": "command",
+            "command": "_R=\"$HOME/.claude/plugins/marketplaces/thedotmack/plugin\"; node \"$_R/scripts/bun-runner.js\" \"$_R/scripts/worker-service.cjs\" hook claude-code context 2>/dev/null || true",
+            "timeout": 60
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
         "hooks": [
@@ -24,6 +200,11 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/outcome-tracker.sh track-interaction 2>/dev/null || true"
+          },
+          {
+            "type": "command",
+            "command": "_R=\"$HOME/.claude/plugins/marketplaces/thedotmack/plugin\"; node \"$_R/scripts/bun-runner.js\" \"$_R/scripts/worker-service.cjs\" hook claude-code session-init 2>/dev/null || true",
+            "timeout": 60
           }
         ]
       }
@@ -38,6 +219,11 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/adaptive-config-manager.sh update 2>/dev/null || true"
+          },
+          {
+            "type": "command",
+            "command": "_R=\"$HOME/.claude/plugins/marketplaces/thedotmack/plugin\"; node \"$_R/scripts/bun-runner.js\" \"$_R/scripts/worker-service.cjs\" hook claude-code observation 2>/dev/null || true",
+            "timeout": 120
           }
         ]
       }
@@ -52,9 +238,24 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/analyze-interaction-patterns.sh 2>/dev/null || true"
+          },
+          {
+            "type": "command",
+            "command": "_R=\"$HOME/.claude/plugins/marketplaces/thedotmack/plugin\"; node \"$_R/scripts/bun-runner.js\" \"$_R/scripts/worker-service.cjs\" hook claude-code summarize 2>/dev/null || true",
+            "timeout": 120
+          },
+          {
+            "type": "command",
+            "command": "_R=\"$HOME/.claude/plugins/marketplaces/thedotmack/plugin\"; node \"$_R/scripts/bun-runner.js\" \"$_R/scripts/worker-service.cjs\" hook claude-code session-complete 2>/dev/null || true",
+            "timeout": 30
           }
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "claude-mem@thedotmack": true
+  },
+  "skipDangerousModePermissionPrompt": true
 }

@@ -1,5 +1,10 @@
 # Claude Code Memory - Solutions Engineer at Qodo
 
+## ⚡ Hard Rules
+- **Troubleshoot errors yourself first** — never tell the user to troubleshoot. When given an error or code problem, diagnose and fix it directly before responding.
+
+---
+
 ## 🎯 User Context
 - **Role**: Solutions Engineer at Qodo
 - **Primary Use Cases**: Demos, feature testing, customer integrations, relationship management

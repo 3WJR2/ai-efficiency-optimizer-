@@ -1,6 +1,15 @@
 {
   "version": 2,
   "plugins": {
+    "claude-mem@thedotmack": [
+      {
+        "scope": "user",
+        "installPath": "/Users/wallonwalusayi/.claude/plugins/marketplaces/thedotmack/plugin",
+        "version": "10.5.5",
+        "installedAt": "2026-03-09T00:00:00.000Z",
+        "lastUpdated": "2026-03-09T00:00:00.000Z"
+      }
+    ],
     "swift-lsp@claude-plugins-official": [
       {
         "scope": "user",
