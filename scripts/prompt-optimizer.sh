@@ -24,27 +24,72 @@ USER_PROFILE="$HOME/.claude/data/user-profile.json"
 INTERACTION_LEARNING="$HOME/.claude/data/interaction-learning.json"
 RL_BRIDGE="$HOME/.claude/scripts/agent-lightning-bridge.sh"
 
+# ─── Dependency Checks ─────────────────────────────────────────────
+HAS_JQ=false
+HAS_GIT=false
+HAS_PYTHON3=false
+command -v jq >/dev/null 2>&1 && HAS_JQ=true
+command -v git >/dev/null 2>&1 && HAS_GIT=true
+command -v python3 >/dev/null 2>&1 && HAS_PYTHON3=true
+
+LOG_FILE="$HOME/.claude/logs/prompt-optimizer.log"
+mkdir -p "$(dirname "$LOG_FILE")"
+
+log_error() {
+    echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] ERROR: $1" >> "$LOG_FILE" 2>/dev/null
+}
+
+log_warn() {
+    echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] WARN: $1" >> "$LOG_FILE" 2>/dev/null
+}
+
+if [ "$HAS_JQ" = false ]; then
+    log_warn "jq not found - history tracking, config, and learning features disabled"
+fi
+
 # Ensure data directory exists
 mkdir -p "$DATA_DIR"
 
-# Initialize examples file if missing
-if [ ! -f "$EXAMPLES_FILE" ]; then
-    cat > "$EXAMPLES_FILE" <<'EXEOF'
-{"version":"1.0.0","examples":{}}
-EXEOF
-fi
+# ─── JSON File Initialization & Recovery ───────────────────────────
 
-# Initialize edit patterns file if missing
-if [ ! -f "$EDIT_PATTERNS_FILE" ]; then
-    cat > "$EDIT_PATTERNS_FILE" <<'EPEOF'
-{"version":"1.0.0","patterns":{},"section_removals":{},"section_additions":{},"common_additions":[]}
-EPEOF
-fi
+init_json_file() {
+    local file="$1"
+    local default_content="$2"
+    if [ ! -f "$file" ]; then
+        echo "$default_content" > "$file"
+    elif [ "$HAS_JQ" = true ] && ! jq empty "$file" 2>/dev/null; then
+        # File exists but is corrupted JSON - backup and reinitialize
+        log_error "Corrupted JSON detected: $file - backing up and reinitializing"
+        cp "$file" "${file}.bak.$(date +%s)" 2>/dev/null
+        echo "$default_content" > "$file"
+    fi
+}
+
+init_json_file "$EXAMPLES_FILE" '{"version":"1.0.0","examples":{}}'
+init_json_file "$EDIT_PATTERNS_FILE" '{"version":"1.0.0","patterns":{},"section_removals":{},"section_additions":{},"common_additions":[]}'
+init_json_file "$HISTORY_FILE" '{"version":"1.0.0","prompts_generated":0,"prompts_accepted_as_is":0,"prompts_edited":0,"last_generated":null,"category_frequency":{},"outcomes":[]}'
+init_json_file "$CONFIG_FILE" '{"version":"1.0.0","enabled":true,"git_context_enabled":true,"git_context_include_commits":true,"git_context_include_files":true}'
 
 # ─── Helper Functions ───────────────────────────────────────────────
 
 json_read() {
+    if [ "$HAS_JQ" = false ]; then
+        echo ""
+        return
+    fi
     jq -r "$2" "$1" 2>/dev/null || echo ""
+}
+
+# Safe JSON write: validate before committing
+safe_json_write() {
+    local file="$1"
+    local tmp_file="$2"
+    if [ "$HAS_JQ" = true ] && jq empty "$tmp_file" 2>/dev/null; then
+        mv "$tmp_file" "$file"
+    else
+        log_error "Failed to write valid JSON to $file - keeping original"
+        rm -f "$tmp_file" 2>/dev/null
+    fi
 }
 
 timestamp() {
@@ -147,8 +192,8 @@ detect_project_context() {
     fi
 
     # -- Detect infrastructure --
-    [ -f "$cwd/Dockerfile" ] || [ -f "$cwd/docker-compose.yml" ] || [ -f "$cwd/docker-compose.yaml" ] && tools="${tools}Docker, "
-    [ -f "$cwd/.github/workflows/"*.yml ] 2>/dev/null && tools="${tools}GitHub Actions, "
+    { [ -f "$cwd/Dockerfile" ] || [ -f "$cwd/docker-compose.yml" ] || [ -f "$cwd/docker-compose.yaml" ]; } && tools="${tools}Docker, "
+    ls "$cwd/.github/workflows/"*.yml >/dev/null 2>&1 && tools="${tools}GitHub Actions, "
     [ -f "$cwd/.gitlab-ci.yml" ] && tools="${tools}GitLab CI, "
     [ -f "$cwd/Makefile" ] && tools="${tools}Make, "
     [ -d "$cwd/.git" ] && tools="${tools}Git, "
@@ -209,11 +254,11 @@ detect_codebase_patterns() {
 
     # MVC / Service / Repository pattern detection
     local has_controllers="" has_services="" has_repositories="" has_models="" has_routes=""
-    [ -d "$cwd/controllers" ] || [ -d "$cwd/src/controllers" ] || [ -d "$cwd/app/controllers" ] && has_controllers="yes"
-    [ -d "$cwd/services" ] || [ -d "$cwd/src/services" ] || [ -d "$cwd/app/services" ] && has_services="yes"
-    [ -d "$cwd/repositories" ] || [ -d "$cwd/src/repositories" ] || [ -d "$cwd/src/repos" ] && has_repositories="yes"
-    [ -d "$cwd/models" ] || [ -d "$cwd/src/models" ] || [ -d "$cwd/app/models" ] && has_models="yes"
-    [ -d "$cwd/routes" ] || [ -d "$cwd/src/routes" ] || [ -d "$cwd/app/routes" ] || [ -d "$cwd/src/api" ] && has_routes="yes"
+    { [ -d "$cwd/controllers" ] || [ -d "$cwd/src/controllers" ] || [ -d "$cwd/app/controllers" ]; } && has_controllers="yes"
+    { [ -d "$cwd/services" ] || [ -d "$cwd/src/services" ] || [ -d "$cwd/app/services" ]; } && has_services="yes"
+    { [ -d "$cwd/repositories" ] || [ -d "$cwd/src/repositories" ] || [ -d "$cwd/src/repos" ]; } && has_repositories="yes"
+    { [ -d "$cwd/models" ] || [ -d "$cwd/src/models" ] || [ -d "$cwd/app/models" ]; } && has_models="yes"
+    { [ -d "$cwd/routes" ] || [ -d "$cwd/src/routes" ] || [ -d "$cwd/app/routes" ] || [ -d "$cwd/src/api" ]; } && has_routes="yes"
 
     if [ -n "$has_controllers" ] && [ -n "$has_models" ]; then
         if [ -n "$has_services" ] && [ -n "$has_repositories" ]; then
@@ -228,7 +273,7 @@ detect_codebase_patterns() {
     fi
 
     # Next.js App Router vs Pages Router
-    if [ -d "$cwd/app" ] && [ -f "$cwd/app/layout.tsx" ] || [ -f "$cwd/app/layout.js" ] 2>/dev/null; then
+    if [ -d "$cwd/app" ] && { [ -f "$cwd/app/layout.tsx" ] || [ -f "$cwd/app/layout.js" ]; }; then
         patterns="${patterns}- Routing: Next.js App Router (app/ directory)\n"
         [ -d "$cwd/app/api" ] && patterns="${patterns}- API: Next.js Route Handlers (app/api/)\n"
     elif [ -d "$cwd/pages" ]; then
@@ -287,11 +332,11 @@ detect_codebase_patterns() {
     fi
 
     # -- Config files that inform conventions --
-    [ -f "$cwd/.eslintrc.json" ] || [ -f "$cwd/.eslintrc.js" ] || [ -f "$cwd/eslint.config.js" ] || [ -f "$cwd/eslint.config.mjs" ] && patterns="${patterns}- Linting: ESLint configured\n"
-    [ -f "$cwd/.prettierrc" ] || [ -f "$cwd/.prettierrc.json" ] || [ -f "$cwd/prettier.config.js" ] && patterns="${patterns}- Formatting: Prettier configured\n"
+    { [ -f "$cwd/.eslintrc.json" ] || [ -f "$cwd/.eslintrc.js" ] || [ -f "$cwd/eslint.config.js" ] || [ -f "$cwd/eslint.config.mjs" ]; } && patterns="${patterns}- Linting: ESLint configured\n"
+    { [ -f "$cwd/.prettierrc" ] || [ -f "$cwd/.prettierrc.json" ] || [ -f "$cwd/prettier.config.js" ]; } && patterns="${patterns}- Formatting: Prettier configured\n"
     [ -f "$cwd/biome.json" ] && patterns="${patterns}- Linting/Formatting: Biome configured\n"
     [ -f "$cwd/.env.example" ] && patterns="${patterns}- Config: .env pattern (see .env.example for vars)\n"
-    [ -f "$cwd/mypy.ini" ] || [ -f "$cwd/pyrightconfig.json" ] && patterns="${patterns}- Type checking: Configured\n"
+    { [ -f "$cwd/mypy.ini" ] || [ -f "$cwd/pyrightconfig.json" ]; } && patterns="${patterns}- Type checking: Configured\n"
 
     # -- Middleware / Auth patterns --
     if grep -rql 'middleware' "$cwd/src" "$cwd/app" 2>/dev/null | head -1 | grep -q .; then
@@ -306,7 +351,7 @@ detect_codebase_patterns() {
         patterns="${patterns}- ORM: Prisma (check prisma/schema.prisma for models)\n"
     fi
     [ -f "$cwd/prisma/schema.prisma" ] && patterns="${patterns}- Schema: prisma/schema.prisma\n"
-    [ -f "$cwd/drizzle.config.ts" ] || [ -f "$cwd/drizzle.config.js" ] && patterns="${patterns}- ORM: Drizzle\n"
+    { [ -f "$cwd/drizzle.config.ts" ] || [ -f "$cwd/drizzle.config.js" ]; } && patterns="${patterns}- ORM: Drizzle\n"
 
     echo -e "$patterns"
 }
@@ -316,13 +361,31 @@ detect_codebase_patterns() {
 detect_git_context() {
     local cwd="${1:-.}"
 
+    # Check if git context is disabled via config
+    if [ "$HAS_JQ" = true ] && [ -f "$CONFIG_FILE" ]; then
+        local git_enabled
+        git_enabled=$(json_read "$CONFIG_FILE" '.git_context_enabled // true')
+        if [ "$git_enabled" = "false" ]; then
+            return
+        fi
+    fi
+
+    [ "$HAS_GIT" = false ] && return
     if [ ! -d "$cwd/.git" ]; then
         return
     fi
 
     local context=""
+    local include_commits="true"
+    local include_files="true"
 
-    # Current branch name
+    # Read granular config flags
+    if [ "$HAS_JQ" = true ] && [ -f "$CONFIG_FILE" ]; then
+        include_commits=$(json_read "$CONFIG_FILE" '.git_context_include_commits // true')
+        include_files=$(json_read "$CONFIG_FILE" '.git_context_include_files // true')
+    fi
+
+    # Current branch name (always safe to include)
     local branch
     branch=$(git -C "$cwd" branch --show-current 2>/dev/null)
     [ -n "$branch" ] && context="${context}- Branch: $branch\n"
@@ -339,43 +402,56 @@ detect_git_context() {
         esac
     fi
 
-    # Recent commits (last 5, one-line)
-    local recent_commits
-    recent_commits=$(git -C "$cwd" log --oneline -5 2>/dev/null)
-    if [ -n "$recent_commits" ]; then
-        context="${context}- Recent commits:\n"
-        while IFS= read -r line; do
-            context="${context}  $line\n"
-        done <<< "$recent_commits"
+    # Recent commits (last 5, one-line) - configurable
+    if [ "$include_commits" = "true" ]; then
+        local recent_commits
+        recent_commits=$(git -C "$cwd" log --oneline -5 2>/dev/null)
+        if [ -n "$recent_commits" ]; then
+            context="${context}- Recent commits:\n"
+            while IFS= read -r line; do
+                context="${context}  $line\n"
+            done <<< "$recent_commits"
+        fi
     fi
 
-    # Uncommitted changes summary
+    # Uncommitted changes summary (count only, no content)
     local status_summary
     status_summary=$(git -C "$cwd" diff --stat HEAD 2>/dev/null | tail -1)
     if [ -n "$status_summary" ]; then
         context="${context}- Uncommitted changes: $status_summary\n"
     fi
 
-    # Staged files
-    local staged
-    staged=$(git -C "$cwd" diff --cached --name-only 2>/dev/null)
-    if [ -n "$staged" ]; then
+    # File lists - configurable (may contain sensitive paths)
+    if [ "$include_files" = "true" ]; then
+        # Staged files
+        local staged
+        staged=$(git -C "$cwd" diff --cached --name-only 2>/dev/null)
+        if [ -n "$staged" ]; then
+            local staged_count
+            staged_count=$(echo "$staged" | wc -l | tr -d ' ')
+            context="${context}- Staged files: $staged_count files ready to commit\n"
+        fi
+
+        # Recently modified files (unstaged)
+        local modified
+        modified=$(git -C "$cwd" diff --name-only 2>/dev/null | head -10)
+        if [ -n "$modified" ]; then
+            context="${context}- Modified files:\n"
+            while IFS= read -r line; do
+                context="${context}  $line\n"
+            done <<< "$modified"
+        fi
+    else
+        # Just show counts when file listing is disabled
         local staged_count
-        staged_count=$(echo "$staged" | wc -l | tr -d ' ')
-        context="${context}- Staged files: $staged_count files ready to commit\n"
+        staged_count=$(git -C "$cwd" diff --cached --name-only 2>/dev/null | wc -l | tr -d ' ')
+        [ "$staged_count" -gt 0 ] && context="${context}- Staged files: $staged_count\n"
+        local modified_count
+        modified_count=$(git -C "$cwd" diff --name-only 2>/dev/null | wc -l | tr -d ' ')
+        [ "$modified_count" -gt 0 ] && context="${context}- Modified files: $modified_count\n"
     fi
 
-    # Recently modified files (unstaged)
-    local modified
-    modified=$(git -C "$cwd" diff --name-only 2>/dev/null | head -10)
-    if [ -n "$modified" ]; then
-        context="${context}- Modified files:\n"
-        while IFS= read -r line; do
-            context="${context}  $line\n"
-        done <<< "$modified"
-    fi
-
-    # Untracked files count
+    # Untracked files count (count only, always safe)
     local untracked_count
     untracked_count=$(git -C "$cwd" ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')
     [ "$untracked_count" -gt 0 ] && context="${context}- Untracked files: $untracked_count new files\n"
@@ -1186,6 +1262,7 @@ record_prompt() {
     local user_request="$1"
     local category="$2"
 
+    [ "$HAS_JQ" = false ] && return
     if [ -f "$HISTORY_FILE" ]; then
         local count
         count=$(json_read "$HISTORY_FILE" '.prompts_generated // 0')
@@ -1197,7 +1274,8 @@ record_prompt() {
            --argjson count "$count" \
            --arg cat "$category" \
            '.prompts_generated = $count | .last_generated = $ts | .category_frequency[$cat] = ((.category_frequency[$cat] // 0) + 1)' \
-           "$HISTORY_FILE" > "$tmp_file" && mv "$tmp_file" "$HISTORY_FILE"
+           "$HISTORY_FILE" > "$tmp_file"
+        safe_json_write "$HISTORY_FILE" "$tmp_file"
     fi
 }
 
@@ -1214,7 +1292,8 @@ record_edit() {
             local tmp_file
             tmp_file=$(mktemp)
             jq '.prompts_accepted_as_is = ((.prompts_accepted_as_is // 0) + 1)' \
-               "$HISTORY_FILE" > "$tmp_file" && mv "$tmp_file" "$HISTORY_FILE"
+               "$HISTORY_FILE" > "$tmp_file"
+        safe_json_write "$HISTORY_FILE" "$tmp_file"
         fi
         # Record as a good example for few-shot learning
         record_example "$category" "$edited"
@@ -1225,7 +1304,8 @@ record_edit() {
             tmp_file=$(mktemp)
             jq --arg ts "$(timestamp)" \
                '.prompts_edited = ((.prompts_edited // 0) + 1)' \
-               "$HISTORY_FILE" > "$tmp_file" && mv "$tmp_file" "$HISTORY_FILE"
+               "$HISTORY_FILE" > "$tmp_file"
+        safe_json_write "$HISTORY_FILE" "$tmp_file"
         fi
 
         # Detect which sections were removed
@@ -1238,7 +1318,8 @@ record_edit() {
                     tmp_file=$(mktemp)
                     jq --arg cat "$category" --arg sec "$section" \
                        '.section_removals[$cat][$sec] = ((.section_removals[$cat][$sec] // 0) + 1)' \
-                       "$EDIT_PATTERNS_FILE" > "$tmp_file" && mv "$tmp_file" "$EDIT_PATTERNS_FILE"
+                       "$EDIT_PATTERNS_FILE" > "$tmp_file"
+                    safe_json_write "$EDIT_PATTERNS_FILE" "$tmp_file"
                 fi
             fi
         done
@@ -1252,7 +1333,8 @@ record_edit() {
                 tmp_file=$(mktemp)
                 jq --arg cat "$category" --arg lines "$added_lines" \
                    '.section_additions[$cat] = ((.section_additions[$cat] // []) + [$lines]) | .section_additions[$cat] = .section_additions[$cat][-10:]' \
-                   "$EDIT_PATTERNS_FILE" > "$tmp_file" && mv "$tmp_file" "$EDIT_PATTERNS_FILE"
+                   "$EDIT_PATTERNS_FILE" > "$tmp_file"
+                safe_json_write "$EDIT_PATTERNS_FILE" "$tmp_file"
             fi
         fi
     fi
@@ -1278,7 +1360,8 @@ record_example() {
             tmp_file=$(mktemp)
             jq --arg cat "$category" --arg req "$task_line" --arg app "$approach" \
                '.examples[$cat] = ((.examples[$cat] // []) + [{"request": $req, "approach": $app}]) | .examples[$cat] = .examples[$cat][-5:]' \
-               "$EXAMPLES_FILE" > "$tmp_file" && mv "$tmp_file" "$EXAMPLES_FILE"
+               "$EXAMPLES_FILE" > "$tmp_file"
+            safe_json_write "$EXAMPLES_FILE" "$tmp_file"
         fi
     fi
 }
@@ -1295,7 +1378,8 @@ record_outcome() {
         tmp_file=$(mktemp)
         jq --arg cat "$category" --arg res "$result" --arg ts "$(timestamp)" \
            '.outcomes = ((.outcomes // []) + [{"category": $cat, "result": $res, "timestamp": $ts}]) | .outcomes = .outcomes[-100:]' \
-           "$HISTORY_FILE" > "$tmp_file" && mv "$tmp_file" "$HISTORY_FILE"
+           "$HISTORY_FILE" > "$tmp_file"
+        safe_json_write "$HISTORY_FILE" "$tmp_file"
     fi
 
     # Feed to agent-lightning RL bridge if available
@@ -1481,6 +1565,15 @@ main() {
                 echo "Error: No request provided"
                 echo "Usage: prompt-optimizer.sh generate \"your task description\" [cwd]"
                 exit 1
+            fi
+
+            # Check if optimizer is disabled via config
+            if [ "$HAS_JQ" = true ] && [ -f "$CONFIG_FILE" ]; then
+                local enabled
+                enabled=$(json_read "$CONFIG_FILE" '.enabled // true')
+                if [ "$enabled" = "false" ]; then
+                    exit 0
+                fi
             fi
 
             local category
